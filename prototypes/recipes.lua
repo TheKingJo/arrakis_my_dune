@@ -44,4 +44,49 @@ data:extend({
     auto_recycle = false,
     allow_productivity = true
   },
+
+
+
+
+  --WATER CONDENSING RECIPES CATEGORY
+  {
+    type = "recipe-category",
+    name = "water-condensing"
+  },
+
+  --WATER CONDENSING RECIPE
+  {
+    type = "recipe",
+    name = "atmospheric-water",
+    category = "water-condensing",
+    energy_required = 10,
+    ingredients = nil,
+    results = {{type = "fluid", name = "water", amount = 50}},
+    main_product = "water",
+    allow_productivity = false,
+    allow_quality = false,
+  },
+
+  --WATER CONDENSER MACHINE RECIPE
+  {
+  type = "recipe",
+        name = "water-condenser",
+        category = "basic-crafting",
+        energy_required = 2,   
+        ingredients = {
+            { type = "item", name = "iron-gear-wheel", amount = 5 },
+            { type = "item", name = "electronic-circuit", amount = 3 },
+            { type = "item", name = "steel-plate", amount = 2 },
+        },
+        results = {
+          { type = "item", name = "water-condenser", amount = 1 },
+        },
+        allow_productivity = false,
+        allow_quality = false,
+    },
+
+
+
+
+
 })

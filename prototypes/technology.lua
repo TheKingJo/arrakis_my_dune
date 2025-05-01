@@ -2,6 +2,8 @@ local techicons = "__arrakis_my_dune__/graphics/technology/"
 
 
 data:extend({
+
+  -- Main Arrakis / Dune Planet discovery, unlocks the Planet and Water Condensator + Water Recipe
   {
     type = "technology",
     name = "planet-discovery-arrakis2",
@@ -14,6 +16,14 @@ data:extend({
         type = "unlock-space-location",
         space_location = "arrakis2",
         use_icon_overlay_constant = true
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "atmospheric-water"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "water-condenser"
       },
     },
     prerequisites = {"space-platform-thruster"},
@@ -30,4 +40,11 @@ data:extend({
       time = 60
     }
   },
+  -----------------------------------------------------------------------------------------------
+
+
+
+
+
+
 })

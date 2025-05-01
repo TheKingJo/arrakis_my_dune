@@ -3,6 +3,48 @@ local item_tints = require("__base__.prototypes.item-tints")
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 
 data:extend({
+  -- Item Subgroup for defining Sorting Group in the Player Inventory
+  {
+    type = "item-subgroup",
+    name = "water-production",
+    group = "production-machine",
+    order = "ea"
+  },
+
+  -- Tier 1 Water Condenser Machine Item Definition
+  {
+    type = "item",
+    name = "water-condenser",
+    icon = "__arrakis_my_dune__/graphics/icons/sand-1.png",
+    subgroup = "smelting-machine",
+    order = "ffj",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "water-condenser",
+    stack_size = 20,
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 --- subgroups
