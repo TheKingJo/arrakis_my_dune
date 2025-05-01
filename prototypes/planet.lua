@@ -205,7 +205,7 @@ data:extend({
     order = "e[arrakis2]",
     subgroup = "planets",
     map_gen_settings = planet_map_gen.arrakis2(),
-    pollutant_type = nil,
+    pollutant_type = "humidity",
     solar_power_in_space = 700,
     platform_procession_set =
     {
@@ -227,7 +227,6 @@ data:extend({
       gravity = 9,
       ["temperature-celcius"] = 77,
       ["arrakis2-exclusive"] = 1,
-      --solar_flares = 55,
     },
     asteroid_spawn_influence = 1,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
