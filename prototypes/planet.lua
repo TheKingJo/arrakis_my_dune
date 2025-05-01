@@ -107,8 +107,6 @@ planet_map_gen.arrakis2 = function()
       cliff_elevation = "cliff_elevation_from_elevation",
       --["entity:steam-geyser:probability"] = "arrakis2_steam_geyser_probability",
       --["entity:steam-geyser:richness"] = "arrakis2_steam_geyser_richness",
-      --["entity:multi-ore:probability"] = "arrakis2_multi_ore_probability",
-      --["entity:multi-ore:richness"] = "arrakis2_multi_ore_richness",
     },
     cliff_settings =
     {
@@ -128,10 +126,8 @@ planet_map_gen.arrakis2 = function()
     {
       --["molten_copper_geyser"] = {richness = 1500000000},
       --["steam_geyser"] = {richness = 150},
-      --["fulgoran_data_source"] = { frequency = 4, size = 0.1, richness = 150 },
       ["arrakis2_islands"] = {},
       ["fulgora_cliff"] = {},
-      --["multi_ore"] = {},-- frequency = 600000000, size = 10000000, richness = 150500000 },
     },
     autoplace_settings =
     {
@@ -168,7 +164,6 @@ planet_map_gen.arrakis2 = function()
         {
           --["steam-geyser"] = {},
           --["fulgoran-data-source"] = {},
-          --["multi-ore"] = {},
           ["arrakis2-huge-volcanic-rock"] = {},
           ["arrakis2-big-fulgora-rock"] = {}
         }
