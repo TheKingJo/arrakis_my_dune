@@ -1,25 +1,11 @@
 data:extend({
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  --PLACEHOLDER
   {
     type = "recipe",
     name = "concrete-from-molten-iron-and-sand",
     category = "metallurgy",
     icon = "__arrakis_my_dune__/graphics/icons/concrete-from-molten-iron-and-sand.png",
-    subgroup = "arrakis2-processes",
+    subgroup = "arrakis-processes",
     order = "aab",
     enabled = false,
     ingredients =
@@ -34,12 +20,13 @@ data:extend({
     auto_recycle = false,
     allow_productivity = true
   },
+  --PLACEHOLDER
   {
     type = "recipe",
     name = "petroleum-from-sand-sulfur-steam-carbon",
     category = "oil-processing",
     icon = "__arrakis_my_dune__/graphics/icons/petroleum-from-sand-sulfur-steam-carbon.png",
-    subgroup = "arrakis2-processes",
+    subgroup = "arrakis-processes",
     order = "aac",
     enabled = false,
     ingredients =
@@ -59,9 +46,6 @@ data:extend({
     auto_recycle = false,
     allow_productivity = true
   },
-<<<<<<< Updated upstream
-})
-=======
 
 
 
@@ -84,6 +68,7 @@ data:extend({
     allow_productivity = false,
     allow_quality = false,
   },
+  --SAND EXTRACTION RECIPE
   {
     type = "recipe",
     name = "sand-extraction",
@@ -95,12 +80,12 @@ data:extend({
     allow_productivity = false,
     allow_quality = false,
   },
-
-  --------------SAND TREATMENT--------------
-
+  
+  --SAND RECIPES HERE---------------------------------------------------------------------------------
+  --SAND_WASHING [CHEMISTRY] (WATER & SAND) -> (chemical-mud & treated-sand)
   {
     type = "recipe",
-    name = "sand-whashing",
+    name = "sand-washing",
     category = "chemistry",
     energy_required = 10,
     enabled = true,
@@ -125,6 +110,9 @@ data:extend({
       quaternary = {r = 1.000, g = 0.945, b = 0.753, a = 1.000}, -- #fff1c0ff
     }
   },
+
+
+  --SAND_TREATMENT [CHEMISTRY] (TREATED_SAND) -> (metallic-sand & mineral-sand)
   {
     type = "recipe",
     name = "sandTreatment",
@@ -151,11 +139,14 @@ data:extend({
       quaternary = {r = 1.000, g = 0.945, b = 0.753, a = 1.000}, -- #fff1c0ff
     }
   },
+
+
+  --METALLIC_SAND_TREATMENT [CHEMISTRY] (METALLIC_SAND) -> (iron-ore & copper-ore)
   {
     type = "recipe",
     name = "metallic-sandTreatment1",
     category = "chemistry",
-    icon = "__arrakis_my_dune__/graphics/icons/metallic-sandTreatment.png",
+    icon = "__arrakis_my_dune__/graphics/icons/metallic-sandTreatment1.png",
     energy_required = 1,
     enabled = true,
     auto_recycle = false,
@@ -178,6 +169,9 @@ data:extend({
       quaternary = {r = 1.000, g = 0.945, b = 0.753, a = 1.000}, -- #fff1c0ff
     }
   },
+
+
+  --ADVANCED_METALLIC_SAND_TREATMENT [CHEMISTRY] (METALLIC_SAND) -> (iron-ore & copper-ore & tungsten-ore)
   {
     type = "recipe",
     name = "metallic-sandTreatment2",
@@ -206,6 +200,9 @@ data:extend({
       quaternary = {r = 1.000, g = 0.945, b = 0.753, a = 1.000}, -- #fff1c0ff
     }
   },
+
+
+  --MINERAL_SAND_TREATMENT [CHEMISTRY] (MINERAL_SAND) -> (stone & silica & calcite)  
   {
     type = "recipe",
     name = "mineral-sandTreatment1",
@@ -233,6 +230,9 @@ data:extend({
       quaternary = {r = 1.000, g = 0.945, b = 0.753, a = 1.000}, -- #fff1c0ff
     }
   },
+
+
+  --ADVANCED_MINERAL_SAND_TREATMENT [CHEMISTRY] (MINERAL_SAND) -> (stone & silica & calcite & holmium-ore)  
   {
     type = "recipe",
     name = "mineral-sandTreatment2",
@@ -262,8 +262,11 @@ data:extend({
     }
   },
 
-  --------------FLUID TREATMENT--------------
 
+
+
+  --------------FLUID TREATMENT------------------------------------------------------------------------------------------------
+  --CHEMICAL_MUD_TREATMENT [CHEMISTRY] (CHEMICAL_MUD) -> (coal & polluted-water)  
   {
     type = "recipe",
     name = "chemical-mudTreatment1",
@@ -292,11 +295,14 @@ data:extend({
       quaternary = {r = 1.000, g = 0.945, b = 0.753, a = 1.000}, -- #fff1c0ff
     }
   },
+
+
+  --ADVANCED_CHEMICAL_MUD_TREATMENT [CHEMISTRY] (CHEMICAL_MUD) -> (spoilage & sulfuric-acid & polluted-water)  
   {
     type = "recipe",
     name = "chemical-mudTreatment2",
     category = "chemistry",
-    icon = "__arrakis_my_dune__/graphics/icons/chemical-mudTreatment1.png",
+    icon = "__arrakis_my_dune__/graphics/icons/chemical-mudTreatment2.png",
     energy_required = 10,
     enabled = true,
     auto_recycle = false,
@@ -320,6 +326,9 @@ data:extend({
       quaternary = {r = 1.000, g = 0.945, b = 0.753, a = 1.000}, -- #fff1c0ff
     }
   },
+
+
+  --WATER_TREATMENT [OIL_PROCESSING] (SILICON_FILTER & POLLUTED_WATER) -> (water)  
   {
     type = "recipe",
     name = "polluted-waterTreatment",
@@ -341,7 +350,11 @@ data:extend({
     order = "a[oil-processing]-c[coal-liquefaction]",
     allow_decomposition = false
   },
-  --------------SILICON FILTERS--------------
+
+
+
+  --------------SILICON FILTERS-----------------------------------------------------------------------------------------------------
+  --SILICON_PASTE [SMELTING] (SILICA & CARBON) -> (silicon-paste) 
   {
     type = "recipe",
     name = "silicon-paste",
@@ -359,6 +372,9 @@ data:extend({
     main_product = "silicon-paste",
     allow_productivity = true
   },
+
+
+  --SILICON [SMELTING] (SILICON_PASTE) -> (silicon) 
   {
     type = "recipe",
     name = "silicon",
@@ -377,6 +393,9 @@ data:extend({
     main_product = "silicon",
     allow_productivity = true
   },
+
+
+  --SILICON_FILTERS [CRAFTING] (SILICON & PLASTIC_BAR) -> (silicon-filter)   
   {
     type = "recipe",
     name = "silicon-filter",
@@ -397,9 +416,13 @@ data:extend({
     allow_productivity = true,
   },
 
+
+
+
+  --MACHINE CRAFTING RECIPES---------------------------------------------------------------------------------------------
   --WATER CONDENSER MACHINE RECIPE
   {
-        type = "recipe",
+  type = "recipe",
         name = "water-condenser",
         category = "basic-crafting",
         energy_required = 2,   
@@ -413,10 +436,10 @@ data:extend({
         },
         allow_productivity = false,
         allow_quality = false,
-  },
-  
+    },
+
+
 
 
 
 })
->>>>>>> Stashed changes
