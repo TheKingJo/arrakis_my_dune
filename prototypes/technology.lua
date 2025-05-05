@@ -6,15 +6,15 @@ data:extend({
   -- Main Arrakis / Dune Planet discovery, unlocks the Planet and Water Condensator + Water Recipe
   {
     type = "technology",
-    name = "planet-discovery-arrakis2",
-    icons = util.technology_icon_constant_planet(techicons .. "arrakis2-tech-arrakis2.png"),
+    name = "planet-discovery-arrakis",
+    icons = util.technology_icon_constant_planet(techicons .. "arrakis-tech-arrakis.png"),
     icon_size = 256,
     essential = true,
     effects =
     {
       {
         type = "unlock-space-location",
-        space_location = "arrakis2",
+        space_location = "arrakis",
         use_icon_overlay_constant = true
       },
       {

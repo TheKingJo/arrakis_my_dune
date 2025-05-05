@@ -31,7 +31,7 @@ tungsten_rock_tint = combine_tint(vulcanus_base_tint, tungsten_rock_tint)
 
 data:extend({
   {
-    name = "arrakis2-rock-decal-large",
+    name = "arrakis-rock-decal-large",
     type = "optimized-decorative",
     order = "a[vulcanus]-b[decorative]-b[sand]",
     collision_box = {{-1.5, -1.5}, {1.5, 1.5}},
@@ -53,7 +53,7 @@ data:extend({
   --- TINTABLE ROCKS
   --- BIG ROCKS
   {
-    name = "arrakis2-huge-volcanic-rock",
+    name = "arrakis-huge-volcanic-rock",
     type = "simple-entity",
     flags = {"placeable-neutral", "placeable-off-grid"},
     icon = "__arrakis_my_dune__/graphics/icons/huge-volcanic-rock.png",
@@ -226,7 +226,7 @@ data:extend({
   },
   --- SMALL CRATERS
   {
-    name = "arrakis2-crater-small",
+    name = "arrakis-crater-small",
     type = "optimized-decorative",
     order = "a[vulcanus]-b[decorative]",
     collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
@@ -242,7 +242,7 @@ data:extend({
   },
   --- LARGE CRATERS
   {
-    name = "arrakis2-crater-large",
+    name = "arrakis-crater-large",
     type = "optimized-decorative",
     order = "a[vulcanus]-b[decorative]",
     collision_box = {{-2.5, -2.5}, {2.5, 2.5}},
@@ -263,7 +263,7 @@ data:extend({
 
 
   {
-    name = "arrakis2-snow-drift-decal",
+    name = "arrakis-snow-drift-decal",
     type = "optimized-decorative",
     order = "b[decorative]-b[red-desert-decal]",
     collision_box = {{-3.375, -2.3125}, {3.25, 2.3125}},
@@ -494,10 +494,10 @@ data:extend({
   scaled_cliff(
     {
       mod_name = "__arrakis_my_dune__",
-      name = "cliff-arrakis2",
+      name = "cliff-arrakis",
       map_color = {59, 45, 37},
-      suffix = "arrakis2",
-      subfolder = "arrakis2",
+      suffix = "arrakis",
+      subfolder = "arrakis",
       scale = 1.0,
       has_lower_layer = true,
       sprite_size_multiplier = 2,
@@ -507,7 +507,7 @@ data:extend({
 
 
   {
-    name = "arrakis2-barnacles-decal",
+    name = "arrakis-barnacles-decal",
     type = "optimized-decorative",
     order = "b[decorative]-b[red-desert-decal]",
     collision_box = {{-3.375, -2.3125}, {3.25, 2.3125}},
@@ -618,17 +618,17 @@ data:extend({
 
 
 local rocks = {
-  ["arrakis2-big-fulgora-rock"] = data.raw["simple-entity"]["big-sand-rock"],
-  ["arrakis2-medium-fulgora-rock"] = data.raw["optimized-decorative"]["medium-sand-rock"],
-  ["arrakis2-small-fulgora-rock"] = data.raw["optimized-decorative"]["small-sand-rock"],
-  ["arrakis2-tiny-fulgora-rock"] = data.raw["optimized-decorative"]["tiny-rock"]
+  ["arrakis-big-fulgora-rock"] = data.raw["simple-entity"]["big-sand-rock"],
+  ["arrakis-medium-fulgora-rock"] = data.raw["optimized-decorative"]["medium-sand-rock"],
+  ["arrakis-small-fulgora-rock"] = data.raw["optimized-decorative"]["small-sand-rock"],
+  ["arrakis-tiny-fulgora-rock"] = data.raw["optimized-decorative"]["tiny-rock"]
 }
 local i = 0
 for name, original in pairs(rocks) do
   i = i + 1
   local rock = table.deepcopy(original)
   rock.name = name
-  if name == "arrakis2-big-fulgora-rock" then
+  if name == "arrakis-big-fulgora-rock" then
     rock.order = "r[decorative]-l[rock]-j[ruin]-a[" .. name .. "]"
     rock.icon = "__arrakis_my_dune__/graphics/icons/" .. name .. ".png"
   end

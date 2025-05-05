@@ -16,85 +16,85 @@ local tile_spritesheet_layout = tile_graphics.tile_spritesheet_layout
 data:extend({
   {
     type = "noise-expression",
-    name = "arrakis2_spot_size",
+    name = "arrakis_spot_size",
     expression = 8
   },
   {
     type = "noise-expression",
-    name = "arrakis2_starting_mask",
+    name = "arrakis_starting_mask",
     -- exclude random spots from the inner 300 tiles, 80 tile blur
     expression = "clamp((distance - 30) / 10, -1, 1)"
   },
   {
     type = "noise-expression",
-    name = "arrakis2_molten_copper_geyser_spots",
+    name = "arrakis_molten_copper_geyser_spots",
     expression = "aquilo_spot_noise{seed = 567,\z
                                     count = 80,\z
                                     skip_offset = 0,\z
                                     region_size = 600 + 400 / control:molten_copper_geyser:frequency,\z
                                     density = 1,\z
-                                    radius = arrakis2_spot_size * sqrt(control:molten_copper_geyser:size),\z
+                                    radius = arrakis_spot_size * sqrt(control:molten_copper_geyser:size),\z
                                     favorability = 1}"
   },
   {
     type = "noise-expression",
-    name = "arrakis2_starting_molten_copper_geyser",
-    expression = "starting_spot_at_angle{angle = aquilo_angle, distance = 40, radius = arrakis2_spot_size * 0.8, x_distortion = 0, y_distortion = 0}"
+    name = "arrakis_starting_molten_copper_geyser",
+    expression = "starting_spot_at_angle{angle = aquilo_angle, distance = 40, radius = arrakis_spot_size * 0.8, x_distortion = 0, y_distortion = 0}"
   },
   {
     type = "noise-expression",
-    name = "arrakis2_molten_copper_geyser_probability",
+    name = "arrakis_molten_copper_geyser_probability",
     expression = "(control:molten_copper_geyser:size > 0)\z
-                  * (max(arrakis2_starting_molten_copper_geyser * 0.08,\z
-                         min(arrakis2_starting_mask, arrakis2_molten_copper_geyser_spots) * 0.015))"
+                  * (max(arrakis_starting_molten_copper_geyser * 0.08,\z
+                         min(arrakis_starting_mask, arrakis_molten_copper_geyser_spots) * 0.015))"
   },
   {
     type = "noise-expression",
-    name = "arrakis2_molten_copper_geyser_richness",
-    expression = "max(arrakis2_starting_molten_copper_geyser * 1800000,\z
-                      arrakis2_molten_copper_geyser_spots * 1440000) * control:molten_copper_geyser:richness"
+    name = "arrakis_molten_copper_geyser_richness",
+    expression = "max(arrakis_starting_molten_copper_geyser * 1800000,\z
+                      arrakis_molten_copper_geyser_spots * 1440000) * control:molten_copper_geyser:richness"
   },
 
   {
     type = "noise-expression",
-    name = "arrakis2_steam_geyser_spots",
+    name = "arrakis_steam_geyser_spots",
     expression = "aquilo_spot_noise{seed = 567,\z
                                     count = 60,\z
                                     skip_offset = 1,\z
                                     region_size = 600 + 400 / control:steam_geyser:frequency,\z
                                     density = 1,\z
-                                    radius = arrakis2_spot_size * 1.2 * sqrt(control:steam_geyser:size),\z
+                                    radius = arrakis_spot_size * 1.2 * sqrt(control:steam_geyser:size),\z
                                     favorability = 1}"
   },
   {
     type = "noise-expression",
-    name = "arrakis2_starting_steam_geyser",
-    expression = "starting_spot_at_angle{angle = aquilo_angle + 120, distance = 80, radius = arrakis2_spot_size * 0.6, x_distortion = 0, y_distortion = 0}"
+    name = "arrakis_starting_steam_geyser",
+    expression = "starting_spot_at_angle{angle = aquilo_angle + 120, distance = 80, radius = arrakis_spot_size * 0.6, x_distortion = 0, y_distortion = 0}"
   },
   {
     type = "noise-expression",
-    name = "arrakis2_steam_geyser_probability",
+    name = "arrakis_steam_geyser_probability",
     expression = "(control:steam_geyser:size > 0)\z
-                  * (max(arrakis2_starting_steam_geyser * 1.3,\z
-                         min(arrakis2_starting_mask, arrakis2_steam_geyser_spots) * 0.22))"
+                  * (max(arrakis_starting_steam_geyser * 1.3,\z
+                         min(arrakis_starting_mask, arrakis_steam_geyser_spots) * 0.22))"
   },
   {
     type = "noise-expression",
-    name = "arrakis2_steam_geyser_richness",
-    expression = "max(arrakis2_starting_steam_geyser * 480000,\z
-                      arrakis2_steam_geyser_spots * 7200000) * control:steam_geyser:richness"
+    name = "arrakis_steam_geyser_richness",
+    expression = "max(arrakis_starting_steam_geyser * 480000,\z
+                      arrakis_steam_geyser_spots * 7200000) * control:steam_geyser:richness"
   },
 
   {
     type = "autoplace-control",
-    name = "arrakis2_islands",
+    name = "arrakis_islands",
     order = "c-z-d",
     category = "terrain",
     can_be_disabled = false
   },
 }) 
 
-planet_map_gen.arrakis2 = function()
+planet_map_gen.arrakis = function()
   return
   {
     property_expression_names =
@@ -105,12 +105,12 @@ planet_map_gen.arrakis2 = function()
       aux = "fulgora_aux",
       cliffiness = "fulgora_cliffiness",
       cliff_elevation = "cliff_elevation_from_elevation",
-      --["entity:steam-geyser:probability"] = "arrakis2_steam_geyser_probability",
-      --["entity:steam-geyser:richness"] = "arrakis2_steam_geyser_richness",
+      --["entity:steam-geyser:probability"] = "arrakis_steam_geyser_probability",
+      --["entity:steam-geyser:richness"] = "arrakis_steam_geyser_richness",
     },
     cliff_settings =
     {
-      name = "cliff-arrakis2",
+      name = "cliff-arrakis",
       control = "fulgora_cliff",
       cliff_elevation_0 = 80,
       -- Ideally the first cliff would be at elevation 0 on the coastline, but that doesn't work,
@@ -126,7 +126,7 @@ planet_map_gen.arrakis2 = function()
     {
       --["molten_copper_geyser"] = {richness = 1500000000},
       --["steam_geyser"] = {richness = 150},
-      ["arrakis2_islands"] = {},
+      ["arrakis_islands"] = {},
       ["fulgora_cliff"] = {},
     },
     autoplace_settings =
@@ -135,27 +135,27 @@ planet_map_gen.arrakis2 = function()
       {
         settings =
         {
-          ["arrakis2-low-sand2"] = {},
-          ["arrakis2-low-dunes2"] = {},
+          ["arrakis-low-sand2"] = {},
+          ["arrakis-low-dunes2"] = {},
 
-          ["arrakis2-high-rock"] = {},
-          ["arrakis2-high-dust"] = {},
-          ["arrakis2-high-sand"] = {},
-          ["arrakis2-high-dunes"] = {},
+          ["arrakis-high-rock"] = {},
+          ["arrakis-high-dust"] = {},
+          ["arrakis-high-sand"] = {},
+          ["arrakis-high-dunes"] = {},
         }
       },
       ["decorative"] =
       {
         settings =
         {
-          ["arrakis2-medium-fulgora-rock"] = {},
-          ["arrakis2-small-fulgora-rock"] = {},
-          ["arrakis2-tiny-fulgora-rock"] = {},
-          --["arrakis2-barnacles-decal"] = {},
-          --["arrakis2-rock-decal-large"] = {},
-          --["arrakis2-snow-drift-decal"] = {},
-          --["arrakis2-crater-small"] = {},
-          --["arrakis2-crater-large"] = {},
+          ["arrakis-medium-fulgora-rock"] = {},
+          ["arrakis-small-fulgora-rock"] = {},
+          ["arrakis-tiny-fulgora-rock"] = {},
+          --["arrakis-barnacles-decal"] = {},
+          --["arrakis-rock-decal-large"] = {},
+          --["arrakis-snow-drift-decal"] = {},
+          --["arrakis-crater-small"] = {},
+          --["arrakis-crater-large"] = {},
         }
       },
       ["entity"] =
@@ -164,8 +164,8 @@ planet_map_gen.arrakis2 = function()
         {
           --["steam-geyser"] = {},
           --["fulgoran-data-source"] = {},
-          ["arrakis2-huge-volcanic-rock"] = {},
-          ["arrakis2-big-fulgora-rock"] = {}
+          ["arrakis-huge-volcanic-rock"] = {},
+          ["arrakis-big-fulgora-rock"] = {}
         }
       }
     }
@@ -187,24 +187,24 @@ data:extend({
   },
   {
     type = "surface-property",
-    name = "arrakis2-exclusive",
+    name = "arrakis-exclusive",
     default_value = 0,
     hidden_in_factoriopedia = true,
     hidden = true,
   },
   {
     type = "planet",
-    name = "arrakis2",
-    icon = "__arrakis_my_dune__/graphics/icons/arrakis2.png",
-    starmap_icon = "__arrakis_my_dune__/graphics/icons/starmap-planet-arrakis2.png",
+    name = "arrakis",
+    icon = "__arrakis_my_dune__/graphics/icons/arrakis.png",
+    starmap_icon = "__arrakis_my_dune__/graphics/icons/starmap-planet-arrakis.png",
     starmap_icon_size = 2048,
     gravity_pull = 9,
     distance = 7.5,
     orientation = 0.05,
     magnitude = 0.5,
-    order = "e[arrakis2]",
+    order = "e[arrakis]",
     subgroup = "planets",
-    map_gen_settings = planet_map_gen.arrakis2(),
+    map_gen_settings = planet_map_gen.arrakis(),
     pollutant_type = "humidity",
     solar_power_in_space = 700,
     platform_procession_set =
@@ -226,7 +226,7 @@ data:extend({
       pressure = 760,
       gravity = 9,
       ["temperature-celcius"] = 77,
-      ["arrakis2-exclusive"] = 1,
+      ["arrakis-exclusive"] = 1,
     },
     asteroid_spawn_influence = 1,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
@@ -312,13 +312,13 @@ data:extend({
       -- sun fully risen at 0.75
       day_night_cycle_color_lookup =
       {
-        --[[{0.0,  "__arrakis_my_dune__/graphics/terrain/arrakis2-1-day.png"},
-        {0.35, "__arrakis_my_dune__/graphics/terrain/arrakis2-4-partialday.png"},
-        {0.40, "__arrakis_my_dune__/graphics/terrain/arrakis2-3-dusk.png"},
-        {0.45, "__arrakis_my_dune__/graphics/terrain/arrakis2-2-night.png"},
-        {0.55, "__arrakis_my_dune__/graphics/terrain/arrakis2-2-night.png"},
-        {0.75, "__arrakis_my_dune__/graphics/terrain/arrakis2-4-partialday.png"},
-        {0.98, "__arrakis_my_dune__/graphics/terrain/arrakis2-1-day.png"},]]
+        --[[{0.0,  "__arrakis_my_dune__/graphics/terrain/arrakis-1-day.png"},
+        {0.35, "__arrakis_my_dune__/graphics/terrain/arrakis-4-partialday.png"},
+        {0.40, "__arrakis_my_dune__/graphics/terrain/arrakis-3-dusk.png"},
+        {0.45, "__arrakis_my_dune__/graphics/terrain/arrakis-2-night.png"},
+        {0.55, "__arrakis_my_dune__/graphics/terrain/arrakis-2-night.png"},
+        {0.75, "__arrakis_my_dune__/graphics/terrain/arrakis-4-partialday.png"},
+        {0.98, "__arrakis_my_dune__/graphics/terrain/arrakis-1-day.png"},]]
         {0.0,  "__arrakis_my_dune__/graphics/lut/identity-lut.png"},
       },
 
@@ -326,7 +326,7 @@ data:extend({
       {
         noise_texture =
         {
-          filename = "__arrakis_my_dune__/graphics/terrain/arrakis2-tint-noise.png",
+          filename = "__arrakis_my_dune__/graphics/terrain/arrakis-tint-noise.png",
           size = 4096
         },
 
@@ -344,20 +344,20 @@ data:extend({
   },
   --[[{
     type = "space-connection",
-    name = "nauvis-arrakis2",
+    name = "nauvis-arrakis",
     subgroup = "planet-connections",
     from = "nauvis",
-    to = "arrakis2",
+    to = "arrakis",
     order = "a",
     length = 17000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus)
   },]]
   {
     type = "space-connection",
-    name = "vulcanus-arrakis2",
+    name = "vulcanus-arrakis",
     subgroup = "planet-connections",
     from = "vulcanus",
-    to = "arrakis2",
+    to = "arrakis",
     order = "a",
     length = 3000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus)
