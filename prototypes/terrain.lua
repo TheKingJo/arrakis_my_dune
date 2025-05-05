@@ -104,17 +104,17 @@ end
 data:extend({
   {
     type = "item-subgroup",
-    name = "arrakis2-tiles",
+    name = "arrakis-tiles",
     group = "tiles",
     order = "c"
   },
 
 -- HIGH ROCKS
   {
-    name = "arrakis2-high-dust",
+    name = "arrakis-high-dust",
     type = "tile",
     order = "b[natural]-a[dust]",
-    subgroup = "arrakis2-tiles",
+    subgroup = "arrakis-tiles",
     collision_mask = tile_collision_masks.ground(),
     autoplace = {
       probability_expression = "fulgora_scrap_medium + max(0, fulgora_natural, 2 * fulgora_mesa * fulgora_pyramids) * 2 - 0.9 + fulgora_rock + fulgora_road_dust * fulgora_sprawl"
@@ -129,7 +129,7 @@ data:extend({
       transition = transition_masks(),
       material_background =
       {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis2-dust.png",
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-dust.png",
         line_length = 8,
         count = 16,
         scale = 0.5
@@ -147,10 +147,10 @@ data:extend({
     trigger_effect = tile_trigger_effects.sand_trigger_effect()
   },
   {
-    name = "arrakis2-high-dunes",
+    name = "arrakis-high-dunes",
     type = "tile",
     order = "b[natural]-b[dunes]",
-    subgroup = "arrakis2-tiles",
+    subgroup = "arrakis-tiles",
     collision_mask = tile_collision_masks.ground(),
     autoplace = {probability_expression = "50 * fulgora_oil_mask * water_base(fulgora_coastline, 1000)"},
     --autoplace = {probability_expression = "1 + fulgora_dunes"},
@@ -164,7 +164,7 @@ data:extend({
       transition = transition_masks(),
       material_background =
       {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis2-dunes.png",
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-dunes.png",
         line_length = 4,
         count = 16,
         scale = 0.5
@@ -182,10 +182,10 @@ data:extend({
     trigger_effect = tile_trigger_effects.sand_trigger_effect()
   },
   {
-    name = "arrakis2-high-sand",
+    name = "arrakis-high-sand",
     type = "tile",
     order = "b[natural]-c[sand]",
-    subgroup = "arrakis2-tiles",
+    subgroup = "arrakis-tiles",
     collision_mask = tile_collision_masks.ground(),
     autoplace = {
       probability_expression = "1 - fulgora_dunes"
@@ -200,7 +200,7 @@ data:extend({
       transition = transition_masks(),
       material_background =
       {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis2-sand.png",
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-sand.png",
         line_length = 4,
         count = 16,
         scale = 0.5
@@ -218,10 +218,10 @@ data:extend({
     trigger_effect = tile_trigger_effects.sand_trigger_effect()
   },
   {
-    name = "arrakis2-high-rock",
+    name = "arrakis-high-rock",
     type = "tile",
     order = "b[natural]-d[rock]",
-    subgroup = "arrakis2-tiles",
+    subgroup = "arrakis-tiles",
     collision_mask = tile_collision_masks.ground(),
     autoplace = {
       probability_expression = "0.8 + fulgora_rock * 2 - max(0, fulgora_mix_oil) * 6"
@@ -236,7 +236,7 @@ data:extend({
       transition = transition_masks(),
       material_background =
       {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis2-rock.png",
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-rock.png",
         line_length = 8,
         count = 16,
         scale = 0.5
@@ -255,10 +255,10 @@ data:extend({
 
 -- DESERT - LOW
   {
-    name = "arrakis2-low-dunes2",
+    name = "arrakis-low-dunes2",
     type = "tile",
     order = "b[natural]-b[dunes]",
-    subgroup = "arrakis2-tiles",
+    subgroup = "arrakis-tiles",
     collision_mask = tile_collision_masks.ground(),
     autoplace = {
       probability_expression = "1 + fulgora_dunes"
@@ -273,7 +273,7 @@ data:extend({
       transition = transition_masks(),
       material_background =
       {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis2-dunes2.png",
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-dunes2.png",
         line_length = 4,
         count = 16,
         scale = 0.5
@@ -291,10 +291,10 @@ data:extend({
     trigger_effect = tile_trigger_effects.sand_trigger_effect()
   },
   {
-    name = "arrakis2-low-sand2",
+    name = "arrakis-low-sand2",
     type = "tile",
     order = "b[natural]-c[sand]",
-    subgroup = "arrakis2-tiles",
+    subgroup = "arrakis-tiles",
     collision_mask = tile_collision_masks.ground(),
     autoplace = {probability_expression = "100 * fulgora_oil_mask * water_base(fulgora_coastline - 90 - fulgora_coastline_drop / 2, 2000)"},
     --autoplace = {probability_expression = "1 - fulgora_dunes"},
@@ -308,7 +308,7 @@ data:extend({
       transition = transition_masks(),
       material_background =
       {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis2-sand2.png",
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-sand2.png",
         line_length = 4,
         count = 16,
         scale = 0.5
@@ -333,6 +333,6 @@ data:extend({
 
 
 
---table.insert(lava_tile_type_names, "arrakis2-lava")
---table.insert(water_tile_type_names, "arrakis2-lava")
---table.insert(water_tile_type_names, "arrakis2-hot-swamp")
+--table.insert(lava_tile_type_names, "arrakis-lava")
+--table.insert(water_tile_type_names, "arrakis-lava")
+--table.insert(water_tile_type_names, "arrakis-hot-swamp")

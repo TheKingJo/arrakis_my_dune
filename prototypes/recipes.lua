@@ -4,7 +4,7 @@ data:extend({
     name = "concrete-from-molten-iron-and-sand",
     category = "metallurgy",
     icon = "__arrakis_my_dune__/graphics/icons/concrete-from-molten-iron-and-sand.png",
-    subgroup = "arrakis2-processes",
+    subgroup = "arrakis-processes",
     order = "aab",
     enabled = false,
     ingredients =
@@ -24,7 +24,7 @@ data:extend({
     name = "petroleum-from-sand-sulfur-steam-carbon",
     category = "oil-processing",
     icon = "__arrakis_my_dune__/graphics/icons/petroleum-from-sand-sulfur-steam-carbon.png",
-    subgroup = "arrakis2-processes",
+    subgroup = "arrakis-processes",
     order = "aac",
     enabled = false,
     ingredients =

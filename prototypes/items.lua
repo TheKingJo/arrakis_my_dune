@@ -3,21 +3,30 @@ local item_tints = require("__base__.prototypes.item-tints")
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 
 data:extend({
-  -- Item Subgroup for defining Sorting Group in the Player Inventory
+  -- Main Item group for defining a new Tab with Arrakis Items in Inventory
   {
-    type = "item-subgroup",
-    name = "water-production",
-    group = "production-machine",
-    order = "ea"
+    type = "item-group",
+    name = "arrakis",
+    order = "a",
+    icon = "__arrakis_my_dune__/graphics/technology/arrakis-tech-arrakis.png",
+    icon_size = 128,
   },
 
-  -- Tier 1 Water Condenser Machine Item Definition
+  -- Item Subgroup for defining water production machines in inventory
+  {
+    type = "item-subgroup",
+    name = "arrakis-water-production",
+    group = "arrakis",
+    order = "aa"
+  },
+
+  -- Item declaration for Tier 1 Water Condenser Machine
   {
     type = "item",
     name = "water-condenser",
     icon = "__arrakis_my_dune__/graphics/icons/sand-1.png",
-    subgroup = "smelting-machine",
-    order = "ffj",
+    subgroup = "arrakis-water-production",
+    order = "ab",
     inventory_move_sound = item_sounds.mechanical_large_inventory_move,
     pick_sound = item_sounds.mechanical_large_inventory_pickup,
     drop_sound = item_sounds.mechanical_large_inventory_move,
@@ -47,22 +56,21 @@ data:extend({
 
 
 
---- subgroups
+  -- Item Subgroup for defining general production processes
   {
     type = "item-subgroup",
-    name = "arrakis2-processes",
-    group = "intermediate-products",
-    order = "pc"
+    name = "arrakis-processes",
+    group = "arrakis",
+    order = "b"
   },
 
---- items
---Same as moshine
+--- Item declaration for Sand Item
   {
     type = "item",
     name = "sand",
     icon = "__arrakis_my_dune__/graphics/icons/sand-3.png",
-    subgroup = "arrakis2-processes",
-    order = "aaa",
+    subgroup = "arrakis-processes",
+    order = "ba",
     icon_size = 64,
     pictures =
     {
@@ -77,8 +85,17 @@ data:extend({
       { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-9.png", scale = 0.5 },
     },
     stack_size = 100,
-    default_import_location = "arrakis2",
+    default_import_location = "arrakis",
     random_tint_color = item_tints.iron_rust,
     weight = 1*kg,
   },
+
+
+
+
+
+
+
+
+
 })
