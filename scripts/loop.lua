@@ -1,13 +1,7 @@
 local MINIMUM_POLLUTION_FOR_OPERATION = 10
 
 
-script.on_init(function()
-    local water_condensers = {}
-end)
-  
-script.on_configuration_changed(function()
-    local water_condensers = {}
-end)
+
 
 --Run once a second to update water condensators
 script.on_nth_tick(120, function()
@@ -35,6 +29,3 @@ script.on_nth_tick(120, function()
         end
     end
 end)
-
-
-
