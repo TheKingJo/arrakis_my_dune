@@ -38,8 +38,7 @@ data:extend({
     place_result = "water-condenser",
     stack_size = 20,
   },
--- Item declaration for Tier 1 Sand Rafinery Machine
-
+-- Item declaration for Tier 1 Sand Rafinery Machine 
 --- subgroups
   {
     type = "item",
