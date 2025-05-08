@@ -5,7 +5,6 @@ local sounds = require("__base__.prototypes.entity.sounds")
 data:extend({
 
 {
-
   --this entire File is the Water Condenser since it is right now just a 1:1 copy of a normal chemical plant
   type = "assembling-machine",
   name = "water-condenser",
@@ -383,5 +382,5 @@ data:extend({
       }),
       rotate = false
     }
-  },
+  }
 })

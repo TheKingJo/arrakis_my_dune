@@ -4,6 +4,7 @@ local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 
 data:extend({
   -- Main Item group for defining a new Tab with Arrakis Items in Inventory
+  -- Item Subgroup for defining Sorting Group in the Player Inventory
   {
     type = "item-group",
     name = "arrakis",
@@ -24,7 +25,7 @@ data:extend({
   {
     type = "item",
     name = "water-condenser",
-    icon = "__arrakis_my_dune__/graphics/icons/sand-1.png",
+    icon = "__arrakis_my_dune__/graphics/icons/water-condenser.png",
     subgroup = "arrakis-water-production",
     order = "a",
     inventory_move_sound = item_sounds.mechanical_large_inventory_move,
@@ -33,7 +34,8 @@ data:extend({
     place_result = "water-condenser",
     stack_size = 20,
   },
--- Item declaration for Tier 1 Sand Rafinery Machine
+-- Item declaration for Tier 1 Sand Rafinery Machine 
+--- subgroups
   {
     type = "item",
     name = "sand-rafinery",
@@ -101,6 +103,42 @@ data:extend({
     random_tint_color = item_tints.iron_rust,
     weight = 1*kg,
   },
+  --- Item declaration for Silica Fiber Item
+  {
+    type = "item",
+    name = "silica-fiber",
+    icon = "__arrakis_my_dune__/graphics/icons/silica-fiber.png",
+    subgroup = "arrakis-processes",
+    order = "aab",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/silica-fiber.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 1*kg,
+  },
+
+--- Item declaration for Silicon Paste Item
+  {
+    type = "item",
+    name = "silicon-paste",
+    icon = "__arrakis_my_dune__/graphics/icons/silicon-paste.png",
+    subgroup = "arrakis-processes",
+    order = "aab",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/silicon-paste.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 1*kg,
+  },
+
 
   --- Item declaration for Silicon Item
   {
@@ -119,25 +157,41 @@ data:extend({
     random_tint_color = item_tints.iron_rust,
     weight = 1*kg,
   },
-
-  --- Item declaration for Silicon Paste Item
+--- Item declaration for Refined Holmium Paste Item
   {
     type = "item",
-    name = "silicon-paste",
-    icon = "__arrakis_my_dune__/graphics/icons/silicon-paste.png",
+    name = "holmium-paste",
+    icon = "__arrakis_my_dune__/graphics/icons/holmium-paste.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/silicon-paste.png", scale = 0.5 },
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/holmium-paste.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
     random_tint_color = item_tints.iron_rust,
     weight = 1*kg,
   },
-
+  --- Item declaration for Refined Holmium Plate Item
+  {
+    type = "item",
+    name = "refined-holmium-plate",
+    icon = "__arrakis_my_dune__/graphics/icons/refined-holmium-plate.png",
+    subgroup = "arrakis-processes",
+    order = "aab",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/refined-holmium-plate.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 1*kg,
+  },
+  
   --- Item declaration for Treated Sand Item
   {
     type = "item",
@@ -210,23 +264,106 @@ data:extend({
     weight = 0.1*kg,
   },
 
-  --- Item declaration for Silicon Filters Item
+  --- Item declaration for FILTERS ---- BASIC -- COAL -- SILICON -- TUNGSTEN -- HOLMIUM --
+
   {
     type = "item",
-    name = "silicon-filter",
-    icon = "__arrakis_my_dune__/graphics/icons/silicon-filter.png",
+    name = "basic-filter",
+    icon = "__arrakis_my_dune__/graphics/icons/filters/basic-filter.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/silicon-filter.png", scale = 0.5 },
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/basic-filter.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
     random_tint_color = item_tints.iron_rust,
     weight = 0.1*kg,
   },
+  {
+    type = "item",
+    name = "coal-filter",
+    icon = "__arrakis_my_dune__/graphics/icons/filters/coal-filter.png",
+    subgroup = "arrakis-processes",
+    order = "aac",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/coal-filter.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 0.1*kg,
+  },
+  {
+    type = "item",
+    name = "silicon-filter",
+    icon = "__arrakis_my_dune__/graphics/icons/filters/silicon-filter.png",
+    subgroup = "arrakis-processes",
+    order = "aac",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/silicon-filter.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 0.1*kg,
+  },
+  {
+    type = "item",
+    name = "tungsten-filter",
+    icon = "__arrakis_my_dune__/graphics/icons/filters/tungsten-filter.png",
+    subgroup = "arrakis-processes",
+    order = "aac",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/tungsten-filter.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 0.1*kg,
+  },
+  {
+    type = "item",
+    name = "holmium-filter",
+    icon = "__arrakis_my_dune__/graphics/icons/filters/holmium-filter.png",
+    subgroup = "arrakis-processes",
+    order = "aac",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/holmium-filter.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 0.1*kg,
+  },
+
+  {
+    type = "item",
+    name = "chom-science-pack",
+    icon = "__arrakis_my_dune__/graphics/icons/chom-science-pack.png",
+    subgroup = "arrakis-processes",
+    order = "aac",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/chom-science-pack.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 0.1*kg,
+  },
+
 
   --- Fluid declaration for Chemical Mud Fluid
   {
@@ -245,6 +382,90 @@ data:extend({
   --- Fluid declaration for Polluted Water Fluid
   {
     type = "fluid",
+    name = "sand",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/sand.png",
+    order = "a[fluid]-a[water]-a[water]"
+  },
+  {
+    type = "fluid",
+    name = "spiced-sand",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/spiced-sand.png",
+    order = "a[fluid]-a[water]-b[water]"
+  },
+  {
+    type = "fluid",
+    name = "washed-spiced-sand",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/washed-spiced-sand.png",
+    order = "a[fluid]-a[water]-c[water]"
+  },
+  {
+    type = "fluid",
+    name = "treated-spiced-sand",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/treated-spiced-sand.png",
+    order = "a[fluid]-a[water]-d[water]"
+  },
+  {
+    type = "fluid",
+    name = "refined-spiced-sand",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/refined-spiced-sand.png",
+    order = "a[fluid]-a[water]-e[water]"
+  },
+  {
+    type = "fluid",
+    name = "spice-melange",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/spice-melange.png",
+    order = "a[fluid]-a[water]-f[water]"
+  },
+  {
+    type = "fluid",
+    name = "ultra-concentred-spice",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/ultra-concentred-spice.png",
+    order = "a[fluid]-a[water]-g[water]"
+  },
+  {
+    type = "fluid",
     name = "polluted-water",
     subgroup = "arrakis-processes",
     default_temperature = 15,
@@ -253,6 +474,42 @@ data:extend({
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
     icon = "__arrakis_my_dune__/graphics/icons/fluid/polluted-water.png",
+    order = "a[fluid]-a[water]-a[water]"
+  },
+  {
+    type = "fluid",
+    name = "crude-black-acid",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/crude-black-acid.png",
+    order = "a[fluid]-a[water]-a[water]"
+  },
+  {
+    type = "fluid",
+    name = "black-acid",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/black-acid.png",
+    order = "a[fluid]-a[water]-a[water]"
+  },
+  {
+    type = "fluid",
+    name = "black-holmium",
+    subgroup = "arrakis-processes",
+    default_temperature = 15,
+    max_temperature = 100,
+    heat_capacity = "2kJ",
+    base_color = {0.25, 0.3, 0.1},
+    flow_color = {0.5, 0.55, 0.2},
+    icon = "__arrakis_my_dune__/graphics/icons/fluid/black-holmium.png",
     order = "a[fluid]-a[water]-a[water]"
   },
 
