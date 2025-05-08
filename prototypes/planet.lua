@@ -184,19 +184,12 @@ data:extend({
     hidden_in_factoriopedia = true,
     hidden = true,
   },
-  {
-    type = "surface-property",
-    name = "arrakis-exclusive",
-    default_value = 0,
-    hidden_in_factoriopedia = true,
-    hidden = true,
-  },
 
   {
     type = "planet",
     name = "arrakis",
-    icon = "__arrakis_my_dune__/graphics/icons/arrakis.png",
-    starmap_icon = "__arrakis_my_dune__/graphics/icons/starmap-planet-arrakis.png",
+    icon = icons .. "arrakis.png",
+    starmap_icon = "__arrakis_my_dune__/graphics/starmap/starmap-planet-arrakis.png",
     starmap_icon_size = 2048,
     gravity_pull = 9,
     distance = 7.5,
@@ -226,7 +219,6 @@ data:extend({
       pressure = 760,
       gravity = 9,
       ["temperature-celcius"] = 77,
-      ["arrakis-exclusive"] = 1,
     },
 
 

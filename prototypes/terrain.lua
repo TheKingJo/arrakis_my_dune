@@ -120,7 +120,7 @@ data:extend({
       probability_expression = "fulgora_scrap_medium + max(0, fulgora_natural, 2 * fulgora_mesa * fulgora_pyramids) * 2 - 0.9 + fulgora_rock + fulgora_road_dust * fulgora_sprawl"
     },
     layer = 6,
-    map_color={155, 127, 98},
+    map_color = {155, 127, 98},
     vehicle_friction_modifier = 4,
     absorptions_per_second = tile_pollution.fulgora,
     sprite_usage_surface = "fulgora",
