@@ -177,7 +177,6 @@ local effects = require("__core__.lualib.surface-render-parameter-effects")
 local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
 
 data:extend({
-
   {
     type = "surface-property",
     name = "temperature-celcius",
@@ -192,6 +191,7 @@ data:extend({
     hidden_in_factoriopedia = true,
     hidden = true,
   },
+
   {
     type = "planet",
     name = "arrakis",
@@ -228,6 +228,50 @@ data:extend({
       ["temperature-celcius"] = 77,
       ["arrakis-exclusive"] = 1,
     },
+
+
+    lightning_properties =
+    {
+      lightnings_per_chunk_per_tick = 1 / (60 * 10), --cca once per chunk every 10 seconds (600 ticks)
+      search_radius = 10.0,
+      lightning_types = {"condensation"},
+      priority_rules =
+      {
+     {
+        type = "prototype",
+        string = "arrakis-low-dunes2",
+        priority_bonus = 1000
+      },
+      {
+        type = "prototype",
+        string = "arrakis-low-sand2",
+        priority_bonus = 1000
+      },
+      {
+        type = "prototype",
+        string = "arrakis-high-dust",
+        priority_bonus = 1000
+      },
+      {
+        type = "prototype",
+        string = "arrakis-high-dunes",
+        priority_bonus = 1000
+      },
+      {
+        type = "prototype",
+        string = "arrakis-high-sand",
+        priority_bonus = 1000
+      },
+      {
+        type = "prototype",
+        string = "arrakis-high-rock",
+        priority_bonus = 1000
+      }
+      }
+    },
+
+
+   
     asteroid_spawn_influence = 1,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
     persistent_ambient_sounds =

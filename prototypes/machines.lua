@@ -5,6 +5,8 @@ local sounds = require("__base__.prototypes.entity.sounds")
 data:extend({
 
 {
+
+  --this entire File is the Water Condenser since it is right now just a 1:1 copy of a normal chemical plant
   type = "assembling-machine",
   name = "water-condenser",
   icon = "__base__/graphics/icons/chemical-plant.png",
@@ -191,7 +193,7 @@ data:extend({
   {
     type = "electric",
     usage_priority = "secondary-input",
-    emissions_per_minute = { pollution = - 500 }
+    emissions_per_minute = { pollution = - 5 }
   },
   energy_usage = "210kW",
   crafting_categories = {"water-condensing"},
@@ -382,4 +384,6 @@ data:extend({
       rotate = false
     }
   },
+}, -------------------------------------------------------------------------------------------------
+
 })
