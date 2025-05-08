@@ -47,10 +47,8 @@ data:extend({
     allow_productivity = true
   },
 
-
-
-
-  --WATER CONDENSING RECIPES CATEGORY
+  --WATER CONDENSING AND SAND TREATMENT RECIPES CATEGORY
+  
   {
     type = "recipe-category",
     name = "water-condensing"

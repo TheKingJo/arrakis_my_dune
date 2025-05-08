@@ -33,25 +33,19 @@ data:extend({
     place_result = "water-condenser",
     stack_size = 20,
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- Item declaration for Tier 1 Sand Rafinery Machine
+  {
+    type = "item",
+    name = "sand-rafinery",
+    icon = "__arrakis_my_dune__/graphics/icons/sand-refinery.png",
+    subgroup = "arrakis-water-production",
+    order = "b",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "sand-rafinery",
+    stack_size = 20,
+  },
 
 
 
