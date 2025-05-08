@@ -5,14 +5,13 @@ local sounds = require("__base__.prototypes.entity.sounds")
 data:extend({
 
 {
-
   --this entire File is the Water Condenser since it is right now just a 1:1 copy of a normal chemical plant
   type = "assembling-machine",
   name = "water-condenser",
-  icon = "__base__/graphics/icons/chemical-plant.png",
+  icon = icons .. "water-condenser.png",
   flags = {"placeable-neutral","placeable-player", "player-creation"},
   minable = {mining_time = 0.1, result = "water-condenser"},
-  fast_replaceable_group = nil,
+  fast_replaceable_group = "water-condenser",
   max_health = 300,
   corpse = "chemical-plant-remnants",
   dying_explosion = "chemical-plant-explosion",
@@ -271,10 +270,10 @@ data:extend({
 
 {
     type = "assembling-machine",
-    name = "sand-rafinery",
-    icon = "__space-age__/graphics/icons/foundry.png",
+    name = "sand-refinery",
+    icon = icons .. "sand-refinery.png",
     flags = {"placeable-neutral","player-creation"},
-    minable = {mining_time = 0.2, result = "sand-rafinery"},
+    minable = {mining_time = 0.2, result = "sand-refinery"},
     max_health = 350,
     corpse = "foundry-remnants",
     dying_explosion = "foundry-explosion",
