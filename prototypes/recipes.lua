@@ -1,5 +1,8 @@
 data:extend({
+<<<<<<< Updated upstream
   --PLACEHOLDER
+=======
+>>>>>>> Stashed changes
   {
     type = "recipe",
     name = "concrete-from-molten-iron-and-sand",
@@ -46,11 +49,15 @@ data:extend({
     auto_recycle = false,
     allow_productivity = true
   },
+<<<<<<< Updated upstream
 
 
 
 
   --WATER CONDENSING AND SAND TREATMENT RECIPES CATEGORY
+=======
+  --WATER CONDENSING RECIPES CATEGORY
+>>>>>>> Stashed changes
   {
     type = "recipe-category",
     name = "water-condensing"
