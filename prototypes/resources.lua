@@ -6,7 +6,7 @@ local function resource(resource_parameters, autoplace_parameters)
   {
     type = "resource",
     name = resource_parameters.name,
-    icon = "__arrakis_my_dune__/graphics/icons/" .. resource_parameters.name .. ".png",
+    icon = icons .. "" .. resource_parameters.name .. ".png",
     flags = {"placeable-neutral"},
     order="a-b-"..resource_parameters.order,
     tree_removal_probability = 0.8,
@@ -82,10 +82,6 @@ data:extend({
     order = "m-c",
     category = "resource"
   },
-<<<<<<< Updated upstream
- 
-  
-=======
   {
     type = "autoplace-control",
     name = "fulgoran_data_source",
@@ -101,7 +97,7 @@ data:extend({
   {
     type = "resource",
     name = "fulgoran-data-source",
-    icon = "__arrakis_my_dune__/graphics/icons/fulgoran-data-source.png",
+    icon = icons .. "fulgoran-data-source.png",
     flags = {"placeable-neutral"},
     category = "raw-data",
     subgroup = "mineable-fluids",
@@ -173,7 +169,7 @@ data:extend({
   {
     type = "resource",
     name = "multi-ore",
-    icon = "__arrakis_my_dune__/graphics/icons/multi-ore.png",
+    icon = icons .. "multi-ore.png",
     flags = {"placeable-neutral"},
     order="a-b-c",
     infinite = false,
@@ -307,12 +303,11 @@ data:extend({
     mining_visualisation_tint = {r = 130, g = 190, b = 170, a = 255},
     map_grid = true,
   },
->>>>>>> Stashed changes
 --[[
   {
     type = "resource",
     name = "molten-copper-geyser",
-    icon = "__arrakis_my_dune__/graphics/icons/molten-copper-geyser.png",
+    icon = icons .. "molten-copper-geyser.png",
     flags = {"placeable-neutral"},
     category = "basic-fluid",
     subgroup = "mineable-fluids",
@@ -436,7 +431,7 @@ data:extend({
   {
     type = "resource",
     name = "steam-geyser",
-    icon = "__arrakis_my_dune__/graphics/icons/steam-geyser.png",
+    icon = icons .. "steam-geyser.png",
     flags = {"placeable-neutral"},
     category = "basic-fluid",
     subgroup = "mineable-fluids",

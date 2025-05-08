@@ -4,28 +4,32 @@ local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 
 data:extend({
   -- Main Item group for defining a new Tab with Arrakis Items in Inventory
-  -- Item Subgroup for defining Sorting Group in the Player Inventory
+  -- Item groups / subgroups
   {
     type = "item-group",
     name = "arrakis",
     order = "z",
-    icon = "__arrakis_my_dune__/graphics/technology/arrakis-tech-arrakis.png",
+    icon = "__arrakis_my_dune__/graphics/itemgroup/arrakis-tech-arrakis.png",
     icon_size = 128,
   },
-
-  -- Item Subgroup for defining water production machines in inventory
   {
     type = "item-subgroup",
     name = "arrakis-water-production",
     group = "arrakis",
     order = "a"
   },
+  {
+    type = "item-subgroup",
+    name = "arrakis-processes",
+    group = "arrakis",
+    order = "b"
+  },
 
   -- Item declaration for Tier 1 Water Condenser Machine
   {
     type = "item",
     name = "water-condenser",
-    icon = "__arrakis_my_dune__/graphics/icons/water-condenser.png",
+    icon = icons .. "water-condenser.png",
     subgroup = "arrakis-water-production",
     order = "a",
     inventory_move_sound = item_sounds.mechanical_large_inventory_move,
@@ -39,47 +43,40 @@ data:extend({
 --- subgroups
   {
     type = "item",
-    name = "sand-rafinery",
-    icon = "__arrakis_my_dune__/graphics/icons/sand-refinery.png",
+    name = "sand-refinery",
+    icon = icons .. "sand-refinery.png",
     subgroup = "arrakis-water-production",
     order = "b",
     inventory_move_sound = item_sounds.mechanical_large_inventory_move,
     pick_sound = item_sounds.mechanical_large_inventory_pickup,
     drop_sound = item_sounds.mechanical_large_inventory_move,
-    place_result = "sand-rafinery",
+    place_result = "sand-refinery",
     stack_size = 20,
   },
 
 
 
 
-  -- Item Subgroup for defining general production process Items
-  {
-    type = "item-subgroup",
-    name = "arrakis-processes",
-    group = "arrakis",
-    order = "b"
-  },
 
 --- Item declaration for Sand Item
   {
     type = "item",
     name = "sand",
-    icon = "__arrakis_my_dune__/graphics/icons/sand-3.png",
+    icon = icons .. "sand-3.png",
     subgroup = "arrakis-processes",
     order = "a",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-1.png", scale = 0.5 },
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-2.png", scale = 0.5 },
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-3.png", scale = 0.5 },
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-4.png", scale = 0.5 },
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-5.png", scale = 0.5 },
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-6.png", scale = 0.5 },
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-7.png", scale = 0.5 },
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-8.png", scale = 0.5 },
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/sand-9.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-1.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-2.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-3.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-4.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-5.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-6.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-7.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-8.png", scale = 0.5 },
+      { size = 64, filename = icons .. "sand-9.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -91,13 +88,13 @@ data:extend({
   {
     type = "item",
     name = "silica",
-    icon = "__arrakis_my_dune__/graphics/icons/silica.png",
+    icon = icons .. "silica.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/silica.png", scale = 0.5 },
+      { size = 64, filename = icons .. "silica.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -108,13 +105,13 @@ data:extend({
   {
     type = "item",
     name = "silica-fiber",
-    icon = "__arrakis_my_dune__/graphics/icons/silica-fiber.png",
+    icon = icons .. "silica-fiber.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/silica-fiber.png", scale = 0.5 },
+      { size = 64, filename = icons .. "silica-fiber.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -126,13 +123,13 @@ data:extend({
   {
     type = "item",
     name = "silicon-paste",
-    icon = "__arrakis_my_dune__/graphics/icons/silicon-paste.png",
+    icon = icons .. "silicon-paste.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/silicon-paste.png", scale = 0.5 },
+      { size = 64, filename = icons .. "silicon-paste.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -145,13 +142,13 @@ data:extend({
   {
     type = "item",
     name = "silicon",
-    icon = "__arrakis_my_dune__/graphics/icons/silicon.png",
+    icon = icons .. "silicon.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/silicon.png", scale = 0.5 },
+      { size = 64, filename = icons .. "silicon.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -162,13 +159,13 @@ data:extend({
   {
     type = "item",
     name = "holmium-paste",
-    icon = "__arrakis_my_dune__/graphics/icons/holmium-paste.png",
+    icon = icons .. "holmium-paste.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/holmium-paste.png", scale = 0.5 },
+      { size = 64, filename = icons .. "holmium-paste.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -179,13 +176,13 @@ data:extend({
   {
     type = "item",
     name = "refined-holmium-plate",
-    icon = "__arrakis_my_dune__/graphics/icons/refined-holmium-plate.png",
+    icon = icons .. "refined-holmium-plate.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/refined-holmium-plate.png", scale = 0.5 },
+      { size = 64, filename = icons .. "refined-holmium-plate.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -197,13 +194,13 @@ data:extend({
   {
     type = "item",
     name = "treated-sand",
-    icon = "__arrakis_my_dune__/graphics/icons/treated-sand.png",
+    icon = icons .. "treated-sand.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/treated-sand.png", scale = 0.5 },
+      { size = 64, filename = icons .. "treated-sand.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -215,13 +212,13 @@ data:extend({
   {
     type = "item",
     name = "metallic-sand",
-    icon = "__arrakis_my_dune__/graphics/icons/metallic-sand.png",
+    icon = icons .. "metallic-sand.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/metallic-sand.png", scale = 0.5 },
+      { size = 64, filename = icons .. "metallic-sand.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -233,13 +230,13 @@ data:extend({
   {
     type = "item",
     name = "mineral-sand",
-    icon = "__arrakis_my_dune__/graphics/icons/mineral-sand.png",
+    icon = icons .. "mineral-sand.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/mineral-sand.png", scale = 0.5 },
+      { size = 64, filename = icons .. "mineral-sand.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -251,14 +248,10 @@ data:extend({
   {
     type = "item",
     name = "wafers",
-    icon = "__arrakis_my_dune__/graphics/icons/wafers.png",
+    icon = icons .. "silicon-wafer.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
-    pictures =
-    {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/wafers.png", scale = 0.5 },
-    },
     stack_size = 100,
     default_import_location = "arrakis",
     random_tint_color = item_tints.iron_rust,
@@ -270,13 +263,13 @@ data:extend({
   {
     type = "item",
     name = "basic-filter",
-    icon = "__arrakis_my_dune__/graphics/icons/filters/basic-filter.png",
+    icon = icons .. "filters/basic-filter.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/basic-filter.png", scale = 0.5 },
+      { size = 64, filename = icons .. "filters/basic-filter.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -286,13 +279,13 @@ data:extend({
   {
     type = "item",
     name = "coal-filter",
-    icon = "__arrakis_my_dune__/graphics/icons/filters/coal-filter.png",
+    icon = icons .. "filters/coal-filter.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/coal-filter.png", scale = 0.5 },
+      { size = 64, filename = icons .. "filters/coal-filter.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -302,13 +295,13 @@ data:extend({
   {
     type = "item",
     name = "silicon-filter",
-    icon = "__arrakis_my_dune__/graphics/icons/filters/silicon-filter.png",
+    icon = icons .. "filters/silicon-filter.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/silicon-filter.png", scale = 0.5 },
+      { size = 64, filename = icons .. "filters/silicon-filter.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -318,13 +311,13 @@ data:extend({
   {
     type = "item",
     name = "tungsten-filter",
-    icon = "__arrakis_my_dune__/graphics/icons/filters/tungsten-filter.png",
+    icon = icons .. "filters/tungsten-filter.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/tungsten-filter.png", scale = 0.5 },
+      { size = 64, filename = icons .. "filters/tungsten-filter.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -334,13 +327,13 @@ data:extend({
   {
     type = "item",
     name = "holmium-filter",
-    icon = "__arrakis_my_dune__/graphics/icons/filters/holmium-filter.png",
+    icon = icons .. "filters/holmium-filter.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/filters/holmium-filter.png", scale = 0.5 },
+      { size = 64, filename = icons .. "filters/holmium-filter.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -351,13 +344,13 @@ data:extend({
   {
     type = "item",
     name = "chom-science-pack",
-    icon = "__arrakis_my_dune__/graphics/icons/chom-science-pack.png",
+    icon = icons .. "chom-science-pack.png",
     subgroup = "arrakis-processes",
     order = "aac",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = "__arrakis_my_dune__/graphics/icons/chom-science-pack.png", scale = 0.5 },
+      { size = 64, filename = icons .. "chom-science-pack.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
@@ -376,7 +369,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.35, 0.15, 0.05},
     flow_color = {0.6, 0.3, 0.1},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/chemical-mud.png",
+    icon = icons .. "fluid/chemical-mud.png",
     order = "a[fluid]-a[water]-a[water]"
   },
 
@@ -390,7 +383,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/sand.png",
+    icon = icons .. "fluid/sand.png",
     order = "a[fluid]-a[water]-a[water]"
   },
   {
@@ -402,7 +395,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/spiced-sand.png",
+    icon = icons .. "fluid/spiced-sand.png",
     order = "a[fluid]-a[water]-b[water]"
   },
   {
@@ -414,7 +407,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/washed-spiced-sand.png",
+    icon = icons .. "fluid/washed-spiced-sand.png",
     order = "a[fluid]-a[water]-c[water]"
   },
   {
@@ -426,7 +419,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/treated-spiced-sand.png",
+    icon = icons .. "fluid/treated-spiced-sand.png",
     order = "a[fluid]-a[water]-d[water]"
   },
   {
@@ -438,7 +431,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/refined-spiced-sand.png",
+    icon = icons .. "fluid/refined-spiced-sand.png",
     order = "a[fluid]-a[water]-e[water]"
   },
   {
@@ -450,7 +443,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/spice-melange.png",
+    icon = icons .. "fluid/spice-melange.png",
     order = "a[fluid]-a[water]-f[water]"
   },
   {
@@ -462,7 +455,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/ultra-concentred-spice.png",
+    icon = icons .. "fluid/ultra-concentred-spice.png",
     order = "a[fluid]-a[water]-g[water]"
   },
   {
@@ -474,7 +467,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/polluted-water.png",
+    icon = icons .. "fluid/polluted-water.png",
     order = "a[fluid]-a[water]-a[water]"
   },
   {
@@ -486,7 +479,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/crude-black-acid.png",
+    icon = icons .. "fluid/crude-black-acid.png",
     order = "a[fluid]-a[water]-a[water]"
   },
   {
@@ -498,7 +491,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/black-acid.png",
+    icon = icons .. "fluid/black-acid.png",
     order = "a[fluid]-a[water]-a[water]"
   },
   {
@@ -510,7 +503,7 @@ data:extend({
     heat_capacity = "2kJ",
     base_color = {0.25, 0.3, 0.1},
     flow_color = {0.5, 0.55, 0.2},
-    icon = "__arrakis_my_dune__/graphics/icons/fluid/black-holmium.png",
+    icon = icons .. "fluid/black-holmium.png",
     order = "a[fluid]-a[water]-a[water]"
   },
 
