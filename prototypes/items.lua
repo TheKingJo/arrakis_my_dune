@@ -3,14 +3,8 @@ local item_tints = require("__base__.prototypes.item-tints")
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 
 data:extend({
-<<<<<<< Updated upstream
   -- Main Item group for defining a new Tab with Arrakis Items in Inventory
-=======
-
-
-
   -- Item Subgroup for defining Sorting Group in the Player Inventory
->>>>>>> Stashed changes
   {
     type = "item-group",
     name = "arrakis",
@@ -40,12 +34,9 @@ data:extend({
     place_result = "water-condenser",
     stack_size = 20,
   },
-<<<<<<< Updated upstream
 -- Item declaration for Tier 1 Sand Rafinery Machine
-=======
 
 --- subgroups
->>>>>>> Stashed changes
   {
     type = "item",
     name = "sand-rafinery",
