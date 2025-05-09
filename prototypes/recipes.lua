@@ -56,18 +56,45 @@ data:extend({
     name = "sand-treatment"
   },
 
-  --WATER CONDENSING RECIPE
+  --HIDDEN WATER CONDENSING RECIPE
   {
     type = "recipe",
     name = "atmospheric-water",
     category = "water-condensing",
-    energy_required = 10,
+    energy_required = 5,
     ingredients = nil,
+    hidden = true,
     results = {{type = "fluid", name = "water", amount = 10}},
     main_product = "water",
-    allow_productivity = false,
+    allow_productivity = true,
     allow_quality = false,
   },
+  --HIDDEN WATER GENERATION RECIPE
+  {
+    type = "recipe",
+    name = "water-generation",
+    category = "water-condensing",
+    energy_required = 5,
+    ingredients = nil,
+    hidden = true,
+    results = {{type = "fluid", name = "water", amount = 10}},
+    main_product = "water",
+    allow_productivity = true,
+    allow_quality = false,
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
   --SAND EXTRACTION RECIPE
   {
     type = "recipe",

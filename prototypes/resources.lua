@@ -73,6 +73,14 @@ data:extend({
     order = "m-b",
     category = "resource"
   },]]--
+  {
+    type = "autoplace-control",
+    name = "multi_ore",
+    localised_name = {"", "[entity=multi-ore] ", {"entity-name.multi-ore"}},
+    richness = true,
+    order = "m-a",
+    category = "resource"
+  },
 
   {
     type = "autoplace-control",
