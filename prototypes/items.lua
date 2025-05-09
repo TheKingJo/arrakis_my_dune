@@ -39,6 +39,24 @@ data:extend({
     place_result = "water-condenser",
     stack_size = 20,
   },
+  -- Item declaration for Tier 1 Dew Collector
+  {
+    type = "item",
+    name = "dew-collector",
+    icon = icons .. "water-condenser.png",
+    subgroup = "arrakis-water-production",
+    order = "b",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "dew-collector",
+    stack_size = 20,
+  },
+
+
+
+
+
 -- Item declaration for Tier 1 Sand Rafinery Machine 
 
   {
@@ -46,7 +64,7 @@ data:extend({
     name = "sand-refinery",
     icon = icons .. "sand-refinery.png",
     subgroup = "arrakis-water-production",
-    order = "b",
+    order = "z",
     inventory_move_sound = item_sounds.mechanical_large_inventory_move,
     pick_sound = item_sounds.mechanical_large_inventory_pickup,
     drop_sound = item_sounds.mechanical_large_inventory_move,

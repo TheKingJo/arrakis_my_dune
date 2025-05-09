@@ -72,11 +72,25 @@ data:extend({
     type = "recipe",
     name = "atmospheric-water",
     category = "water-condensing",
-    energy_required = 10,
+    energy_required = 5,
     ingredients = nil,
+    hidden = true,
     results = {{type = "fluid", name = "water", amount = 10}},
     main_product = "water",
-    allow_productivity = false,
+    allow_productivity = true,
+    allow_quality = false,
+  },
+  --HIDDEN WATER GENERATION RECIPE
+  {
+    type = "recipe",
+    name = "water-generation",
+    category = "water-condensing",
+    energy_required = 5,
+    ingredients = nil,
+    hidden = true,
+    results = {{type = "fluid", name = "water", amount = 10}},
+    main_product = "water",
+    allow_productivity = true,
     allow_quality = false,
   },
   --SAND EXTRACTION RECIPE
@@ -459,9 +473,6 @@ data:extend({
     }
   },
 
-
-
-
   --------------FLUID TREATMENT------------------------------------------------------------------------------------------------
   --CRUDE BLACK ACID TREATMENT [CHEMISTRY]
   {
@@ -518,7 +529,6 @@ data:extend({
       quaternary = {r = 0.200, g = 0.200, b = 0.200, a = 1.000}, -- #fff1c0ff
     }
   },
-
 
   --CHEMICAL_MUD_TREATMENT [CHEMISTRY] (CHEMICAL_MUD) -> (coal & polluted-water)  
   {

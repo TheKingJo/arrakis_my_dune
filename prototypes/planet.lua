@@ -222,46 +222,6 @@ data:extend({
     },
 
 
-    lightning_properties =
-    {
-      lightnings_per_chunk_per_tick = 1 / (60 * 10), --cca once per chunk every 10 seconds (600 ticks)
-      search_radius = 10.0,
-      lightning_types = {"condensation"},
-      priority_rules =
-      {
-     {
-        type = "prototype",
-        string = "arrakis-low-dunes2",
-        priority_bonus = 1000
-      },
-      {
-        type = "prototype",
-        string = "arrakis-low-sand2",
-        priority_bonus = 1000
-      },
-      {
-        type = "prototype",
-        string = "arrakis-high-dust",
-        priority_bonus = 1000
-      },
-      {
-        type = "prototype",
-        string = "arrakis-high-dunes",
-        priority_bonus = 1000
-      },
-      {
-        type = "prototype",
-        string = "arrakis-high-sand",
-        priority_bonus = 1000
-      },
-      {
-        type = "prototype",
-        string = "arrakis-high-rock",
-        priority_bonus = 1000
-      }
-      }
-    },
-
 
    
     asteroid_spawn_influence = 1,

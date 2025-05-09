@@ -63,14 +63,21 @@ local function resource(resource_parameters, autoplace_parameters)
 end
 
 
---data:extend({
---})
-  --[[{
+data:extend({
+  {
     type = "autoplace-control",
     name = "molten_copper_geyser",
     localised_name = {"", "[entity=molten-copper-geyser] ", {"entity-name.molten-copper-geyser"}},
     richness = true,
     order = "m-b",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "multi_ore",
+    localised_name = {"", "[entity=multi-ore] ", {"entity-name.multi-ore"}},
+    richness = true,
+    order = "m-a",
     category = "resource"
   },
 
