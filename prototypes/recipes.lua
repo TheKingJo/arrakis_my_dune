@@ -1,5 +1,5 @@
 data:extend({
-  --PLACEHOLDER
+  --[[ 
   {
     type = "recipe",
     name = "concrete-from-molten-iron-and-sand",
@@ -19,9 +19,9 @@ data:extend({
     allow_decomposition = false,
     auto_recycle = false,
     allow_productivity = true
-  },
+  },]]
   --PLACEHOLDER
-  {
+  --[[{
     type = "recipe",
     name = "petroleum-from-sand-sulfur-steam-carbon",
     category = "oil-processing",
@@ -45,7 +45,7 @@ data:extend({
     allow_decomposition = false,
     auto_recycle = false,
     allow_productivity = true
-  },
+  },]]
   --WATER CONDENSING AND SAND TREATMENT RECIPES CATEGORY
   {
     type = "recipe-category",
@@ -53,9 +53,20 @@ data:extend({
   },
   {
     type = "recipe-category",
-    name = "sand-treatment"
+    name = "water-purification"
   },
-
+  {
+    type = "recipe-category",
+    name = "basic-sand-treatment"
+  },
+  {
+    type = "recipe-category",
+    name = "advanced-sand-treatment"
+  },
+  {
+    type = "recipe-category",
+    name = "sand-collector"
+  },
   --WATER CONDENSING RECIPE
   {
     type = "recipe",
@@ -72,7 +83,7 @@ data:extend({
   {
     type = "recipe",
     name = "sand-extraction",
-    category = "water-condensing",
+    category = "sand-collector",
     energy_required = 10,
     ingredients = nil,
     results = {{type = "fluid", name = "sand", amount = 100}},
@@ -80,10 +91,11 @@ data:extend({
     allow_productivity = false,
     allow_quality = false,
   },
+  --SPICE EXTRACTION RECIPE (TEMPORARY)
   {
     type = "recipe",
     name = "spice-extraction",
-    category = "water-condensing",
+    category = "sand-collector",
     energy_required = 10,
     ingredients = nil,
     results = {{type = "fluid", name = "spiced-sand", amount = 100}},
@@ -91,11 +103,35 @@ data:extend({
     allow_productivity = false,
     allow_quality = false,
   },
+  --PETROLEUM-GAZ EXTRACTION RECIPE (TEMPORARY)
+  {
+    type = "recipe",
+    name = "petroleum-gas-extraction",
+    category = "water-condensing",
+    energy_required = 10,
+    ingredients = nil,
+    results = {{type = "fluid", name = "petroleum-gas", amount = 1000}},
+    main_product = "petroleum-gas",
+    allow_productivity = false,
+    allow_quality = false,
+  },
+  --BLACK-ACID EXTRACTION RECIPE (TEMPORARY)
+  {
+    type = "recipe",
+    name = "black-acid",
+    category = "water-condensing",
+    energy_required = 10,
+    ingredients = nil,
+    results = {{type = "fluid", name = "black-acid", amount = 1000}},
+    main_product = "petroleum-gas",
+    allow_productivity = false,
+    allow_quality = false,
+  },
   --------------------------------------------------------------SPICED RECIPES HERE---------------------------------------------------------------------------------
   {
     type = "recipe",
     name = "spice-washing",
-    category = "chemistry",
+    category = "basic-sand-treatment",
     icon = icons .. "recipes/washed-spiced-sand.png",
     energy_required = 10,
     enabled = true,
@@ -125,7 +161,7 @@ data:extend({
   {
     type = "recipe",
     name = "spice-treatment",
-    category = "chemistry",
+    category = "basic-sand-treatment",
     icon = icons .. "recipes/treated-spiced-sand.png",
     energy_required = 10,
     enabled = true,
@@ -155,7 +191,7 @@ data:extend({
   {
     type = "recipe",
     name = "spice-refinement",
-    category = "chemistry",
+    category = "advanced-sand-treatment",
     icon = icons .. "recipes/refined-spiced-sand.png",
     energy_required = 10,
     enabled = true,
@@ -185,7 +221,7 @@ data:extend({
   {
     type = "recipe",
     name = "spice-melange",
-    category = "chemistry",
+    category = "advanced-sand-treatment",
     icon = icons .. "recipes/spice-melange.png",
     energy_required = 10,
     enabled = true,
@@ -217,7 +253,7 @@ data:extend({
   {
     type = "recipe",
     name = "sand-washing",
-    category = "chemistry",
+    category = "basic-sand-treatment",
     energy_required = 10,
     enabled = true,
     auto_recycle = false,
@@ -247,7 +283,7 @@ data:extend({
   {
     type = "recipe",
     name = "sandTreatment",
-    category = "chemistry",
+    category = "basic-sand-treatment",
     energy_required = 0.5,
     enabled = true,
     auto_recycle = false,
@@ -257,10 +293,38 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "metallic-sand", amount = 1, probability = 0.6},
-      {type = "item", name = "mineral-sand", amount = 1, probability = 0.4}
+      {type = "item", name = "metallic-sand", amount = 1, probability = 0.5},
+      {type = "item", name = "mineral-sand", amount = 1, probability = 0.5}
     },
     main_product = "mineral-sand",
+    allow_productivity = true,
+    crafting_machine_tint =
+    {
+      primary = {r = 1.000, g = 0.886, b = 0.678, a = 1.000}, -- #ffe2adff
+      secondary = {r = 0.992, g = 0.733, b = 0.408, a = 1.000}, -- #fdbb68ff
+      tertiary = {r = 0.945, g = 0.804, b = 0.580, a = 1.000}, -- #f1cda3ff
+      quaternary = {r = 1.000, g = 0.945, b = 0.753, a = 1.000}, -- #fff1c0ff
+    }
+  },
+  --ADVANCED_SAND_TREATMENT [CHEMISTRY] (TREATED_SAND) -> (metallic-sand & mineral-sand)
+  {
+    type = "recipe",
+    name = "sandTreatment2",
+    category = "advanced-sand-treatment",
+    icon = icons .. "metallic-sandTreatment2.png",
+    energy_required = 10,
+    enabled = true,
+    auto_recycle = false,
+    ingredients =
+    {
+      {type = "item", name = "treated-sand", amount = 20}
+    },
+    results =
+    {
+      {type = "item", name = "metallic-sand", amount = 20},
+      {type = "item", name = "mineral-sand", amount = 20}
+    },
+    main_product = "metallic-sand",
     allow_productivity = true,
     crafting_machine_tint =
     {
@@ -276,7 +340,7 @@ data:extend({
   {
     type = "recipe",
     name = "metallic-sandTreatment1",
-    category = "chemistry",
+    category = "basic-sand-treatment",
     icon = icons .. "metallic-sandTreatment1.png",
     energy_required = 1,
     enabled = true,
@@ -306,7 +370,7 @@ data:extend({
   {
     type = "recipe",
     name = "metallic-sandTreatment2",
-    category = "sand-treatment",
+    category = "advanced-sand-treatment",
     icon = icons .. "metallic-sandTreatment2.png",
     energy_required = 10,
     enabled = true,
@@ -318,9 +382,9 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "iron-ore", amount = 8},
-      {type = "item", name = "copper-ore", amount = 8},
-      {type = "item", name = "tungsten-ore", amount = 4}
+      {type = "item", name = "iron-ore", amount = 10},
+      {type = "item", name = "copper-ore", amount = 10},
+      {type = "item", name = "tungsten-ore", amount = 1}
     },
     main_product = "iron-ore",
     allow_productivity = true,
@@ -338,7 +402,7 @@ data:extend({
   {
     type = "recipe",
     name = "mineral-sandTreatment1",
-    category = "chemistry",
+    category = "basic-sand-treatment",
     energy_required = 1,
     enabled = true,
     auto_recycle = false,
@@ -368,7 +432,7 @@ data:extend({
   {
     type = "recipe",
     name = "mineral-sandTreatment2",
-    category = "sand-treatment",
+    category = "advanced-sand-treatment",
     energy_required = 10,
     enabled = true,
     auto_recycle = false,
@@ -522,18 +586,18 @@ data:extend({
   --WATER_TREATMENT [OIL_PROCESSING] (SILICON_FILTER & POLLUTED_WATER) -> (water)  
   {
     type = "recipe",
-    name = "polluted-waterTreatment",
-    category = "oil-processing",
+    name = "water-purification",
+    category = "water-purification",
     enabled = true,
-    energy_required = 10,
+    energy_required = 20,
     ingredients =
     {
       {type = "item", name = "coal-filter", amount = 1},
-      {type = "fluid", name = "polluted-water", amount = 100, ignored_by_stats = 25}
+      {type = "fluid", name = "polluted-water", amount = 1000, ignored_by_stats = 25}
     },
     results =
     {
-      {type = "fluid", name = "water", amount = 100, ignored_by_stats = 25, ignored_by_productivity = 25},
+      {type = "fluid", name = "water", amount = 1000, ignored_by_stats = 25, ignored_by_productivity = 25},
       {type = "item", name = "basic-filter", amount = 1}
     },
     allow_productivity = true,
@@ -546,7 +610,46 @@ data:extend({
 
 
   -------------------------------------------------------------------------------------------------------------------
-  --SILICON_PASTE [CRAFTING] (SILICA & CARBON) -> (silicon-paste) 
+  --MOLTEN SILICA [SMELTING] -- Silica -> [Smeling] -> Molten-silica
+
+  {
+    type = "recipe",
+    name = "molten-silica",
+    category = "smelting",
+    enabled = true,
+    energy_required = 5,
+    ingredients = 
+    {
+      {type = "item", name = "silica", amount = 1}
+      
+    },
+    results = 
+    {
+      {type="item", name="molten-silica", amount=1}
+    },
+    main_product = "molten-silica",
+    allow_productivity = true
+  },
+  --SILICA FIBER [CRAFTING] Molten-silica + Plastic bar -> [crafting] -> Silica fiber
+  {
+    type = "recipe",
+    name = "silica-fiber",
+    category = "crafting",
+    enabled = true,
+    energy_required = 1,
+    ingredients = 
+    {
+      {type = "item", name = "molten-silica", amount = 1},
+      {type = "item", name = "plastic-bar", amount = 1}
+    },
+    results = 
+    {
+      {type="item", name="silica-fiber", amount=1}
+    },
+    main_product = "silica-fiber",
+    allow_productivity = true
+  },
+  --SILICON PASTE [CRAFTING] Molten-silica + Carbon -> [crafting] -> Silicon Paste
   {
     type = "recipe",
     name = "silicon-paste",
@@ -554,7 +657,7 @@ data:extend({
     energy_required = 5,
     ingredients = 
     {
-      {type = "item", name = "silica", amount = 1},
+      {type = "item", name = "molten-silica", amount = 1},
       {type = "item", name = "carbon", amount = 1}
     },
     results = 
@@ -564,6 +667,24 @@ data:extend({
     main_product = "silicon-paste",
     allow_productivity = true,
     surface_conditions = arrakis_exlusive,
+  },
+  --SILICON [SMELTING] Silicon Paste -> [SMELTING] -> Silicon Plate
+  {
+    type = "recipe",
+    name = "silicon",
+    category = "smelting",
+    enabled = true,
+    energy_required = 5,
+    ingredients = 
+    {
+      {type = "item", name = "silicon-paste", amount = 1}
+    },
+    results = 
+    {
+      {type="item", name="silicon", amount=1}
+    },
+    main_product = "silicon",
+    allow_productivity = true
   },
   --HOLMIUM_PASTE [CRAFTING] (CARBON FIBER & BLACK ACID & HOLMIUM SOLUTION) -> (holmium-paste) 
   {
@@ -585,6 +706,7 @@ data:extend({
     main_product = "holmium-paste",
     allow_productivity = true
   },
+  --CARBON FIBER 2 [CRAFTING] Silica Fiber + Carbon -> [CRAFTING] -> Carbon Fiber
   {
     type = "recipe",
     name = "carbon-fiber2",
@@ -593,33 +715,13 @@ data:extend({
     ingredients = 
     {
       {type = "item", name = "carbon", amount = 1},
-      {type = "item", name = "silica-fiber", amount = 5},
+      {type = "item", name = "silica-fiber", amount = 1},
     },
     results = 
     {
-      {type="item", name="carbon-fiber", amount=2}
+      {type="item", name="carbon-fiber", amount=1}
     },
     main_product = "carbon-fiber",
-    allow_productivity = true
-  },
-
-
-  --SILICON [SMELTING] (SILICON_PASTE) -> (silicon) 
-  {
-    type = "recipe",
-    name = "silicon",
-    category = "smelting",
-    enabled = true,
-    energy_required = 5,
-    ingredients = 
-    {
-      {type = "item", name = "silicon-paste", amount = 1}
-    },
-    results = 
-    {
-      {type="item", name="silicon", amount=1}
-    },
-    main_product = "silicon",
     allow_productivity = true
   },
   --REFINED HOLMIUM PLATE [SMELTING] (Holmium Paste) -> (Refined Holmium Plate)
@@ -639,24 +741,6 @@ data:extend({
       {type="item", name="refined-holmium-plate", amount=1}
     },
     main_product = "refined-holmium-plate",
-    allow_productivity = true
-  },
-  {
-    type = "recipe",
-    name = "silica-fiber",
-    category = "smelting",
-    enabled = true,
-    energy_required = 5,
-    ingredients = 
-    {
-      {type = "item", name = "silica", amount = 2}
-      
-    },
-    results = 
-    {
-      {type="item", name="silica-fiber", amount=1}
-    },
-    main_product = "silica-fiber",
     allow_productivity = true
   },
 
@@ -764,7 +848,7 @@ data:extend({
   {
     type = "recipe",
     name = "chom-science-pack1",
-    category = "sand-treatment",
+    category = "basic-sand-treatment",
     icon = icons .. "recipes/chom-science-pack1.png",
     energy_required = 10,
     enabled = true,
@@ -772,7 +856,7 @@ data:extend({
     ingredients =
     {
       {type = "fluid", name = "spiced-sand", amount = 20},
-      {type = "fluid", name = "water", amount = 20},
+      {type = "fluid", name = "water", amount = 200},
       {type = "item", name = "silicon", amount = 2}
     },
     results =
@@ -786,14 +870,14 @@ data:extend({
     type = "recipe",
     name = "chom-science-pack2",
     icon = icons .. "recipes/chom-science-pack2.png",
-    category = "sand-treatment",
+    category = "basic-sand-treatment",
     energy_required = 10,
     enabled = true,
     auto_recycle = false,
     ingredients =
     {
       {type = "fluid", name = "washed-spiced-sand", amount = 50},
-      {type = "fluid", name = "water", amount = 50},
+      {type = "fluid", name = "water", amount = 500},
       {type = "item", name = "silicon", amount = 5}
     },
     results =
@@ -806,7 +890,7 @@ data:extend({
   {
     type = "recipe",
     name = "chom-science-pack3",
-    category = "sand-treatment",
+    category = "advanced-sand-treatment",
     icon = icons .. "recipes/chom-science-pack3.png",
     energy_required = 10,
     enabled = true,
@@ -814,7 +898,7 @@ data:extend({
     ingredients =
     {
       {type = "fluid", name = "treated-spiced-sand", amount = 120},
-      {type = "fluid", name = "water", amount = 120},
+      {type = "fluid", name = "water", amount = 1200},
       {type = "item", name = "silicon", amount = 12}
     },
     results =
@@ -827,7 +911,7 @@ data:extend({
   {
     type = "recipe",
     name = "chom-science-pack4",
-    category = "sand-treatment",
+    category = "advanced-sand-treatment",
     icon = icons .. "recipes/chom-science-pack4.png",
     energy_required = 10,
     enabled = true,
@@ -835,7 +919,7 @@ data:extend({
     ingredients =
     {
       {type = "fluid", name = "refined-spiced-sand", amount = 200},
-      {type = "fluid", name = "water", amount = 200},
+      {type = "fluid", name = "water", amount = 2000},
       {type = "item", name = "silicon", amount = 20}
     },
     results =
@@ -848,7 +932,7 @@ data:extend({
   {
     type = "recipe",
     name = "chom-science-pack5",
-    category = "sand-treatment",
+    category = "advanced-sand-treatment",
     icon = icons .. "recipes/chom-science-pack5.png",
     energy_required = 10,
     enabled = true,
@@ -856,7 +940,7 @@ data:extend({
     ingredients =
     {
       {type = "fluid", name = "spice-melange", amount = 300},
-      {type = "fluid", name = "water", amount = 300},
+      {type = "fluid", name = "water", amount = 3000},
       {type = "item", name = "silicon", amount = 30}
     },
     results =
@@ -875,8 +959,9 @@ data:extend({
     category = "basic-crafting",
     energy_required = 2,   
     ingredients = {
-      { type = "item", name = "iron-gear-wheel", amount = 5 },
-      { type = "item", name = "electronic-circuit", amount = 3 },
+      { type = "item", name = "plastic-bar", amount = 10 },
+      { type = "item", name = "stone-brick", amount = 4 },
+      { type = "item", name = "iron-stick", amount = 4 },
       { type = "item", name = "steel-plate", amount = 2 },
     },
     results = {
@@ -888,7 +973,7 @@ data:extend({
   {
     type = "recipe",
     name = "sand-refinery",
-    category = "metallurgy-or-assembling",
+    category = "metallurgy",
     energy_required = 10,   
     ingredients = {
       { type = "item", name = "concrete", amount = 20 },
@@ -904,8 +989,59 @@ data:extend({
     allow_productivity = false,
     allow_quality = false,
   },
-
-
-
-
+  {
+    type = "recipe",
+    name = "sand-collector",
+    category = "basic-crafting",
+    energy_required = 10,   
+    ingredients = {
+      { type = "item", name = "iron-plate", amount = 5 },
+      { type = "item", name = "stone-brick", amount = 10 },
+      { type = "item", name = "iron-gear-wheel", amount = 5 },
+      { type = "item", name = "pipe", amount = 5 },
+      { type = "item", name = "steel-plate", amount = 2 },
+    },
+    results = {
+      { type = "item", name = "sand-collector", amount = 1 },
+    },
+    main_product = "sand-collector",
+    allow_productivity = false,
+    allow_quality = false,
+  },
+  {
+    type = "recipe",
+    name = "basic-sand-refinery",
+    category = "basic-crafting",
+    energy_required = 10,   
+    ingredients = {
+      { type = "item", name = "electronic-circuit", amount = 10 },
+      { type = "item", name = "stone-brick", amount = 10 },
+      { type = "item", name = "engine-unit", amount = 4 },
+      { type = "item", name = "basic-filter", amount = 2 },
+    },
+    results = {
+      { type = "item", name = "basic-sand-refinery", amount = 1 },
+    },
+    main_product = "basic-sand-refinery",
+    allow_productivity = false,
+    allow_quality = false,
+  },
+  
+  {
+    type = "recipe",
+    name = "water-purification-facility",
+    category = "basic-crafting",
+    energy_required = 2,   
+    ingredients = {
+      { type = "item", name = "storage-tank", amount = 2 },
+      { type = "item", name = "iron-gear-wheel", amount = 4 },
+      { type = "item", name = "pipe", amount = 10 },
+      { type = "item", name = "basic-filter", amount = 2 },
+    },
+    results = {
+      { type = "item", name = "water-purification-facility", amount = 1 },
+    },
+    allow_productivity = false,
+    allow_quality = false,
+  },
 })

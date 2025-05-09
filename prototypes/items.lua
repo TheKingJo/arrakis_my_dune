@@ -12,6 +12,7 @@ data:extend({
     icon = "__arrakis_my_dune__/graphics/itemgroup/arrakis-tech-arrakis.png",
     icon_size = 128,
   },
+  --- subgroups
   {
     type = "item-subgroup",
     name = "arrakis-water-production",
@@ -39,7 +40,7 @@ data:extend({
     stack_size = 20,
   },
 -- Item declaration for Tier 1 Sand Rafinery Machine 
---- subgroups
+
   {
     type = "item",
     name = "sand-refinery",
@@ -50,13 +51,47 @@ data:extend({
     pick_sound = item_sounds.mechanical_large_inventory_pickup,
     drop_sound = item_sounds.mechanical_large_inventory_move,
     place_result = "sand-refinery",
+    stack_size = 10,
+  },
+-- Item declaration for Tier 1 Sand Collector Machine 
+{
+    type = "item",
+    name = "sand-collector",
+    icon = icons .. "sand-collector.png",
+    subgroup = "arrakis-water-production",
+    order = "b",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "sand-collector",
     stack_size = 20,
   },
-
-
-
-
-
+-- Item declaration for Tier 1 Basic Sand Refinery Machine
+{
+    type = "item",
+    name = "basic-sand-refinery",
+    icon = icons .. "basic-sand-refinery.png",
+    subgroup = "arrakis-water-production",
+    order = "b",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "basic-sand-refinery",
+    stack_size = 50,
+  },
+  -- Item declaration for Tier 1 Water Purification Facility
+{
+    type = "item",
+    name = "water-purification-facility",
+    icon = icons .. "water-purification-facility.png",
+    subgroup = "arrakis-water-production",
+    order = "b",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "water-purification-facility",
+    stack_size = 10,
+  },
 --- Item declaration for Sand Item
   {
     type = "item",
@@ -94,6 +129,22 @@ data:extend({
     pictures =
     {
       { size = 64, filename = icons .. "silica.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 1*kg,
+  },
+  {
+    type = "item",
+    name = "molten-silica",
+    icon = icons .. "silica.png",
+    subgroup = "arrakis-processes",
+    order = "aab",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = icons .. "molten-silica.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",

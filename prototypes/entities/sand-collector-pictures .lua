@@ -1,4 +1,4 @@
-local sand_refiner_animation_speed = 0.32
+local sand_refiner_animation_speed = 0.16
 local frames = 128
 
 local function sand_refiner_main_pictures()
@@ -57,7 +57,7 @@ local function sand_refiner_working_pictures()
   {
     fadeout = true,
     animation =
-    util.sprite_load("__space-age__/graphics/entity/sand_refiner/sand_refiner-working",
+    util.sprite_load("__space-age__/graphics/entity/sand-refiner/sand-refiner-working",
       {
         animation_speed = sand_refiner_animation_speed,
         frame_count = frames,
@@ -90,7 +90,7 @@ local function sand_refiner_status_lamp_pictures()
   return
   {
     animation =
-    util.sprite_load("__space-age__/graphics/entity/sand_refiner/sand_refiner-status-lamp",
+    util.sprite_load("__space-age__/graphics/entity/sand-refiner/sand-refiner-status-lamp",
       {
         draw_as_glow = true,
         repeat_count = frames,
@@ -161,13 +161,13 @@ return {
       --sand_refiner_status_lamp_pictures(),
       sand_refiner_chimney_smoke()
     },
-    frozen_patch = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-frozen", {scale = 0.5}),
+    frozen_patch = util.sprite_load("__space-age__/graphics/entity/sand-refiner/sand-refiner-frozen", {scale = 0.5}),
     reset_animation_when_frozen = true
   },
   pipe_picture_frozen = {
-    north = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-pipe-connections-north-frozen", { scale = 0.5, shift = {-1, 3} }),
-    east = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-pipe-connections-east-frozen", { scale = 0.5, shift = {-3, -1} }),
-    south = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-pipe-connections-south-frozen", { scale = 0.5, shift = {1, -3} }),
-    west = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-pipe-connections-west-frozen", { scale = 0.5, shift = {3, 1} })
+    north = util.sprite_load("__space-age__/graphics/entity/sand_refiner/sand_refiner-pipe-connections-north-frozen", { scale = 0.5, shift = {-1, 3} }),
+    east = util.sprite_load("__space-age__/graphics/entity/sand_refiner/sand_refiner-pipe-connections-east-frozen", { scale = 0.5, shift = {-3, -1} }),
+    south = util.sprite_load("__space-age__/graphics/entity/sand_refiner/sand_refiner-pipe-connections-south-frozen", { scale = 0.5, shift = {1, -3} }),
+    west = util.sprite_load("__space-age__/graphics/entity/sand_refiner/sand_refiner-pipe-connections-west-frozen", { scale = 0.5, shift = {3, 1} })
   }
 }

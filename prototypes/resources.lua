@@ -63,8 +63,8 @@ local function resource(resource_parameters, autoplace_parameters)
 end
 
 
-data:extend({
-
+--data:extend({
+--})
   --[[{
     type = "autoplace-control",
     name = "molten_copper_geyser",
@@ -72,7 +72,7 @@ data:extend({
     richness = true,
     order = "m-b",
     category = "resource"
-  },]]--
+  },
 
   {
     type = "autoplace-control",
@@ -165,7 +165,7 @@ data:extend({
     stateless_visualisation = nil;
     map_color = {252, 255, 39},
     map_grid = false
-  },
+  --[[},
   {
     type = "resource",
     name = "multi-ore",
@@ -178,7 +178,7 @@ data:extend({
     highlight = false,
     tree_removal_probability = 0.8,
     tree_removal_max_distance = 32 * 32,
-
+    
 
     minable =
     {
@@ -197,7 +197,7 @@ data:extend({
           name = "neodymium",
           amount = 1020,
           probability = 0.003 /100,
-        },]]--
+        },
         {
           type = "item",
           name = "sulfur",
@@ -209,7 +209,7 @@ data:extend({
           name = "carbon",
           amount = 1,
           probability = 2 /100,
-        },]]
+        },
         {
           type = "item",
           name = "coal",
@@ -221,7 +221,7 @@ data:extend({
           name = "iron-ore",
           amount = 1,
           probability = 5 /100,
-        },]]
+        },
         {
           type = "item",
           name = "copper-ore",
@@ -239,7 +239,7 @@ data:extend({
           name = "calcite",
           amount = 1,
           probability = 4 /100,
-        },]]
+        },
       }
     },
     category = "basic-solid",
@@ -426,7 +426,7 @@ data:extend({
     map_color = {r = 250, g = 126, b = 58, a = 255},
     map_grid = false
   },
-]]--
+
 
   {
     type = "resource",
@@ -534,7 +534,7 @@ data:extend({
     },
     map_color = {r = 189/256, g = 189/256, b = 189/256, a = 1.000},
     map_grid = false
-  },
+  }
 })
 
 -- compatibility
@@ -542,3 +542,4 @@ if mods["vtk-deep-core-mining"] then
   data.raw["resource"]["multi-ore"].minable.results[2].amount = 512
   data.raw["resource"]["multi-ore"].minable.results[2].probability = 0.006 /100
 end
+]]--

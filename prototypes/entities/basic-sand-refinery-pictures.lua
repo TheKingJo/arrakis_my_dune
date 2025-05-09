@@ -1,65 +1,65 @@
-local sand_refiner_animation_speed = 0.32
+local basic_sand_refinery_animation_speed = 0.16
 local frames = 128
 
-local function sand_refiner_main_pictures()
+local function basic_sand_refinery_main_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-main",
   {
-    animation_speed = sand_refiner_animation_speed,
+    animation_speed = basic_sand_refinery_animation_speed,
     frame_count = frames,
-    scale = 0.588
+    scale = 0.252
   })
 end
 
-local function sand_refiner_main_shadow_pictures()
+local function basic_sand_refinery_main_shadow_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-shadow",
   {
-    animation_speed = sand_refiner_animation_speed,
+    animation_speed = basic_sand_refinery_animation_speed,
     frame_count = frames,
     draw_as_shadow = true,
-    scale = 0.543
+    scale = 0.232
   })
 end
 
-local function sand_refiner_pipe_north_pictures()
+local function basic_sand_refinery_pipe_north_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-north",
   {
     repeat_count = frames,
-    scale = 0.5
+    scale = 0.214
   })
 end
 
-local function sand_refiner_pipe_east_pictures()
+local function basic_sand_refinery_pipe_east_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-east",
   {
     repeat_count = frames,
-    scale = 0.525
+    scale = 0.225
   })
 end
 
-local function sand_refiner_pipe_south_pictures()
+local function basic_sand_refinery_pipe_south_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-south",
   {
     repeat_count = frames,
-    scale = 0.51
+    scale = 0.218
   })
 end
 
-local function sand_refiner_pipe_west_pictures()
+local function basic_sand_refinery_pipe_west_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-west",
   {
     repeat_count = frames,
-    scale = 0.525
+    scale = 0.225
   })
 end
 
-local function sand_refiner_working_pictures()
+local function basic_sand_refinery_working_pictures()
   return
   {
     fadeout = true,
     animation =
-    util.sprite_load("__space-age__/graphics/entity/sand_refiner/sand_refiner-working",
+    util.sprite_load("__space-age__/graphics/entity/basic_sand_refinery/basic_sand_refinery-working",
       {
-        animation_speed = sand_refiner_animation_speed,
+        animation_speed = basic_sand_refinery_animation_speed,
         frame_count = frames,
         scale = 0.5
       }
@@ -67,7 +67,7 @@ local function sand_refiner_working_pictures()
   }
 end
 
-local function sand_refiner_lights_pictures()
+local function basic_sand_refinery_lights_pictures()
   return
   {
     effect = "flicker",
@@ -77,7 +77,7 @@ local function sand_refiner_lights_pictures()
       {
         draw_as_light = true,
         draw_as_glow = true,
-        animation_speed = sand_refiner_animation_speed,
+        animation_speed = basic_sand_refinery_animation_speed,
         frame_count = frames,
         blend_mode = "additive",
         scale = 0.588
@@ -86,11 +86,11 @@ local function sand_refiner_lights_pictures()
   }
 end
 
-local function sand_refiner_status_lamp_pictures()
+local function basic_sand_refinery_status_lamp_pictures()
   return
   {
     animation =
-    util.sprite_load("__space-age__/graphics/entity/sand_refiner/sand_refiner-status-lamp",
+    util.sprite_load("__space-age__/graphics/entity/basic_sand_refinery/basic_sand_refinery-status-lamp",
       {
         draw_as_glow = true,
         repeat_count = frames,
@@ -101,7 +101,7 @@ local function sand_refiner_status_lamp_pictures()
   }
 end
 
-local function sand_refiner_chimney_smoke()
+local function basic_sand_refinery_chimney_smoke()
   return
   {
     fadeout = true,
@@ -129,8 +129,8 @@ return {
     {
       layers =
       {
-        sand_refiner_main_pictures(),
-        sand_refiner_main_shadow_pictures()
+        basic_sand_refinery_main_pictures(),
+        basic_sand_refinery_main_shadow_pictures()
       }
     },
     working_visualisations =
@@ -139,27 +139,27 @@ return {
         always_draw = true,
         name = "output-pipe",
         enabled_by_name = true,
-        north_animation = sand_refiner_pipe_north_pictures(),
+        north_animation = basic_sand_refinery_pipe_north_pictures(),
         north_secondary_draw_order = -10, -- behind main animation
-        east_animation = sand_refiner_pipe_east_pictures(),
-        south_animation = sand_refiner_pipe_south_pictures(),
-        west_animation = sand_refiner_pipe_west_pictures()
+        east_animation = basic_sand_refinery_pipe_east_pictures(),
+        south_animation = basic_sand_refinery_pipe_south_pictures(),
+        west_animation = basic_sand_refinery_pipe_west_pictures()
       },
       {
         always_draw = true,
         name = "input-pipe",
         enabled_by_name = true,
-        north_animation = sand_refiner_pipe_south_pictures(),
-        east_animation = sand_refiner_pipe_west_pictures(),
-        south_animation = sand_refiner_pipe_north_pictures(),
+        north_animation = basic_sand_refinery_pipe_south_pictures(),
+        east_animation = basic_sand_refinery_pipe_west_pictures(),
+        south_animation = basic_sand_refinery_pipe_north_pictures(),
         south_secondary_draw_order = -10, -- behind main animation
-        west_animation = sand_refiner_pipe_east_pictures()
+        west_animation = basic_sand_refinery_pipe_east_pictures()
       },
 
-      --sand_refiner_working_pictures(),
-      sand_refiner_lights_pictures(),
-      --sand_refiner_status_lamp_pictures(),
-      sand_refiner_chimney_smoke()
+      --basic_sand_refinery_working_pictures(),
+      --basic_sand_refinery_lights_pictures(),
+      --basic_sand_refinery_status_lamp_pictures(),
+      --basic_sand_refinery_chimney_smoke()
     },
     frozen_patch = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-frozen", {scale = 0.5}),
     reset_animation_when_frozen = true
