@@ -1,4 +1,4 @@
-local sand_refiner_animation_speed = 0.32
+local sand_refiner_animation_speed = 0.24
 local frames = 128
 
 local function sand_refiner_main_pictures()

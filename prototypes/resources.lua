@@ -172,6 +172,8 @@ data:extend({
     stateless_visualisation = nil;
     map_color = {252, 255, 39},
     map_grid = false
+  }
+})
   --[[},
   {
     type = "resource",
