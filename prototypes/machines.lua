@@ -201,7 +201,7 @@ data:extend({
   {
     type = "electric",
     usage_priority = "secondary-input",
-    emissions_per_minute = { humidity = HUMIDITY_GENERATION_WATER_CONDENSER }
+    emissions_per_minute = { humidity = HUMIDITY_WATER_CONDENSER }
   },
   energy_usage = "210kW",
   crafting_categories = {"water-condensing"},
