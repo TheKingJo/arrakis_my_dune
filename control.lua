@@ -1,3 +1,4 @@
 require("scripts.init")
-require("scripts.loop")
-require("scripts.script-trigger-effects")
+require("scripts.humidity-generation")
+require("scripts.script-trigger-worm-targeting")
+require("scripts.deny-ice-from-orbit")

@@ -11,6 +11,8 @@ local tile_sounds = require("__space-age__/prototypes/tile/tile-sounds")
 local tile_graphics = require("__base__/prototypes/tile/tile-graphics")
 local tile_spritesheet_layout = tile_graphics.tile_spritesheet_layout
 
+local config = require("__arrakis_my_dune__.prototypes.-config")
+
 
 
 data:extend({
@@ -221,7 +223,7 @@ data:extend({
       ["temperature-celcius"] = 77,
     },
 
-
+    lightning_properties = config.lightning_properties,
 
    
     asteroid_spawn_influence = 1,

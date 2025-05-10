@@ -5,14 +5,35 @@ icons = "__arrakis_my_dune__/graphics/icons/"
 arrakis_exlusive = {{ property = "temperature-celcius", min = 77, max = 77}},
 
 
--- The music Prototype is commented out because the files are missing
+
+--Planet and Environment Prototypes
 require "prototypes.terrain"
 require "prototypes.decoratives"
 require "prototypes.resources"
-require "prototypes.pollution"
+require "prototypes.chunk-humidity"
 require "prototypes.planet"
---require "prototypes.music"
+--require "prototypes.music"    -- The music Prototype is commented out because the files are missing
+
+
+--Worm Targeting Solution (Lightning)
+
+
+
+--Technology/Recipe/Item Prototypes
 require "prototypes.technology"
-require "prototypes.machines"
 require "prototypes.items"
 require "prototypes.recipes"
+
+
+--Enemy Prototypes
+require "prototypes.sandworms.worm-targeting"
+require "prototypes.sandworms.attack"
+require "prototypes.sandworms.dummy-item"
+
+--Machine Prototypes
+require "prototypes.machines.dew-collector"
+require "prototypes.machines.water-condenser"
+require "prototypes.machines.sand-refinery"
+require "prototypes.machines.basic-sand-refinery"
+require "prototypes.machines.sand-collector"
+require "prototypes.machines.water-purification-facility"
