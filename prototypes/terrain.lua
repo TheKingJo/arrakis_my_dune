@@ -40,8 +40,6 @@ local lava_stone_transitions =
     lightmap_layout = { spritesheet = "__space-age__/graphics/terrain/water-transitions/lava-stone-lightmap.png" },
      -- this added the lightmap spritesheet
     layout = tile_spritesheet_layout.transition_16_16_16_4_4,
-    lightmap_layout = { spritesheet = "__space-age__/graphics/terrain/water-transitions/lava-stone-lightmap.png" },
-     -- this added the lightmap spritesheet
     effect_map_layout =
     {
       spritesheet = "__arrakis_my_dune__/graphics/terrain/lava-dirt-mask.png",
