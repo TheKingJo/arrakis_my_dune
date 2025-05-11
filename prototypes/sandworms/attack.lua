@@ -1,11 +1,13 @@
-local WORM_SCALE = 2
-local WORM_SHADOW_SCALE = WORM_SCALE * 0.85
-local WORM_SHADOW_OFFSET = 7
+local WORM_SCALE = 2 --WORM SCALE SIZE
+local WORM_SHADOW_SCALE = WORM_SCALE * 0.85 --WORM SHADOW SCALE SIZE, ~0.85 feels good
+local WORM_SHADOW_OFFSET = 7 --SHADOW OFFSET TO WORM POSITION, shadow normally is 7 tiles too far left
 
 
-data:extend({{
 
+data:extend({
     
+    {
+    --Explosion animation on Worm appearance
     type = "explosion",
     name = "worm-spawn-animation",
     flags = {"not-on-map"},
@@ -16,7 +18,7 @@ data:extend({{
             frame_count = 134,
             animation_speed = 0.5,
             scale = WORM_SCALE,
-            shift = {0, 0},
+            shift = {0, -4},
             stripes = {{
                 filename = "__arrakis_my_dune__/graphics/sandworms/attack/Spritesheet1.png",
                 width_in_frames = 6,
@@ -45,7 +47,7 @@ data:extend({{
             frame_count = 134,
             animation_speed = 0.5,
             scale = WORM_SHADOW_SCALE,
-            shift = {WORM_SHADOW_OFFSET, 0},
+            shift = {WORM_SHADOW_OFFSET, -4},
             stripes = {{
                 filename = "__arrakis_my_dune__/graphics/sandworms/attack/ShadowSpritesheet1.png",
                 width_in_frames = 5,

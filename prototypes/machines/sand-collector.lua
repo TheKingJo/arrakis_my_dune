@@ -34,7 +34,7 @@ data:extend({
     {
       type = "electric",
       usage_priority = "secondary-input",
-      emissions_per_minute = { pollution = 6 }
+      emissions_per_minute = { humidity = config.HUMIDITY_SAND_COLLECTOR }
     },
     energy_usage = "217kW",
     perceived_performance = {minimum = 0.25, maximum = 10},
