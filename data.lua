@@ -2,7 +2,7 @@ mod = "__arrakis_my_dune__"
 icons = "__arrakis_my_dune__/graphics/icons/"
 
 -- add this to recipe/entity surface_conditions
-arrakis_exlusive = {{ property = "temperature-celcius", min = 77, max = 77}},
+--arrakis_exlusive = {{ property = "temperature-celcius", min = 77, max = 77}},
 
 
 
@@ -15,10 +15,6 @@ require "prototypes.planet"
 --require "prototypes.music"    -- The music Prototype is commented out because the files are missing
 
 
---Worm Targeting Solution (Lightning)
-
-
-
 --Technology/Recipe/Item Prototypes
 require "prototypes.technology"
 require "prototypes.items"
@@ -28,7 +24,7 @@ require "prototypes.recipes"
 --Enemy Prototypes
 require "prototypes.sandworms.worm-targeting"
 require "prototypes.sandworms.attack"
-require "prototypes.sandworms.dummy-item"
+
 
 --Machine Prototypes
 require "prototypes.machines.dew-collector"

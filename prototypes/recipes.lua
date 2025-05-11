@@ -676,7 +676,7 @@ data:extend({
     },
     main_product = "silicon-paste",
     allow_productivity = true,
-    surface_conditions = arrakis_exlusive,
+    surface_conditions = {{ property = "temperature-celcius", min = 77, max = 77}},
   },
   --SILICON [SMELTING] Silicon Paste -> [SMELTING] -> Silicon Plate
   {

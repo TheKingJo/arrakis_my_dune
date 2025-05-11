@@ -1,7 +1,3 @@
-
-
-
-
 local config = require("__arrakis_my_dune__.prototypes.-config")
 
 

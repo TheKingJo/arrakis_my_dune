@@ -6,9 +6,7 @@ local tile_sounds = require("__space-age__/prototypes/tile/tile-sounds")
 local tile_graphics = require("__base__/prototypes/tile/tile-graphics")
 local tile_spritesheet_layout = tile_graphics.tile_spritesheet_layout
 
-
--- Magic Absorption Numbers for the arrakis tiles
---local MAGIC_
+local config = require("__arrakis_my_dune__.prototypes.-config")
 
 
 
@@ -126,7 +124,7 @@ data:extend({
     layer = 6,
     map_color = {155, 127, 98},
     vehicle_friction_modifier = 4,
-    absorptions_per_second = tile_pollution.fulgora,
+    absorptions_per_second = config.ABSORPTION_ARRAKIS_HIGH_DUST,
     sprite_usage_surface = "fulgora",
     variants =
     {
@@ -161,7 +159,7 @@ data:extend({
     layer = 7,
     map_color={141, 125, 91},
     vehicle_friction_modifier = 4,
-    absorptions_per_second = tile_pollution.fulgora,
+    absorptions_per_second = config.ABSORPTION_ARRAKIS_HIGH_DUNES,
     sprite_usage_surface = "fulgora",
     variants =
     {
@@ -197,7 +195,7 @@ data:extend({
     layer = 8,
     map_color={169, 131, 86},
     vehicle_friction_modifier = 4,
-    absorptions_per_second = tile_pollution.fulgora,
+    absorptions_per_second = config.ABSORPTION_ARRAKIS_HIGH_SAND,
     sprite_usage_surface = "fulgora",
     variants =
     {
@@ -233,7 +231,7 @@ data:extend({
     layer = 9,
     map_color={171, 121, 69},
     vehicle_friction_modifier = 4,
-    absorptions_per_second = tile_pollution.fulgora,
+    absorptions_per_second = config.ABSORPTION_ARRAKIS_HIGH_ROCK,
     sprite_usage_surface = "fulgora",
     variants =
     {
@@ -270,7 +268,7 @@ data:extend({
     layer = 7,
     map_color={141, 125, 91},
     vehicle_friction_modifier = 4,
-    absorptions_per_second = tile_pollution.fulgora,
+    absorptions_per_second = config.ABSORPTION_ARRAKIS_LOW_DUNES2,
     sprite_usage_surface = "fulgora",
     variants =
     {
@@ -305,7 +303,7 @@ data:extend({
     layer = 8,
     map_color={169, 131, 86},
     vehicle_friction_modifier = 4,
-    absorptions_per_second = tile_pollution.fulgora,
+    absorptions_per_second = config.ABSORPTION_ARRAKIS_LOW_SAND2,
     sprite_usage_surface = "fulgora",
     variants =
     {
