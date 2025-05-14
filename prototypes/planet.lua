@@ -86,6 +86,7 @@ data:extend({
     expression = "max(arrakis_starting_steam_geyser * 480000,\z
                       arrakis_steam_geyser_spots * 7200000) * control:steam_geyser:richness"
   },
+  
 
   {
     type = "autoplace-control",
@@ -94,6 +95,50 @@ data:extend({
     category = "terrain",
     can_be_disabled = false
   },
+  ------------------------------------------------------------------------------------------------------------------------------
+  --WORM TERRITORY SETTINGS, COMMENTED OUT BECAUSE NOT FLESHED OUT
+  --[[
+  {
+  type = "noise-expression",
+  name = "worm_territory_radius",
+  expression = 384
+  },
+  {
+  type = "noise-expression",
+  name = "worm_territory_expression",
+  expression = "voronoi_cell_id{x = x + 1000 * worm_territory_radius,\z
+                                y = y + 1000 * worm_territory_radius,\z
+                                seed0 = map_seed,\z
+                                seed1 = 0,\z
+                                grid_size = worm_territory_radius,\z
+                                distance_type = 'manhattan',\z
+                                jitter = 1} - worm_starting_area"
+  },
+  {
+  type = "noise-expression",
+  name = "worm_starting_area",
+  expression = "0 < starting_spot_at_angle{angle = vulcanus_mountains_angle - 5 * vulcanus_starting_direction,\z
+                                                distance = 100 * vulcanus_starting_area_radius + 32,\z
+                                                radius = 7 * 32,\z
+                                                x_distortion = 0,\z
+                                                y_distortion = 0}"
+  },
+  { 
+  type = "noise-expression",
+  name = "worm_variation_expression",
+  expression = "floor(clamp(distance / (18 * 32) - 0.25, 0, 4)) + (-99 * no_enemies_mode)" -- negative number means no worm
+  },
+  {
+  type = "noise-expression",
+  name = "worm_territory_expression",
+  expression = "voronoi_cell_id{x = x + 1000 * worm_territory_radius,\z
+                                y = y + 1000 * worm_territory_radius,\z
+                                seed0 = map_seed,\z
+                                seed1 = 0,\z
+                                grid_size = worm_territory_radius,\z
+                                distance_type = 'manhattan',\z
+                                jitter = 1} - worm_starting_area"
+  }, ]]
 }) 
 
 planet_map_gen.arrakis = function()
@@ -124,6 +169,16 @@ planet_map_gen.arrakis = function()
       cliff_smoothing = 0, -- This is critical for correct cliff placement on the coast.
       richness = 1
     },
+    ----WORM TERRITORY SETTINGS, ARE COMMENTED OUT BECAUSE IM STILL TESTING
+    --[[
+    territory_settings =
+    {
+      units = {""},
+      territory_index_expression = "worm_territory_expression",
+      territory_variation_expression = "worm_variation_expression",
+      minimum_territory_size = 10
+    },]]
+    ------------------------------------------------------------------------------------------------------------------------------
     autoplace_controls =
     {
       --["molten_copper_geyser"] = {richness = 1500000000},
@@ -178,6 +233,10 @@ local planet_catalogue_vulcanus = require("__space-age__.prototypes.planet.proce
 local effects = require("__core__.lualib.surface-render-parameter-effects")
 local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
 
+local arrakis_asteroids = require("__arrakis_my_dune__.prototypes.planet.asteroid_definitions")
+
+
+
 data:extend({
   {
     type = "surface-property",
@@ -224,10 +283,8 @@ data:extend({
     },
 
     lightning_properties = config.lightning_properties,
-
-   
     asteroid_spawn_influence = 1,
-    asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
+    asteroid_spawn_definitions = asteroid_util.spawn_definitions(arrakis_asteroids.vulcanus_arrakis, 0.9),
     persistent_ambient_sounds =
     {
       base_ambience = {filename = "__space-age__/sound/wind/base-wind-vulcanus.ogg", volume = 0.8},
@@ -358,6 +415,6 @@ data:extend({
     to = "arrakis",
     order = "a",
     length = 3000,
-    asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus)
+    asteroid_spawn_definitions = asteroid_util.spawn_definitions(arrakis_asteroids.vulcanus_arrakis)
   },
 })
