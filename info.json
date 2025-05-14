@@ -8,7 +8,14 @@
   "factorio_version": "2.0",
   "dependencies": [
     "base",
-    "space-age"
+    "space-age",
+    "aai-vehicles-miner >= 0.7.0",
+    "aai-vehicles-hauler >= 0.7.0",
+    "aai-programmable-vehicles >= 0.8.0",
+    "aai-programmable-structures >= 0.8.0",
+    "aai-zones >= 0.7.0",
+    "aai-signals >= 0.7.0",
+    "informatron >= 0.4.0"
   ],
   "space_travel_required": true
 }

@@ -14,6 +14,7 @@ local ticks = 60 * config.POLLUTION_ADD_INTERVAL_SECONDS
 
 --Run once per second to update water condensators
 script.on_nth_tick(60, function()
+
     --Check if Arrakis even exists
     if game.surfaces["arrakis"] then
         for key, entity in pairs(game.surfaces["arrakis"].find_entities_filtered({name="water-condenser"})) do
