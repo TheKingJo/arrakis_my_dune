@@ -36,7 +36,7 @@ local shared_action_delivery = {{
             type = "damage",
             vaporize = true,
             damage = {
-                amount = 999999,
+                amount = settings.startup["worm_attacks_damage"].value,
                 type = "physical"
             }
         }
