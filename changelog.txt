@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.2
+Date: 2025-05-11
+  Info:
+    - Dependency AAI Vehicles added to test mining vehicle + hauler and automatic pathing
+    - Thank you @earendel, mod developer for allowing AAI Vehicles to be used as dependency
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
 Version: 0.0.1
 Date: 2025-05-
   Info:

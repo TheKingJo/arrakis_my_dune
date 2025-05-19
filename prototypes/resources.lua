@@ -174,7 +174,7 @@ data:extend({
     map_grid = false
   }
 })
-  --[[},
+    --[[
   {
     type = "resource",
     name = "multi-ore",
