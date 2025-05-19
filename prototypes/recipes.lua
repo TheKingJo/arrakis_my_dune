@@ -544,14 +544,12 @@ data:extend({
     auto_recycle = false,
     ingredients =
     {
-      {type = "fluid", name = "chemical-mud", amount = 100},
-      {type = "item", name = "coal-filter", amount = 1}
+      {type = "fluid", name = "chemical-mud", amount = 100}
     },
     results =
     {
       {type = "item", name = "coal", amount = 10},
-      {type = "fluid", name = "polluted-water", amount = 90},
-      {type = "item", name = "basic-filter", amount = 1}
+      {type = "fluid", name = "polluted-water", amount = 90}
     },
     main_product = "polluted-water",
     allow_productivity = true,
