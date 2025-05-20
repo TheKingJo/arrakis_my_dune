@@ -6,7 +6,7 @@ local function sand_refiner_main_pictures()
   {
     animation_speed = sand_refiner_animation_speed,
     frame_count = frames,
-    scale = 0.588
+    scale = 0.5
   })
 end
 
@@ -16,7 +16,7 @@ local function sand_refiner_main_shadow_pictures()
     animation_speed = sand_refiner_animation_speed,
     frame_count = frames,
     draw_as_shadow = true,
-    scale = 0.543
+    scale = 0.5
   })
 end
 
@@ -32,7 +32,7 @@ local function sand_refiner_pipe_east_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-east",
   {
     repeat_count = frames,
-    scale = 0.525
+    scale = 0.5
   })
 end
 
@@ -48,7 +48,7 @@ local function sand_refiner_pipe_west_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-west",
   {
     repeat_count = frames,
-    scale = 0.525
+    scale = 0.5
   })
 end
 
@@ -80,7 +80,7 @@ local function sand_refiner_lights_pictures()
         animation_speed = sand_refiner_animation_speed,
         frame_count = frames,
         blend_mode = "additive",
-        scale = 0.588
+        scale = 0.5
       }
     )
   }

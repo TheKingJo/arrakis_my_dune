@@ -30,7 +30,7 @@ config.ABSORPTION_ARRAKIS_LOW_SAND2     = { humidity = 0.000027 }
 
 
 -- WORM TARGETING CONFIG
-config.lightning_properties = {
+--[[config.lightning_properties = {
     lightnings_per_chunk_per_tick = 1 / (60 * 200), -- cca once per chunk every 200 seconds
     search_radius = 10.0,
     lightning_types = {"worm_attack"},
@@ -69,6 +69,6 @@ config.lightning_properties = {
         type = "prototype",
         string = "sand-refinery"
     }}
-}
+}]]
 
 return config

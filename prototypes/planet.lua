@@ -252,10 +252,10 @@ data:extend({
     icon = icons .. "arrakis.png",
     starmap_icon = "__arrakis_my_dune__/graphics/starmap/starmap-planet-arrakis.png",
     starmap_icon_size = 2048,
-    gravity_pull = 9,
-    distance = 7.5,
-    orientation = 0.05,
-    magnitude = 0.5,
+    gravity_pull = 11,
+    distance = 13,
+    orientation = 0.7,
+    magnitude = 1,
     order = "e[arrakis]",
     subgroup = "planets",
     map_gen_settings = planet_map_gen.arrakis(),
@@ -409,12 +409,12 @@ data:extend({
   },]]
   {
     type = "space-connection",
-    name = "vulcanus-arrakis",
+    name = "nauvis-arrakis",
     subgroup = "planet-connections",
-    from = "vulcanus",
+    from = "nauvis",
     to = "arrakis",
     order = "a",
-    length = 3000,
+    length = 6000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(arrakis_asteroids.vulcanus_arrakis)
   },
 })

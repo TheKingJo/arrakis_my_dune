@@ -218,7 +218,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "tungsten-ore", amount = 10},
+      {type = "item", name = "tungsten-ore", amount = 2},
       {type = "fluid", name = "refined-spiced-sand", amount = 10},
       {type = "item", name = "basic-filter", amount = 1}
     },
@@ -248,7 +248,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "holmium-ore", amount = 10},
+      {type = "item", name = "holmium-ore", amount = 2},
       {type = "fluid", name = "spice-melange", amount = 10},
       {type = "item", name = "basic-filter", amount = 1}
     },
@@ -604,11 +604,11 @@ data:extend({
     ingredients =
     {
       {type = "item", name = "coal-filter", amount = 1},
-      {type = "fluid", name = "polluted-water", amount = 1000, ignored_by_stats = 25}
+      {type = "fluid", name = "polluted-water", amount = 100, ignored_by_stats = 25}
     },
     results =
     {
-      {type = "fluid", name = "water", amount = 1000, ignored_by_stats = 25, ignored_by_productivity = 25},
+      {type = "fluid", name = "water", amount = 100, ignored_by_stats = 25, ignored_by_productivity = 25},
       {type = "item", name = "basic-filter", amount = 1}
     },
     allow_productivity = true,
@@ -708,7 +708,7 @@ data:extend({
     {
       {type = "item", name = "carbon-fiber", amount = 1},
       {type = "fluid", name = "black-acid", amount = 40},
-      {type = "fluid", name = "holmium-solution", amount = 50}
+      {type = "fluid", name = "holmium-solution", amount = 100}
     },
     results = 
     {

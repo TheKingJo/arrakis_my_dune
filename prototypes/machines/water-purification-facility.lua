@@ -38,7 +38,7 @@ data:extend({
     },
     energy_usage = "200kW",
     perceived_performance = {minimum = 0.25, maximum = 10},
-    graphics_set = require("__arrakis_my_dune__.prototypes.machines.machine-pictures.basic-sand-refinery-pictures").graphics_set,
+    graphics_set = require("__arrakis_my_dune__.prototypes.machines.machine-pictures.water-purification-facility-pictures").graphics_set,
     open_sound = sounds.steam_open,
     close_sound = sounds.steam_close,
     working_sound =

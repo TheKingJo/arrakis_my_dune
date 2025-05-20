@@ -1,12 +1,12 @@
 return
 {
-  width = 546,
-  height = 300,
-  shift = util.by_pixel( 35, 36.0),
-  line_length = 6,
+  width = 561,
+  height = 347,
+  shift = util.by_pixel( 30, 33),
+  line_length = 8,
   filenames = {
     "-1.png",
     "-2.png",
   },
-  lines_per_file = 11,
+  lines_per_file = 8,
 }
