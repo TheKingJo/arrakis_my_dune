@@ -8,11 +8,11 @@ local shared_action_delivery = {{
             effect_id = "script_trigger_worm_attack"
         }, {
             type = "create-explosion",
-            entity_name = "worm-spawn-animation"
+            entity_name = "worm-spawn-animation_with_particles"
         }, {
 
             type = "set-tile",
-            tile_name = "arrakis-low-sand2",
+            tile_name = "arrakis-high-dunes",
             apply_projection = true,
             tile_collision_mask = {
                 layers = {
