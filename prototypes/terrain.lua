@@ -9,60 +9,6 @@ local tile_spritesheet_layout = tile_graphics.tile_spritesheet_layout
 local config = require("__arrakis_my_dune__.prototypes.-config")
 
 
-
-
-
-
-local lava_stone_transitions =
-{
-  {
-    to_tiles = water_tile_type_names,
-    transition_group = water_transition_group_id,
-
-    spritesheet = "__space-age__/graphics/terrain/water-transitions/lava-stone-cold.png",
-    layout = tile_spritesheet_layout.transition_16_16_16_4_4,
-    effect_map_layout =
-    {
-      spritesheet = "__base__/graphics/terrain/effect-maps/water-dirt-mask.png",
-      inner_corner_count = 8,
-      outer_corner_count = 8,
-      side_count = 8,
-      u_transition_count = 2,
-      o_transition_count = 1
-    }
-  },
-  {
-    to_tiles = lava_tile_type_names,
-    transition_group = lava_transition_group_id,
-    spritesheet = "__space-age__/graphics/terrain/water-transitions/lava-stone.png",
-    lightmap_layout = { spritesheet = "__space-age__/graphics/terrain/water-transitions/lava-stone-lightmap.png" },
-     -- this added the lightmap spritesheet
-    layout = tile_spritesheet_layout.transition_16_16_16_4_4,
-    effect_map_layout =
-    {
-      spritesheet = "__arrakis_my_dune__/graphics/terrain/lava-dirt-mask.png",
-      inner_corner_count = 8,
-      outer_corner_count = 8,
-      side_count = 8,
-      u_transition_count = 2,
-      o_transition_count = 1
-    }
-  },
-  {
-    to_tiles = {"out-of-map","empty-space","oil-ocean-shallow"},
-    transition_group = out_of_map_transition_group_id,
-
-    background_layer_offset = 1,
-    background_layer_group = "zero",
-    offset_background_layer_by_tile_layer = true,
-
-    spritesheet = "__space-age__/graphics/terrain/out-of-map-transition/volcanic-out-of-map-transition.png",
-    layout = tile_spritesheet_layout.transition_4_4_8_1_1,
-    overlay_enabled = false
-  }
-}
-
-
 local function transition_masks()
   return {
     mask_spritesheet = "__base__/graphics/terrain/masks/transition-1.png",
@@ -110,6 +56,72 @@ data:extend({
     group = "tiles",
     order = "c"
   },
+
+
+
+  {
+    name = "arrakis-fine-sand",
+    type = "tile",
+    order = "b[natural]-a[dust]",
+    subgroup = "arrakis-tiles",
+    collision_mask = tile_collision_masks.ground(),
+    autoplace = {
+      probability_expression = "10"
+    },
+    layer = 1,
+    map_color = {246, 220, 189},
+    vehicle_friction_modifier = 4,
+    absorptions_per_second = config.ABSORPTION_ARRAKIS_HIGH_DUST,
+    sprite_usage_surface = "fulgora",
+    variants =
+    {
+      transition = transition_masks(),
+      material_background =
+      {
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-fine-sand.png",
+        line_length = 4,
+        count = 16,
+        scale = 0.5
+      },
+      material_texture_width_in_tiles = 10,
+      material_texture_height_in_tiles = 7
+    },
+    transitions = fulgora_rock_sand_transitions,
+    transitions_between_transitions = fulgora_sand_transitions_between_transitions,
+    walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
+    landing_steps_sound = tile_sounds.landing.sand,
+    driving_sound = sand_driving_sound,
+    ambient_sounds = sand_ambient_sound,
+    scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
+    trigger_effect = tile_trigger_effects.sand_trigger_effect()
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- HIGH ROCKS
   {
@@ -327,7 +339,6 @@ data:extend({
     scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
     trigger_effect = tile_trigger_effects.sand_trigger_effect()
   },
-
 })
 
 

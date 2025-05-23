@@ -199,6 +199,9 @@ planet_map_gen.arrakis = function()
           ["arrakis-high-dust"] = {},
           ["arrakis-high-sand"] = {},
           ["arrakis-high-dunes"] = {},
+          
+          -- Added by new tiles by math
+          ["arrakis-fine-sand"] = {},
         }
       },
       ["decorative"] =
