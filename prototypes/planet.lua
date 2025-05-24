@@ -13,9 +13,42 @@ local tile_spritesheet_layout = tile_graphics.tile_spritesheet_layout
 
 local config = require("__arrakis_my_dune__.prototypes.-config")
 
-
-
 data:extend({
+  --[[{
+  type = "noise-function",
+  name = "geyser_spot_noise",
+  parameters = {"seed", "count", "skip_offset", "region_size", "density", "radius", "favorability"},
+  expression = "spot_noise{\z
+    x = x,\z
+    y = y,\z
+    seed0 = map_seed,\z
+    seed1 = seed,\z
+    candidate_spot_count = count,\z
+    suggested_minimum_candidate_point_spacing = 128,\z
+    skip_span = 3,\z
+    skip_offset = skip_offset,\z
+    region_size = region_size,\z
+    density_expression = density,\z
+    spot_quantity_expression = radius * radius,\z
+    spot_radius_expression = radius,\z
+    hard_region_target_quantity = 0,\z
+    spot_favorability_expression = favorability,\z
+    basement_value = -1,\z
+    maximum_spot_basement_radius = radius * 2}"
+  },
+  {
+  type = "noise-expression",
+  name = "custom_sulfuric_acid_geyser_spots",
+  expression = "geyser_spot_noise{\z
+    seed = 8787,\z
+    count = 5,\z
+    skip_offset = 0,\z
+    region_size = 800,\z
+    density = 1,\z
+    radius = 30 * sqrt(control:sulfuric_acid_geyser:frequency),\z
+    favorability = 1}"
+  },
+  ]]
   {
     type = "noise-expression",
     name = "arrakis_spot_size",
@@ -23,136 +56,150 @@ data:extend({
   },
   {
     type = "noise-expression",
-    name = "arrakis_starting_mask",
-    -- exclude random spots from the inner 300 tiles, 80 tile blur
-    expression = "clamp((distance - 30) / 10, -1, 1)"
-  },
-  {
-    type = "noise-expression",
-    name = "arrakis_molten_copper_geyser_spots",
+    name = "arrakis_black_acid_geyser_spots",
     expression = "aquilo_spot_noise{seed = 567,\z
                                     count = 80,\z
                                     skip_offset = 0,\z
-                                    region_size = 600 + 400 / control:molten_copper_geyser:frequency,\z
+                                    region_size = 600 + 400 / control:black_acid_geyser:frequency,\z
                                     density = 1,\z
-                                    radius = arrakis_spot_size * sqrt(control:molten_copper_geyser:size),\z
+                                    radius = arrakis_spot_size * sqrt(control:black_acid_geyser:size),\z
                                     favorability = 1}"
   },
   {
     type = "noise-expression",
-    name = "arrakis_starting_molten_copper_geyser",
+    name = "arrakis_starting_black_acid_geyser",
     expression = "starting_spot_at_angle{angle = aquilo_angle, distance = 40, radius = arrakis_spot_size * 0.8, x_distortion = 0, y_distortion = 0}"
   },
   {
     type = "noise-expression",
-    name = "arrakis_molten_copper_geyser_probability",
+    name = "arrakis_black_acid_geyser_probability",
     expression = "(control:molten_copper_geyser:size > 0)\z
-                  * (max(arrakis_starting_molten_copper_geyser * 0.08,\z
-                         min(arrakis_starting_mask, arrakis_molten_copper_geyser_spots) * 0.015))"
+                  * (max(arrakis_starting_black_acid_geyser * 0.08,\z
+                         min(arrakis_starting_mask, arrakis_black_acid_geyser_spots) * 0.015))"
   },
   {
     type = "noise-expression",
-    name = "arrakis_molten_copper_geyser_richness",
-    expression = "max(arrakis_starting_molten_copper_geyser * 1800000,\z
-                      arrakis_molten_copper_geyser_spots * 1440000) * control:molten_copper_geyser:richness"
+    name = "arrakis_black_acid_geyser_richness",
+    expression = "max(arrakis_starting_black_acid_geyser * 1800000,\z
+                      arrakis_black_acid_geyser_spots * 1440000) * control:black_acid_geyser:richness"
   },
 
   {
-    type = "noise-expression",
-    name = "arrakis_steam_geyser_spots",
-    expression = "aquilo_spot_noise{seed = 567,\z
-                                    count = 60,\z
-                                    skip_offset = 1,\z
-                                    region_size = 600 + 400 / control:steam_geyser:frequency,\z
-                                    density = 1,\z
-                                    radius = arrakis_spot_size * 1.2 * sqrt(control:steam_geyser:size),\z
-                                    favorability = 1}"
+  type = "noise-expression",
+  name = "arrakis_rocky_mask", --Precalcul
+  expression =
+    "(arrakis_desert_mask > arrakis_deep_desert_mask + 0.1) * 3 * arrakis_voronoi2"
   },
   {
-    type = "noise-expression",
-    name = "arrakis_starting_steam_geyser",
-    expression = "starting_spot_at_angle{angle = aquilo_angle + 120, distance = 80, radius = arrakis_spot_size * 0.6, x_distortion = 0, y_distortion = 0}"
+  type = "noise-expression",
+  name = "arrakis_rocky_mask2", --Rocky Tiles
+  expression =
+    "(arrakis_desert_mask > arrakis_deep_desert_mask + 0.1) * (arrakis_rocky_mask > arrakis_desert_mask) *\
+    (1 + 0.1 * multioctave_noise{x = x, y = y, seed0 = map_seed, seed1 = 902, octaves = 2, persistence = 0.6, input_scale = 1/20}) "
   },
   {
-    type = "noise-expression",
-    name = "arrakis_steam_geyser_probability",
-    expression = "(control:steam_geyser:size > 0)\z
-                  * (max(arrakis_starting_steam_geyser * 1.3,\z
-                         min(arrakis_starting_mask, arrakis_steam_geyser_spots) * 0.22))"
+  type = "noise-expression",
+  name = "arrakis_desert_mask", --Desert Tiles
+  expression =
+    "(arrakis_voronoi * (0.92 + 0.08 * multioctave_noise{\
+                x = x, y = y,\
+                seed0 = map_seed,\
+                seed1 = 902,\
+                octaves = 2,\
+                persistence = 0.6,\
+                input_scale = 1/25\
+             }))"
   },
   {
-    type = "noise-expression",
-    name = "arrakis_steam_geyser_richness",
-    expression = "max(arrakis_starting_steam_geyser * 480000,\z
-                      arrakis_steam_geyser_spots * 7200000) * control:steam_geyser:richness"
+  type = "noise-expression", 
+  name = "arrakis_deep_desert_mask", --Precalculs
+  expression = "1 - arrakis_desert_mask"
   },
-  
+  {
+  type = "noise-expression", 
+  name = "arrakis_deep_desert_mask2", --DeepDesertTiles just a bit above the deepdesert
+  expression = "arrakis_deep_desert_mask - 0.1"
+  },
+  {
+  type = "noise-expression",
+  name = "arrakis_decorative_striped_desert",
+  expression = "(arrakis_deep_desert_mask2 > arrakis_desert_mask + 0.1) * arrakis_deep_desert_mask2 * (0.80 + 0.2 * abs(sin(x * 0.008 + y * 0.014 + 0.3 * multioctave_noise{\
+      x = x, y = y,\
+      seed0 = map_seed, seed1 = 7722,\
+      octaves = 3,\
+      persistence = 0.5,\
+      input_scale = 1/120\
+  }))) * (1.1 + 0.1 * multioctave_noise{\
+                x = x, y = y,\
+                seed0 = map_seed,\
+                seed1 = 902,\
+                octaves = 2,\
+                persistence = 0.6,\
+                input_scale = 1/18\
+             })" 
+  },
+  {
+  type = "noise-expression", -- Grid def to align with the spawn
+  name = "arrakis_voronoi_grid",
+  expression = "600"
+  },
+  {
+  type = "noise-expression",
+  name = "arrakis_voronoi_ox",
+  expression = "x + arrakis_voronoi_grid / 2"
+  },
+  {
+  type = "noise-expression",
+  name = "arrakis_voronoi_oy",
+  expression = "y + arrakis_voronoi_grid / 2"
+  },
 
   {
-    type = "autoplace-control",
-    name = "arrakis_islands",
-    order = "c-z-d",
-    category = "terrain",
-    can_be_disabled = false
-  },
-  ------------------------------------------------------------------------------------------------------------------------------
-  --WORM TERRITORY SETTINGS, COMMENTED OUT BECAUSE NOT FLESHED OUT
-  --[[
-  {
   type = "noise-expression",
-  name = "worm_territory_radius",
-  expression = 384
+  name = "arrakis_voronoi", -- Big island of desert noise
+  expression = "abs(voronoi_facet_noise{\z
+      x = arrakis_voronoi_ox,\z
+      y = arrakis_voronoi_oy,\z
+      seed0 = map_seed,\z
+      seed1 = 'arrakis-archipel',\z
+      grid_size = arrakis_voronoi_grid,\z
+      distance_type = 'euclidean',\z
+      jitter = 1\z
+    })"
   },
   {
   type = "noise-expression",
-  name = "worm_territory_expression",
-  expression = "voronoi_cell_id{x = x + 1000 * worm_territory_radius,\z
-                                y = y + 1000 * worm_territory_radius,\z
-                                seed0 = map_seed,\z
-                                seed1 = 0,\z
-                                grid_size = worm_territory_radius,\z
-                                distance_type = 'manhattan',\z
-                                jitter = 1} - worm_starting_area"
+  name = "arrakis_voronoi2", -- smaller Island of rock
+  expression = "abs(voronoi_facet_noise{\
+      x = x,\
+      y = y,\
+      seed0 = map_seed,\
+      seed1 = 'arrakis-archipel',\
+      grid_size = 200,\
+      distance_type = 'euclidean',\
+      jitter = 1\
+    })"
   },
   {
-  type = "noise-expression",
-  name = "worm_starting_area",
-  expression = "0 < starting_spot_at_angle{angle = vulcanus_mountains_angle - 5 * vulcanus_starting_direction,\z
-                                                distance = 100 * vulcanus_starting_area_radius + 32,\z
-                                                radius = 7 * 32,\z
-                                                x_distortion = 0,\z
-                                                y_distortion = 0}"
+    type = "noise-expression",
+    name = "arrakis_rock_huge",
+    expression = "(arrakis_rocky_mask2 > arrakis_desert_mask + 0.1) * min(0.2 * (1 - 0.75 * arrakis_rocky_mask2), - 1.2 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + vulcanus_rock_noise + 0.5 * vulcanus_decorative_knockout)"
   },
-  { 
-  type = "noise-expression",
-  name = "worm_variation_expression",
-  expression = "floor(clamp(distance / (18 * 32) - 0.25, 0, 4)) + (-99 * no_enemies_mode)" -- negative number means no worm
-  },
-  {
-  type = "noise-expression",
-  name = "worm_territory_expression",
-  expression = "voronoi_cell_id{x = x + 1000 * worm_territory_radius,\z
-                                y = y + 1000 * worm_territory_radius,\z
-                                seed0 = map_seed,\z
-                                seed1 = 0,\z
-                                grid_size = worm_territory_radius,\z
-                                distance_type = 'manhattan',\z
-                                jitter = 1} - worm_starting_area"
-  }, ]]
-}) 
+
+})
 
 planet_map_gen.arrakis = function()
   return
   {
     property_expression_names =
     {
-      elevation = "fulgora_elevation",
       temperature = "vulcanus_temperature",
       moisture = "fulgora_moisture",
       aux = "fulgora_aux",
       cliffiness = "fulgora_cliffiness",
       cliff_elevation = "cliff_elevation_from_elevation",
-      --["entity:steam-geyser:probability"] = "arrakis_steam_geyser_probability",
+      ["entity:black_acid_geyser:probability"] = "black_acid_acid_geyser_probability",
+      ["entity:black_acid_geyser:richness"] = "arrakis_black_acid_geyser_richness",
       --["entity:steam-geyser:richness"] = "arrakis_steam_geyser_richness",
     },
     cliff_settings =
@@ -169,22 +216,14 @@ planet_map_gen.arrakis = function()
       cliff_smoothing = 0, -- This is critical for correct cliff placement on the coast.
       richness = 1
     },
-    ----WORM TERRITORY SETTINGS, ARE COMMENTED OUT BECAUSE IM STILL TESTING
-    --[[
-    territory_settings =
-    {
-      units = {""},
-      territory_index_expression = "worm_territory_expression",
-      territory_variation_expression = "worm_variation_expression",
-      minimum_territory_size = 10
-    },]]
     ------------------------------------------------------------------------------------------------------------------------------
     autoplace_controls =
     {
-      --["molten_copper_geyser"] = {richness = 1500000000},
+      ["black_acid_geyser"] = {richness = 1500000000},
       --["steam_geyser"] = {richness = 150},
-      ["arrakis_islands"] = {},
-      ["fulgora_cliff"] = {},
+
+      --["arrakis_islands"] = {},
+      --["fulgora_cliff"] = {},
     },
     autoplace_settings =
     {
@@ -192,22 +231,25 @@ planet_map_gen.arrakis = function()
       {
         settings =
         {
-          ["arrakis-low-sand2"] = {},
-          ["arrakis-low-dunes2"] = {},
-
-          ["arrakis-high-rock"] = {},
-          ["arrakis-high-dust"] = {},
-          ["arrakis-high-sand"] = {},
-          ["arrakis-high-dunes"] = {},
+          ["arrakis-rocky-plateau"] ={},
+          ["arrakis-desert"] ={},
+          ["arrakis-deep-desert"] ={},
+          ["arrakis-deep-desert2"] = {},
+          --["arrakis-low-dunes2"] = {},
+          --["arrakis-high-rock"] = {},
+          --["arrakis-high-dust"] = {},
+          --["arrakis-high-sand"] = {},
+          --["arrakis-high-dunes"] = {},
         }
       },
       ["decorative"] =
       {
         settings =
         {
-          ["arrakis-medium-fulgora-rock"] = {},
-          ["arrakis-small-fulgora-rock"] = {},
-          ["arrakis-tiny-fulgora-rock"] = {},
+          --["arrakis-medium-fulgora-rock"] = {},
+          --["arrakis-small-fulgora-rock"] = {},
+          --["arrakis-tiny-fulgora-rock"] = {},
+
           --["arrakis-barnacles-decal"] = {},
           --["arrakis-rock-decal-large"] = {},
           --["arrakis-snow-drift-decal"] = {},
@@ -219,10 +261,11 @@ planet_map_gen.arrakis = function()
       {
         settings =
         {
-          --["steam-geyser"] = {},
+          ["black-acid-geyser"] = {},
           --["fulgoran-data-source"] = {},
+
           ["arrakis-huge-volcanic-rock"] = {},
-          ["arrakis-big-fulgora-rock"] = {}
+          --["arrakis-big-fulgora-rock"] = {}
         }
       }
     }
@@ -312,6 +355,7 @@ data:extend({
     },
     surface_render_parameters =
     {
+      --[[
       clouds =
       {
         shape_noise_texture =
@@ -343,6 +387,7 @@ data:extend({
         shape_warp_weight = 0.4,
         detail_sample_morph_duration = 0,
       },
+      ]]
       fog = {
         shape_noise_texture =
         {
@@ -358,7 +403,7 @@ data:extend({
         color2 = {1, 1, 1},
         tick_factor = 0.000005,
       },
-      -- clouds = effects.default_clouds_effect_properties(),
+      --clouds = effects.default_clouds_effect_properties(),
 
       -- Should be based on the default day/night times, ie
       -- sun starts to set at 0.25

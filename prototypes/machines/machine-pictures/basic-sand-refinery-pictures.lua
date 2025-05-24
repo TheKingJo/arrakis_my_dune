@@ -1,4 +1,4 @@
-local basic_sand_refinery_animation_speed = 0.16
+local basic_sand_refinery_animation_speed = 1
 local frames = 128
 
 local function basic_sand_refinery_main_pictures()

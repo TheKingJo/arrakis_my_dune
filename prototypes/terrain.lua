@@ -110,6 +110,127 @@ data:extend({
     group = "tiles",
     order = "c"
   },
+  {
+    type = "tile",
+    name = "debugtiles",
+    subgroup = "arrakis-tiles",
+    collision_mask = tile_collision_masks.ground(),
+    layer = 100,
+    map_color = {r=10, g=10, b=10},
+    autoplace = {
+      probability_expression = "arrakis_black_acid_geyser_spots"
+    },
+    variants = {
+      transition = transition_masks(),
+      material_background =
+      {
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-rock.png",
+        line_length = 8,
+        count = 16,
+        scale = 0.5
+      },
+      material_texture_width_in_tiles = 8,
+      material_texture_height_in_tiles = 8
+    }
+  },
+  {
+    type = "tile",
+    name = "arrakis-rocky-plateau",
+    subgroup = "arrakis-tiles",
+    collision_mask = tile_collision_masks.ground(),
+    layer = 100,
+    map_color = {r=80, g=80, b=80},
+    autoplace = {
+      probability_expression = "arrakis_rocky_mask2"
+    },
+    variants = {
+      transition = transition_masks(),
+      material_background =
+      {
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-rock3.png",
+        line_length = 8,
+        count = 16,
+        scale = 0.5
+      },
+      material_texture_width_in_tiles = 8,
+      material_texture_height_in_tiles = 8
+    }
+  },
+
+  {
+    type = "tile",
+    name = "arrakis-desert",
+    subgroup = "arrakis-tiles",
+    collision_mask = tile_collision_masks.ground(),
+    layer = 10,
+    map_color = {r=153, g=131, b=93},
+    autoplace = {
+      probability_expression = "arrakis_desert_mask"
+    },
+    variants = {
+      transition = transition_masks(),
+      material_background =
+      {
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-desert1.png",
+        line_length = 4,
+        count = 16,
+        scale = 0.5
+      },
+      material_texture_width_in_tiles = 10,
+      material_texture_height_in_tiles = 7
+    }
+  },
+
+  {
+    type = "tile",
+    name = "arrakis-deep-desert",
+    subgroup = "arrakis-tiles",
+    collision_mask = tile_collision_masks.ground(),
+    layer = 1,
+    map_color = {r=172, g=153, b=119},
+    autoplace = {
+      probability_expression = "arrakis_deep_desert_mask2"
+    },
+    variants = {
+      transition = transition_masks(),
+      material_background =
+      {
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-deep-desert1.png",
+        line_length = 4,
+        count = 16,
+        scale = 0.5
+      },
+      material_texture_width_in_tiles = 10,
+      material_texture_height_in_tiles = 7
+    }
+  },
+  {
+    type = "tile",
+    name = "arrakis-deep-desert2",
+    subgroup = "arrakis-tiles",
+    collision_mask = tile_collision_masks.ground(),
+    layer = 2,
+    map_color = {r=171, g=153, b=125},
+    autoplace = {
+      probability_expression = "arrakis_decorative_striped_desert"
+    },
+    variants = {
+      transition = transition_masks(),
+      material_background =
+      {
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-deep-desert2.png",
+        line_length = 4,
+        count = 16,
+        scale = 0.5
+      },
+      material_texture_width_in_tiles = 10,
+      material_texture_height_in_tiles = 7
+    }
+  },
+
+
+
+
 
 -- HIGH ROCKS
   {
@@ -148,77 +269,7 @@ data:extend({
     scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
     trigger_effect = tile_trigger_effects.sand_trigger_effect()
   },
-  {
-    name = "arrakis-high-dunes",
-    type = "tile",
-    order = "b[natural]-b[dunes]",
-    subgroup = "arrakis-tiles",
-    collision_mask = tile_collision_masks.ground(),
-    autoplace = {probability_expression = "50 * fulgora_oil_mask * water_base(fulgora_coastline, 1000)"},
-    --autoplace = {probability_expression = "1 + fulgora_dunes"},
-    layer = 7,
-    map_color={141, 125, 91},
-    vehicle_friction_modifier = 4,
-    absorptions_per_second = config.ABSORPTION_ARRAKIS_HIGH_DUNES,
-    sprite_usage_surface = "fulgora",
-    variants =
-    {
-      transition = transition_masks(),
-      material_background =
-      {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-dunes.png",
-        line_length = 4,
-        count = 16,
-        scale = 0.5
-      },
-      material_texture_width_in_tiles = 10,
-      material_texture_height_in_tiles = 7
-    },
-    transitions = fulgora_rock_sand_transitions,
-    transitions_between_transitions = fulgora_sand_transitions_between_transitions,
-    walking_sound = sound_variations("__base__/sound/walking/sand", 9, 0.8, volume_multiplier("main-menu", 2.9)),
-    landing_steps_sound = tile_sounds.landing.sand,
-    driving_sound = sand_driving_sound,
-    ambient_sounds = sand_ambient_sound,
-    scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-    trigger_effect = tile_trigger_effects.sand_trigger_effect()
-  },
-  {
-    name = "arrakis-high-sand",
-    type = "tile",
-    order = "b[natural]-c[sand]",
-    subgroup = "arrakis-tiles",
-    collision_mask = tile_collision_masks.ground(),
-    autoplace = {
-      probability_expression = "1 - fulgora_dunes"
-    },
-    layer = 8,
-    map_color={169, 131, 86},
-    vehicle_friction_modifier = 4,
-    absorptions_per_second = config.ABSORPTION_ARRAKIS_HIGH_SAND,
-    sprite_usage_surface = "fulgora",
-    variants =
-    {
-      transition = transition_masks(),
-      material_background =
-      {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-sand.png",
-        line_length = 4,
-        count = 16,
-        scale = 0.5
-      },
-      material_texture_width_in_tiles = 10,
-      material_texture_height_in_tiles = 7
-    },
-    transitions = fulgora_rock_sand_transitions,
-    transitions_between_transitions = fulgora_sand_transitions_between_transitions,
-    walking_sound = sound_variations("__base__/sound/walking/sand", 9, 0.8, volume_multiplier("main-menu", 2.9)),
-    landing_steps_sound = tile_sounds.landing.sand,
-    driving_sound = sand_driving_sound,
-    ambient_sounds = sand_ambient_sound,
-    scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-    trigger_effect = tile_trigger_effects.sand_trigger_effect()
-  },
+  
   {
     name = "arrakis-high-rock",
     type = "tile",
@@ -292,6 +343,8 @@ data:extend({
     scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
     trigger_effect = tile_trigger_effects.sand_trigger_effect()
   },
+  -- DESERT - DEEP
+
   {
     name = "arrakis-low-sand2",
     type = "tile",

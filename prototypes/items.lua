@@ -156,7 +156,7 @@ data:extend({
   {
     type = "item",
     name = "molten-silica",
-    icon = icons .. "silica.png",
+    icon = icons .. "molten-silica.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
@@ -209,14 +209,14 @@ data:extend({
   --- Item declaration for Silicon Item
   {
     type = "item",
-    name = "silicon",
-    icon = icons .. "silicon.png",
+    name = "silicon-plate",
+    icon = icons .. "silicon-plate.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = icons .. "silicon.png", scale = 0.5 },
+      { size = 64, filename = icons .. "silicon-plate.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",
