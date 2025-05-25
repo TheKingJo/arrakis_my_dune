@@ -7,11 +7,12 @@ icons = "__arrakis_my_dune__/graphics/icons/"
 
 
 --Planet and Environment Prototypes
-require "prototypes.terrain"
+require "prototypes.planet.terrain_tile_generation"
+require "prototypes.planet.terrain_noise_expressions"
+require "prototypes.planet.planet"
 require "prototypes.decoratives"
 require "prototypes.resources"
 require "prototypes.chunk-humidity"
-require "prototypes.planet"
 --require "prototypes.music"    -- The music Prototype is commented out because the files are missing
 
 

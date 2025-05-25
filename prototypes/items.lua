@@ -156,7 +156,7 @@ data:extend({
   {
     type = "item",
     name = "molten-silica",
-    icon = icons .. "silica.png",
+    icon = icons .. "molten-silica.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
@@ -204,7 +204,22 @@ data:extend({
     random_tint_color = item_tints.iron_rust,
     weight = 1*kg,
   },
-
+  {
+    type = "item",
+    name = "silicon-plate",
+    icon = icons .. "silicon-plate.png",
+    subgroup = "arrakis-processes",
+    order = "aab",
+    icon_size = 64,
+    pictures =
+    {
+      { size = 64, filename = icons .. "silicon-plate.png", scale = 0.5 },
+    },
+    stack_size = 100,
+    default_import_location = "arrakis",
+    random_tint_color = item_tints.iron_rust,
+    weight = 1*kg,
+  },
 
   --- Item declaration for Silicon Item
   {

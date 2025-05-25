@@ -12,7 +12,7 @@ local shared_action_delivery = {{
         }, {
 
             type = "set-tile",
-            tile_name = "arrakis-high-dunes",
+            tile_name = "arrakis-deep-desert",
             apply_projection = true,
             tile_collision_mask = {
                 layers = {

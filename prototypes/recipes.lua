@@ -160,7 +160,8 @@ data:extend({
     {
       {type = "fluid", name = "chemical-mud", amount = 80},
       {type = "fluid", name = "washed-spiced-sand", amount = 10},
-      {type = "item", name = "basic-filter", amount = 1}
+      {type = "item", name = "basic-filter", amount = 1},
+      {type = "item", name = "stone", amount = 10}
     },
     main_product = "washed-spiced-sand",
     allow_productivity = true,
@@ -218,7 +219,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "tungsten-ore", amount = 10},
+      {type = "item", name = "tungsten-ore", amount = 4},
       {type = "fluid", name = "refined-spiced-sand", amount = 10},
       {type = "item", name = "basic-filter", amount = 1}
     },
@@ -248,7 +249,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "holmium-ore", amount = 10},
+      {type = "item", name = "holmium-ore", amount = 8},
       {type = "fluid", name = "spice-melange", amount = 10},
       {type = "item", name = "basic-filter", amount = 1}
     },
@@ -298,6 +299,7 @@ data:extend({
     type = "recipe",
     name = "sandTreatment",
     category = "basic-sand-treatment",
+    icon = icons .. "sand-treatment.png",
     energy_required = 0.5,
     enabled = true,
     auto_recycle = false,
@@ -325,7 +327,7 @@ data:extend({
     type = "recipe",
     name = "sandTreatment2",
     category = "advanced-sand-treatment",
-    icon = icons .. "metallic-sandTreatment2.png",
+    icon = icons .. "sand-treatment2.png",
     energy_required = 10,
     enabled = true,
     auto_recycle = false,
@@ -417,6 +419,7 @@ data:extend({
     type = "recipe",
     name = "mineral-sandTreatment1",
     category = "basic-sand-treatment",
+    icon = icons .. "mineral-sand-treatment1.png",
     energy_required = 1,
     enabled = true,
     auto_recycle = false,
@@ -447,6 +450,7 @@ data:extend({
     type = "recipe",
     name = "mineral-sandTreatment2",
     category = "advanced-sand-treatment",
+    icon = icons .. "mineral-sand-treatment2.png",
     energy_required = 10,
     enabled = true,
     auto_recycle = false,
@@ -511,8 +515,8 @@ data:extend({
     auto_recycle = false,
     ingredients =
     {
-      {type = "fluid", name = "black-acid", amount = 40},
-      {type = "fluid", name = "holmium-solution", amount = 60}
+      {type = "fluid", name = "black-acid", amount = 50},
+      {type = "fluid", name = "holmium-solution", amount = 50}
     },
     results =
     {
@@ -541,14 +545,12 @@ data:extend({
     auto_recycle = false,
     ingredients =
     {
-      {type = "fluid", name = "chemical-mud", amount = 100},
-      {type = "item", name = "coal-filter", amount = 1}
+      {type = "fluid", name = "chemical-mud", amount = 100}
     },
     results =
     {
       {type = "item", name = "coal", amount = 10},
-      {type = "fluid", name = "polluted-water", amount = 90},
-      {type = "item", name = "basic-filter", amount = 1}
+      {type = "fluid", name = "polluted-water", amount = 90}
     },
     main_product = "polluted-water",
     allow_productivity = true,
@@ -577,8 +579,8 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "spoilage", amount = 20},
-      {type = "fluid", name = "sulfuric-acid", amount = 20},
+      {type = "item", name = "spoilage", amount = 30},
+      {type = "fluid", name = "sulfuric-acid", amount = 10},
       {type = "fluid", name = "polluted-water", amount = 60}
     },
     main_product = "polluted-water",
@@ -603,11 +605,11 @@ data:extend({
     ingredients =
     {
       {type = "item", name = "coal-filter", amount = 1},
-      {type = "fluid", name = "polluted-water", amount = 1000, ignored_by_stats = 25}
+      {type = "fluid", name = "polluted-water", amount = 100, ignored_by_stats = 25}
     },
     results =
     {
-      {type = "fluid", name = "water", amount = 1000, ignored_by_stats = 25, ignored_by_productivity = 25},
+      {type = "fluid", name = "water", amount = 100, ignored_by_stats = 25, ignored_by_productivity = 25},
       {type = "item", name = "basic-filter", amount = 1}
     },
     allow_productivity = true,
@@ -646,7 +648,7 @@ data:extend({
     name = "silica-fiber",
     category = "crafting",
     enabled = true,
-    energy_required = 1,
+    energy_required = 5,
     ingredients = 
     {
       {type = "item", name = "molten-silica", amount = 1},
@@ -678,10 +680,10 @@ data:extend({
     allow_productivity = true,
     surface_conditions = {{ property = "temperature-celcius", min = 77, max = 77}},
   },
-  --SILICON [SMELTING] Silicon Paste -> [SMELTING] -> Silicon Plate
+  --SILICON PLATE [SMELTING] Silicon Paste -> [SMELTING] -> Silicon Plate
   {
     type = "recipe",
-    name = "silicon",
+    name = "silicon-plate",
     category = "smelting",
     enabled = true,
     energy_required = 5,
@@ -691,9 +693,9 @@ data:extend({
     },
     results = 
     {
-      {type="item", name="silicon", amount=1}
+      {type="item", name="silicon-plate", amount=1}
     },
-    main_product = "silicon",
+    main_product = "silicon-plate",
     allow_productivity = true
   },
   --HOLMIUM_PASTE [CRAFTING] (CARBON FIBER & BLACK ACID & HOLMIUM SOLUTION) -> (holmium-paste) 
@@ -754,7 +756,7 @@ data:extend({
     allow_productivity = true
   },
 
-  --FILTERS [CRAFTING] -- BASIC -- COAL -- SILICON -- TUNGSTEN -- HOLMIUM --
+  --FILTERS [CRAFTING] -- BASIC -- COAL -- SILICON PLATE -- TUNGSTEN -- HOLMIUM --
 
   {
     type = "recipe",
@@ -804,7 +806,7 @@ data:extend({
     ingredients =
     {
       {type = "item", name = "coal-filter", amount = 1},
-      {type = "item", name = "silicon", amount = 1}
+      {type = "item", name = "silicon-plate", amount = 1}
     },
     results =
     {
@@ -865,13 +867,13 @@ data:extend({
     auto_recycle = false,
     ingredients =
     {
-      {type = "fluid", name = "spiced-sand", amount = 20},
-      {type = "fluid", name = "water", amount = 200},
-      {type = "item", name = "silicon", amount = 2}
+      {type = "fluid", name = "spiced-sand", amount = 50},
+      {type = "fluid", name = "water", amount = 20},
+      {type = "item", name = "silicon-plate", amount = 2}
     },
     results =
     {
-      {type = "item", name = "chom-science-pack", amount = 1}
+      {type = "item", name = "chom-science-pack", amount = 2}
     },
     main_product = "chom-science-pack",
     allow_productivity = true,
@@ -886,13 +888,13 @@ data:extend({
     auto_recycle = false,
     ingredients =
     {
-      {type = "fluid", name = "washed-spiced-sand", amount = 50},
-      {type = "fluid", name = "water", amount = 500},
-      {type = "item", name = "silicon", amount = 5}
+      {type = "fluid", name = "washed-spiced-sand", amount = 40},
+      {type = "fluid", name = "water", amount = 40},
+      {type = "item", name = "silicon-plate", amount = 4}
     },
     results =
     {
-      {type = "item", name = "chom-science-pack", amount = 3}
+      {type = "item", name = "chom-science-pack", amount = 4}
     },
     main_product = "chom-science-pack",
     allow_productivity = true,
@@ -907,13 +909,13 @@ data:extend({
     auto_recycle = false,
     ingredients =
     {
-      {type = "fluid", name = "treated-spiced-sand", amount = 120},
-      {type = "fluid", name = "water", amount = 1200},
-      {type = "item", name = "silicon", amount = 12}
+      {type = "fluid", name = "treated-spiced-sand", amount = 30},
+      {type = "fluid", name = "water", amount = 60},
+      {type = "item", name = "silicon-plate", amount = 6}
     },
     results =
     {
-      {type = "item", name = "chom-science-pack", amount = 8}
+      {type = "item", name = "chom-science-pack", amount = 6}
     },
     main_product = "chom-science-pack",
     allow_productivity = true,
@@ -928,13 +930,13 @@ data:extend({
     auto_recycle = false,
     ingredients =
     {
-      {type = "fluid", name = "refined-spiced-sand", amount = 200},
-      {type = "fluid", name = "water", amount = 2000},
-      {type = "item", name = "silicon", amount = 20}
+      {type = "fluid", name = "refined-spiced-sand", amount = 20},
+      {type = "fluid", name = "water", amount = 80},
+      {type = "item", name = "silicon-plate", amount = 8}
     },
     results =
     {
-      {type = "item", name = "chom-science-pack", amount = 16}
+      {type = "item", name = "chom-science-pack", amount = 8}
     },
     main_product = "chom-science-pack",
     allow_productivity = true,
@@ -949,13 +951,13 @@ data:extend({
     auto_recycle = false,
     ingredients =
     {
-      {type = "fluid", name = "spice-melange", amount = 300},
-      {type = "fluid", name = "water", amount = 3000},
-      {type = "item", name = "silicon", amount = 30}
+      {type = "fluid", name = "spice-melange", amount = 10},
+      {type = "fluid", name = "water", amount = 100},
+      {type = "item", name = "silicon-plate", amount = 10}
     },
     results =
     {
-      {type = "item", name = "chom-science-pack", amount = 30}
+      {type = "item", name = "chom-science-pack", amount = 10}
     },
     main_product = "chom-science-pack",
     allow_productivity = true,
@@ -976,6 +978,23 @@ data:extend({
     },
     results = {
       { type = "item", name = "water-condenser", amount = 1 },
+    },
+    allow_productivity = false,
+    allow_quality = false,
+  },
+  {
+    type = "recipe",
+    name = "dew-collector",
+    category = "basic-crafting",
+    energy_required = 2,   
+    ingredients = {
+      { type = "item", name = "plastic-bar", amount = 10 },
+      { type = "item", name = "stone-brick", amount = 4 },
+      { type = "item", name = "iron-stick", amount = 4 },
+      { type = "item", name = "steel-plate", amount = 2 },
+    },
+    results = {
+      { type = "item", name = "dew-collector", amount = 1 },
     },
     allow_productivity = false,
     allow_quality = false,
