@@ -7,8 +7,9 @@ icons = "__arrakis_my_dune__/graphics/icons/"
 
 
 --Planet and Environment Prototypes
-require "prototypes.planet.terrain_tile_generation"
-require "prototypes.planet.terrain_noise_expressions"
+require "prototypes.planet.planet-arrakis-map-gen"
+require "prototypes.planet.planet-map-gen"
+require "prototypes.planet.tiles"
 require "prototypes.planet.planet"
 require "prototypes.decoratives"
 require "prototypes.resources"

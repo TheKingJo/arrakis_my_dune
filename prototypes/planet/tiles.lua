@@ -52,15 +52,17 @@ data:extend({
   --DEBUG TILES
   {
     type = "tile",
-    name = "debugtiles",
+    name = "arrakis-degbug-tiles",
     subgroup = "arrakis-tiles",
     collision_mask = tile_collision_masks.ground(),
     layer = 100,
     map_color = {r=10, g=10, b=10},
-    autoplace = {
-      probability_expression = "arrakis_black_acid_geyser_spots"
+    autoplace = 
+    {
+      probability_expression = "arrakis_cliff_elevation*0"
     },
-    variants = {
+    variants = 
+    {
       transition = transition_masks(),
       material_background =
       {
@@ -81,10 +83,12 @@ data:extend({
     collision_mask = tile_collision_masks.ground(),
     layer = 100,
     map_color = {r=80, g=80, b=80},
-    autoplace = {
-      probability_expression = "arrakis_rocky_mask2"
+    autoplace = 
+    {
+      probability_expression = "arrakis_rocky_mask2 + arrakis_starting_island"
     },
-    variants = {
+    variants = 
+    {
       transition = transition_masks(),
       material_background =
       {
@@ -106,7 +110,7 @@ data:extend({
     layer = 10,
     map_color = {r=153, g=131, b=93},
     autoplace = {
-      probability_expression = "arrakis_desert_mask"
+      probability_expression = "arrakis_desert_mask + arrakis_starting_desert"
     },
     variants = {
       transition = transition_masks(),

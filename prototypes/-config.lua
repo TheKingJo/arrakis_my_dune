@@ -31,12 +31,12 @@ config.ABSORPTION_ARRAKIS_LOW_SAND2     = { humidity = 0.000027 }
 
 
 
--- WORM TARGETING CONFIG
+--[[-- WORM TARGETING CONFIG
 config.lightning_properties = {
     -- adjust lightning frequency in ingame settings or settings.lua, right now set to 200s per attack per chunk
     lightnings_per_chunk_per_tick = 1 / (60 * settings.startup["worm_attacks_frequency"].value),
     search_radius = 10.0,
-    lightning_types = {"worm_attack"},
+    --lightning_types = {"worm_attack"},
     priority_rules = {{
         type = "prototype",
         string = "arrakis-low-dunes2",

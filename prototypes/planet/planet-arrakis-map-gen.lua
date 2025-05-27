@@ -38,36 +38,97 @@ data:extend({
   {
     type = "noise-expression",
     name = "arrakis_spot_size",
-    expression = 8
+    expression = 30
   },
   {
     type = "noise-expression",
-    name = "arrakis_black_acid_geyser_spots",
+    name = "arrakis_crude_black_acid_spots",
     expression = "aquilo_spot_noise{seed = 567,\z
                                     count = 80,\z
                                     skip_offset = 0,\z
-                                    region_size = 600 + 400 / control:black_acid_geyser:frequency,\z
+                                    region_size = 700 + 400 / control:crude_black_acid:frequency,\z
                                     density = 1,\z
-                                    radius = arrakis_spot_size * sqrt(control:black_acid_geyser:size),\z
+                                    radius = arrakis_spot_size * sqrt(control:crude_black_acid:size),\z
                                     favorability = 1}"
   },
   {
     type = "noise-expression",
-    name = "arrakis_starting_black_acid_geyser",
-    expression = "starting_spot_at_angle{angle = aquilo_angle, distance = 40, radius = arrakis_spot_size * 0.8, x_distortion = 0, y_distortion = 0}"
+    name = "arrakis_crude_black_acid_spots",
+    expression = "aquilo_spot_noise{seed = 567,\z
+                                    count = 80,\z
+                                    skip_offset = 0,\z
+                                    region_size = 700 + 400 / control:crude_black_acid:frequency,\z
+                                    density = 1,\z
+                                    radius = arrakis_spot_size * sqrt(control:crude_black_acid:size) * 0.33,\z
+                                    favorability = 1}"
   },
   {
     type = "noise-expression",
-    name = "arrakis_black_acid_geyser_probability",
-    expression = "(control:molten_copper_geyser:size > 0)\z
-                  * (max(arrakis_starting_black_acid_geyser * 0.08,\z
-                         min(arrakis_starting_mask, arrakis_black_acid_geyser_spots) * 0.015))"
+    name = "arrakis_starting_mask",
+    -- exclude random spots from the inner 300 tiles, 80 tile blur
+    expression = "clamp((distance - 300) / 40, -1, 1)"
   },
   {
     type = "noise-expression",
-    name = "arrakis_black_acid_geyser_richness",
-    expression = "max(arrakis_starting_black_acid_geyser * 1800000,\z
-                      arrakis_black_acid_geyser_spots * 1440000) * control:black_acid_geyser:richness"
+    name = "arrakis_starting_crude_black_acid",
+    expression = "starting_spot_at_angle{angle = 0.5, distance = 40, radius = arrakis_spot_size * 0.1, x_distortion = 0, y_distortion = 0}"
+  },
+  {
+    type = "noise-expression",
+    name = "arrakis_starting_island",
+    expression = "clamp(starting_spot_at_angle {\
+                    angle = 2.26,\
+                    distance = 40,\
+                    radius = 140,\
+                    x_distortion = 20,\
+                    y_distortion = 20},0,1)*4*(1 + 0.1 * multioctave_noise{x = x, y = y, seed0 = map_seed, seed1 = 902, octaves = 2, persistence = 0.6, input_scale = 1/20})"
+  },
+  {
+    type = "noise-expression",
+    name = "arrakis_starting_desert",
+    expression = "clamp(starting_spot_at_angle {\
+                    angle = 2.26,\
+                    distance = 40,\
+                    radius = 160,\
+                    x_distortion = 20,\
+                    y_distortion = 20},0,1)*3*(1 + 0.1 * multioctave_noise{x = x, y = y, seed0 = map_seed, seed1 = 902, octaves = 2, persistence = 0.6, input_scale = 1/25})"
+  },
+
+  {
+    type = "noise-expression",
+    name = "arrakis_crude_black_acid_probability",
+    expression = "max(arrakis_starting_crude_black_acid * 0.02, min(arrakis_starting_mask, arrakis_crude_black_acid_spots) * 0.015) * (arrakis_rocky_mask2 > arrakis_desert_mask + 0.2)"
+  },
+  {
+    type = "noise-expression",
+    name = "arrakis_crude_black_acid_richness",
+    expression = "max(arrakis_starting_crude_black_acid * 1800000,\z
+                      arrakis_crude_black_acid_spots * 1440000) * control:crude_black_acid:richness"
+  },
+  {
+  type = "noise-expression",
+  name = "arrakis_coastline",
+  expression = 80
+  },
+  {
+  type = "noise-expression",
+  name = "arrakis_coastline_drop",
+  expression = 40
+  },
+  {
+  type = "noise-expression",
+  name = "arrakis_rocky_basins",
+  expression = "min(arrakis_rocky_mask2, 0.6 - arrakis_rocky_mask2)"
+  },
+  {
+  type = "noise-expression",
+  name = "arrakis_pre_elevation",
+  expression = "arrakis_rocky_basins * 60 + arrakis_coastline"
+  },
+  {
+  type = "noise-expression",
+  name = "arrakis_cliff_elevation",
+  expression = "80 + (x + y) * 0.5"
   },
 
   {
@@ -109,53 +170,37 @@ data:extend({
   {
   type = "noise-expression",
   name = "arrakis_decorative_striped_desert",
-  expression = "(arrakis_deep_desert_mask2 > arrakis_desert_mask + 0.1) * arrakis_deep_desert_mask2 * (0.80 + 0.2 * abs(sin(x * 0.008 + y * 0.014 + 0.3 * multioctave_noise{\
+  expression = "(arrakis_deep_desert_mask2 > arrakis_desert_mask + 0.1) * arrakis_deep_desert_mask2 * (0.80 + 0.2 * abs(sin(x * 0.016 + y * 0.028 + 0.3 * multioctave_noise{\
       x = x, y = y,\
       seed0 = map_seed, seed1 = 7722,\
       octaves = 3,\
       persistence = 0.5,\
       input_scale = 1/120\
-  }))) * (1.1 + 0.1 * multioctave_noise{\
+  }))) * (1 + 0.1 * multioctave_noise{\
                 x = x, y = y,\
                 seed0 = map_seed,\
                 seed1 = 902,\
-                octaves = 2,\
+                octaves = 1,\
                 persistence = 0.6,\
-                input_scale = 1/18\
+                input_scale = 1/14\
              })" 
   },
   {
-  type = "noise-expression", -- Grid def to align with the spawn
-  name = "arrakis_voronoi_grid",
-  expression = "600"
-  },
-  {
   type = "noise-expression",
-  name = "arrakis_voronoi_ox",
-  expression = "x + arrakis_voronoi_grid / 2"
-  },
-  {
-  type = "noise-expression",
-  name = "arrakis_voronoi_oy",
-  expression = "y + arrakis_voronoi_grid / 2"
-  },
-
-  {
-  type = "noise-expression",
-  name = "arrakis_voronoi", -- Big island of desert noise
+  name = "arrakis_voronoi", -- Big island of desert
   expression = "abs(voronoi_facet_noise{\z
-      x = arrakis_voronoi_ox,\z
-      y = arrakis_voronoi_oy,\z
+      x = x,\z
+      y = y,\z
       seed0 = map_seed,\z
       seed1 = 'arrakis-archipel',\z
-      grid_size = arrakis_voronoi_grid,\z
+      grid_size = 600,\z
       distance_type = 'euclidean',\z
       jitter = 1\z
     })"
   },
   {
   type = "noise-expression",
-  name = "arrakis_voronoi2", -- smaller Island of rock
+  name = "arrakis_voronoi2", -- Smaller Island of rock
   expression = "abs(voronoi_facet_noise{\
       x = x,\
       y = y,\
