@@ -8,11 +8,11 @@ local shared_action_delivery = {{
             effect_id = "script_trigger_worm_attack"
         }, {
             type = "create-explosion",
-            entity_name = "worm-spawn-animation"
+            entity_name = "worm-spawn-animation_with_particles"
         }, {
 
             type = "set-tile",
-            tile_name = "arrakis-low-sand2",
+            tile_name = "arrakis-deep-desert",
             apply_projection = true,
             tile_collision_mask = {
                 layers = {
@@ -36,7 +36,7 @@ local shared_action_delivery = {{
             type = "damage",
             vaporize = true,
             damage = {
-                amount = 999999,
+                amount = settings.startup["worm_attacks_damage"].value,
                 type = "physical"
             }
         }
