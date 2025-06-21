@@ -8,9 +8,9 @@ data:extend({
     {
     type = "assembling-machine",
     name = "sand-refinery",
+    icon = icons .. "sand-refinery.png",
     flags = {"placeable-neutral","player-creation"},
     minable = {mining_time = 0.2, result = "sand-refinery"},
-    alert_icon_scale = 0,
     max_health = 350,
     corpse = "foundry-remnants",
     dying_explosion = "foundry-explosion",
