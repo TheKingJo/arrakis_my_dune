@@ -11,6 +11,7 @@ data:extend({
   icon = icons .. "water-condenser.png",
   flags = {"placeable-neutral","placeable-player", "player-creation"},
   minable = {mining_time = 0.1, result = "water-condenser"},
+  alert_icon_scale = 0,
   fast_replaceable_group = "water-condenser",
   max_health = 300,
   corpse = "chemical-plant-remnants",
