@@ -23,7 +23,7 @@ end
 local function water_purification_facility_pipe_north_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/water-purification-facility/water-purification-facility-pipe-connections-north",
   {
-    animation_speed = foundry_animation_speed,
+    animation_speed = water_purification_facility_animation_speed,
     frame_count = frames,
     scale = 0.5
   })

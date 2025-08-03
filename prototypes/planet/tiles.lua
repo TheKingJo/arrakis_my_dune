@@ -92,13 +92,13 @@ data:extend({
       transition = transition_masks(),
       material_background =
       {
-        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-rock3.png",
-        line_length = 8,
+        picture = "__arrakis_my_dune__/graphics/terrain/arrakis-rock4.png",
+        line_length = 4,
         count = 16,
         scale = 0.5
       },
-      material_texture_width_in_tiles = 8,
-      material_texture_height_in_tiles = 8
+      material_texture_width_in_tiles = 10,
+      material_texture_height_in_tiles = 7
     }
   },
   -- DESERT TILES

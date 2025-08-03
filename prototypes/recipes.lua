@@ -897,7 +897,7 @@ data:extend({
       {type = "item", name = "chom-science-pack", amount = 4}
     },
     main_product = "chom-science-pack",
-    allow_productivity = true,
+    allow_productivity = false,
   },
   {
     type = "recipe",
@@ -918,7 +918,7 @@ data:extend({
       {type = "item", name = "chom-science-pack", amount = 6}
     },
     main_product = "chom-science-pack",
-    allow_productivity = true,
+    allow_productivity = false,
   },
   {
     type = "recipe",
@@ -939,7 +939,7 @@ data:extend({
       {type = "item", name = "chom-science-pack", amount = 8}
     },
     main_product = "chom-science-pack",
-    allow_productivity = true,
+    allow_productivity = false,
   },
   {
     type = "recipe",
@@ -960,9 +960,26 @@ data:extend({
       {type = "item", name = "chom-science-pack", amount = 10}
     },
     main_product = "chom-science-pack",
-    allow_productivity = true,
+    allow_productivity = false,
   },
-
+  --VEHICLE CRAFTING RECIPES---------------------------------------------------------------------------------------------
+  {
+    type = "recipe",
+    name = "ornithopter",
+    category = "basic-crafting",
+    energy_required = 2,   
+    ingredients = {
+      { type = "item", name = "steel-plate", amount = 150 },
+      { type = "item", name = "silica-fiber", amount = 100 },
+      { type = "item", name = "tungsten-carbide", amount = 25 },
+      { type = "item", name = "refined-holmium-plate", amount = 25 },
+    },
+    results = {
+      { type = "item", name = "ornithopter", amount = 1 },
+    },
+    allow_productivity = false,
+    allow_quality = false,
+  },
   --MACHINE CRAFTING RECIPES---------------------------------------------------------------------------------------------
   --WATER CONDENSER MACHINE RECIPE
   {

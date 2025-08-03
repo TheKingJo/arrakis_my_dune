@@ -35,3 +35,6 @@ require "prototypes.machines.sand-refinery"
 require "prototypes.machines.basic-sand-refinery"
 require "prototypes.machines.sand-collector"
 require "prototypes.machines.water-purification-facility"
+
+--Vehicle Prototypes
+require("prototypes.vehicle.ornithopter")

@@ -12,6 +12,8 @@ planet_map_gen.arrakis = function()
       cliff_elevation = "arrakis_cliff_elevation",
       ["entity:crude-black-acid:probability"] = "arrakis_crude_black_acid_probability", --AutoplaceControl:probability = Noise expression proba
       ["entity:crude-black-acid:richness"] = "arrakis_crude_black_acid_richness",
+      ["entity:petroleum_gas_geyser:probability"] = "arrakis_petroleum_gas_geyser_probability",
+      ["entity:petroleum_gas_geyser:richness"] = "arrakis_petroleum_gas_geyser_richness",
     },
     cliff_settings =
     {
@@ -25,8 +27,8 @@ planet_map_gen.arrakis = function()
     ------------------------------------------------------------------------------------------------------------------------------
     autoplace_controls =
     {
-      ["crude_black_acid"] = {richness = 1500000000},
-      --["steam_geyser"] = {richness = 150},
+      ["crude_black_acid"] = {},
+      ["petroleum_gas_geyser"] = {},
     },
     autoplace_settings =
     {

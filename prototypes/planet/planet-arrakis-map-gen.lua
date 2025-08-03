@@ -44,34 +44,62 @@ data:extend({
     type = "noise-expression",
     name = "arrakis_crude_black_acid_spots",
     expression = "aquilo_spot_noise{seed = 567,\z
-                                    count = 80,\z
+                                    count = 4,\z
                                     skip_offset = 0,\z
-                                    region_size = 700 + 400 / control:crude_black_acid:frequency,\z
+                                    region_size = 600 + 400 / control:crude_black_acid:frequency,\z
                                     density = 1,\z
                                     radius = arrakis_spot_size * sqrt(control:crude_black_acid:size),\z
                                     favorability = 1}"
   },
   {
     type = "noise-expression",
-    name = "arrakis_crude_black_acid_spots",
+    name = "arrakis_petroleum_gas_geyser_spots",
     expression = "aquilo_spot_noise{seed = 567,\z
-                                    count = 80,\z
-                                    skip_offset = 0,\z
-                                    region_size = 700 + 400 / control:crude_black_acid:frequency,\z
+                                    count = 3,\z
+                                    skip_offset = 1,\z
+                                    region_size = 600 + 400 / control:petroleum_gas_geyser:frequency,\z
                                     density = 1,\z
-                                    radius = arrakis_spot_size * sqrt(control:crude_black_acid:size) * 0.33,\z
+                                    radius = arrakis_spot_size * 1.2 * sqrt(control:petroleum_gas_geyser:size),\z
                                     favorability = 1}"
   },
+  {
+    type = "noise-expression",
+    name = "arrakis_starting_crude_black_acid",
+    expression = "starting_spot_at_angle{angle = 2.26, distance = 30, radius = arrakis_spot_size * 0.5, x_distortion = 0, y_distortion = 0}"
+  },
+  {
+    type = "noise-expression",
+    name = "arrakis_starting_petroleum_gas_geyser",
+    expression = "starting_spot_at_angle{angle = 2.26, distance = 50, radius = arrakis_spot_size * 0.5, x_distortion = 0, y_distortion = 0}"
+  },
+  {
+    type = "noise-expression",
+    name = "arrakis_crude_black_acid_probability",
+    expression = "max(arrakis_starting_crude_black_acid * 0.02, min(arrakis_starting_mask, arrakis_crude_black_acid_spots) * 0.015) * (arrakis_rocky_mask2 > arrakis_desert_mask + 0.2)"
+  },
+  {
+    type = "noise-expression",
+    name = "arrakis_crude_black_acid_richness",
+    expression = "max(arrakis_starting_crude_black_acid * 180000,\z
+                      arrakis_crude_black_acid_spots * 144000) * control:crude_black_acid:richness"
+  },
+  {
+    type = "noise-expression",
+    name = "arrakis_petroleum_gas_geyser_probability",
+    expression = "max(arrakis_starting_petroleum_gas_geyser * 0.02, min(arrakis_starting_mask, arrakis_petroleum_gas_geyser_spots) * 0.012) * (arrakis_rocky_mask2 > arrakis_desert_mask + 0.2)"
+  },
+  {
+    type = "noise-expression",
+    name = "arrakis_petroleum_gas_geyser_richness",
+    expression = "max(arrakis_starting_petroleum_gas_geyser * 180000,\z
+                      arrakis_petroleum_gas_geyser_spots * 144000) * control:petroleum_gas_geyser:richness"
+  },
+  
   {
     type = "noise-expression",
     name = "arrakis_starting_mask",
     -- exclude random spots from the inner 300 tiles, 80 tile blur
     expression = "clamp((distance - 300) / 40, -1, 1)"
-  },
-  {
-    type = "noise-expression",
-    name = "arrakis_starting_crude_black_acid",
-    expression = "starting_spot_at_angle{angle = 0.5, distance = 40, radius = arrakis_spot_size * 0.1, x_distortion = 0, y_distortion = 0}"
   },
   {
     type = "noise-expression",
@@ -94,17 +122,9 @@ data:extend({
                     y_distortion = 20},0,1)*3*(1 + 0.1 * multioctave_noise{x = x, y = y, seed0 = map_seed, seed1 = 902, octaves = 2, persistence = 0.6, input_scale = 1/25})"
   },
 
-  {
-    type = "noise-expression",
-    name = "arrakis_crude_black_acid_probability",
-    expression = "max(arrakis_starting_crude_black_acid * 0.02, min(arrakis_starting_mask, arrakis_crude_black_acid_spots) * 0.015) * (arrakis_rocky_mask2 > arrakis_desert_mask + 0.2)"
-  },
-  {
-    type = "noise-expression",
-    name = "arrakis_crude_black_acid_richness",
-    expression = "max(arrakis_starting_crude_black_acid * 1800000,\z
-                      arrakis_crude_black_acid_spots * 1440000) * control:crude_black_acid:richness"
-  },
+  
+
+
   {
   type = "noise-expression",
   name = "arrakis_coastline",
