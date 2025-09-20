@@ -1,10 +1,30 @@
 function ornithopter_graphics_set()
 return
-{
-  animation =
   {
-    layers =
+    animation =
+    {
+      layers =
       {
+        --[[{
+          filenames = {
+            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-downwash-1.png",
+            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-downwash-2.png"
+          },
+          -- si tu fais 128 frames au total: 2 fichiers x 64 = 128
+          line_length = 8,
+          lines_per_file = 8,
+          width = 844,
+          height = 602,
+          frame_count = 128,         -- ou 64 si tu préfères
+          direction_count = 1,       -- clé: pas de direction
+          animation_speed = 0.5,    -- souffle plus lent/doux
+          scale = 0.5,
+          shift = util.by_pixel(50, 60),
+
+          -- (optionnel) rendu “mou” :
+          blend_mode = "additive-soft",   -- joli pour un halo de sable
+          draw_as_shadow = false          -- true = passe ombre; false = couche normale
+        },]]
         {
           filenames = {
             "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-1.png",
@@ -12,8 +32,24 @@ return
           },
           line_length = 8,
           lines_per_file = 8,
-          width = 687,
-          height = 687,
+          width = 960,
+          height = 960,
+          frame_count = 2,
+          direction_count = 64,
+          animation_speed = 0.5,
+          scale = 0.5,
+          shift = util.by_pixel( 0, -40),
+        },
+
+        {
+          filenames = {
+            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-wings-1.png",
+            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-wings-2.png"
+          },
+          line_length = 8,
+          lines_per_file = 8,
+          width = 960,
+          height = 960,
           frame_count = 2,
           direction_count = 64,
           animation_speed = 0.5,
@@ -22,18 +58,35 @@ return
         },
         {
           filenames = {
-            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-wings-1.png",
-            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-wings-2.png"
+            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-shadow-1.png",
+            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-shadow-2.png"
           },
           line_length = 8,
           lines_per_file = 8,
-          width = 816,
-          height = 816,
+          width = 844,
+          height = 602,
           frame_count = 2,
           direction_count = 64,
           animation_speed = 0.5,
           scale = 0.5,
-          shift = util.by_pixel( 0, -40),
+          shift = util.by_pixel(50, 80),
+          draw_as_shadow = true,
+        },
+        {
+          filenames = {
+            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-wings-shadow-1.png",
+            "__arrakis_my_dune__/graphics/entity/ornithopter/ornithopter-airborn-wings-shadow-2.png"
+          },
+          line_length = 6,
+          lines_per_file = 11,
+          width = 1044,
+          height = 687,
+          frame_count = 2,
+          direction_count = 64,
+          animation_speed = 0.5,
+          scale = 0.5,
+          shift = util.by_pixel(50, 80),
+          draw_as_shadow = true,
         }
       }
     }

@@ -1,7 +1,7 @@
 return
 {
-  width = 422,
-  height = 422,
+  width = 416,
+  height = 416,
   shift = util.by_pixel( 0.0, -35.0),
   line_length = 10,
   filenames = {
