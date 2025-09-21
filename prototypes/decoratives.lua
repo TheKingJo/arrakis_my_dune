@@ -91,7 +91,7 @@ data:extend({
     autoplace = {
       --control = "rocks",
       order = "r[landscape]-c[rock]-a[huge]",
-      probability_expression = "vulcanus_rock_huge"
+      probability_expression = "arrakis_rock_huge"
     },
     pictures =
     {

@@ -1,12 +1,12 @@
-local sand_refiner_animation_speed = 0.32
-local frames = 128
+local sand_refiner_animation_speed = 0.24
+local frames = 160
 
 local function sand_refiner_main_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-main",
   {
     animation_speed = sand_refiner_animation_speed,
     frame_count = frames,
-    scale = 0.588
+    scale = 0.5
   })
 end
 
@@ -16,7 +16,7 @@ local function sand_refiner_main_shadow_pictures()
     animation_speed = sand_refiner_animation_speed,
     frame_count = frames,
     draw_as_shadow = true,
-    scale = 0.543
+    scale = 0.5
   })
 end
 
@@ -32,7 +32,7 @@ local function sand_refiner_pipe_east_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-east",
   {
     repeat_count = frames,
-    scale = 0.525
+    scale = 0.5
   })
 end
 
@@ -40,7 +40,7 @@ local function sand_refiner_pipe_south_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-south",
   {
     repeat_count = frames,
-    scale = 0.51
+    scale = 0.5
   })
 end
 
@@ -48,7 +48,7 @@ local function sand_refiner_pipe_west_pictures()
   return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-west",
   {
     repeat_count = frames,
-    scale = 0.525
+    scale = 0.5
   })
 end
 
@@ -80,7 +80,7 @@ local function sand_refiner_lights_pictures()
         animation_speed = sand_refiner_animation_speed,
         frame_count = frames,
         blend_mode = "additive",
-        scale = 0.588
+        scale = 0.5
       }
     )
   }
@@ -159,7 +159,7 @@ return {
       --sand_refiner_working_pictures(),
       sand_refiner_lights_pictures(),
       --sand_refiner_status_lamp_pictures(),
-      sand_refiner_chimney_smoke()
+      --sand_refiner_chimney_smoke()
     },
     frozen_patch = util.sprite_load("__space-age__/graphics/entity/foundry/foundry-frozen", {scale = 0.5}),
     reset_animation_when_frozen = true

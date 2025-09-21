@@ -1,9 +1,9 @@
 return
 {
-  width = 420,
-  height = 438,
-  shift = util.by_pixel( 0.0, -6.0),
-  line_length = 8,
+  width = 570,
+  height = 570,
+  shift = util.by_pixel( 0, 0),
+  line_length = 10,
   filenames = {
     "-1.png",
     "-2.png",

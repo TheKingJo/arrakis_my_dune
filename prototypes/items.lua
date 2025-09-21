@@ -53,9 +53,21 @@ data:extend({
     stack_size = 20,
   },
 
+-- Item declaration for Ornithoper
 
-
-
+  {
+    type = "item-with-entity-data",
+    name = "ornithopter",
+    icon = icons .. "ornithopter.png",
+    subgroup = "transport",
+    order = "b[personal-transport]-b[ornithopter]",
+    inventory_move_sound = item_sounds.vehicle_inventory_move,
+    pick_sound = item_sounds.vehicle_inventory_pickup,
+    drop_sound = item_sounds.vehicle_inventory_move,
+    place_result = "ornithopter_airborn",
+    weight = 1 * tons,
+    stack_size = 1
+  },
 
 -- Item declaration for Tier 1 Sand Rafinery Machine 
 
@@ -224,14 +236,14 @@ data:extend({
   --- Item declaration for Silicon Item
   {
     type = "item",
-    name = "silicon",
-    icon = icons .. "silicon.png",
+    name = "silicon-plate",
+    icon = icons .. "silicon-plate.png",
     subgroup = "arrakis-processes",
     order = "aab",
     icon_size = 64,
     pictures =
     {
-      { size = 64, filename = icons .. "silicon.png", scale = 0.5 },
+      { size = 64, filename = icons .. "silicon-plate.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "arrakis",

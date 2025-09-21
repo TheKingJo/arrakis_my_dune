@@ -3,83 +3,11 @@ local planet_catalogue_vulcanus = require("__space-age__.prototypes.planet.proce
 local effects = require("__core__.lualib.surface-render-parameter-effects")
 local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
 local arrakis_asteroids = require("__arrakis_my_dune__.prototypes.planet.asteroid_definitions")
+
+require("prototypes/planet/planet-arrakis-map-gen")
+--local planet_map_gen = require("prototypes/planet/planet-map-gen2")
 local planet_map_gen = require("__space-age__/prototypes/planet/planet-map-gen")
 
-
-planet_map_gen.arrakis = function()
-  return
-  {
-    property_expression_names =
-    {
-      temperature = "vulcanus_temperature",
-      moisture = "fulgora_moisture",
-      aux = "fulgora_aux",
-      cliffiness = "fulgora_cliffiness",
-      cliff_elevation = "cliff_elevation_from_elevation",
-      ["entity:black_acid_geyser:probability"] = "black_acid_acid_geyser_probability",
-      ["entity:black_acid_geyser:richness"] = "arrakis_black_acid_geyser_richness",
-      --["entity:steam-geyser:richness"] = "arrakis_steam_geyser_richness",
-    },
-    cliff_settings =
-    {
-      name = "cliff-arrakis",
-      control = "fulgora_cliff",
-      cliff_elevation_0 = 80,
-      -- Ideally the first cliff would be at elevation 0 on the coastline, but that doesn't work,
-      -- so instead the coastline is moved to elevation 80.
-      -- Also there needs to be a large cliff drop at the coast to avoid the janky cliff smoothing
-      -- but it also fails if a corner goes below zero, so we need an extra buffer of 40.
-      -- So the first cliff is at 80, and terrain near the cliff shouln't go close to 0 (usually above 40).
-      cliff_elevation_interval = 40,
-      cliff_smoothing = 0, -- This is critical for correct cliff placement on the coast.
-      richness = 1
-    },
-    ------------------------------------------------------------------------------------------------------------------------------
-    autoplace_controls =
-    {
-      ["black_acid_geyser"] = {richness = 1500000000},
-      --["steam_geyser"] = {richness = 150},
-
-    },
-    autoplace_settings =
-    {
-      ["tile"] =
-      {
-        settings =
-        {
-          ["arrakis-rocky-plateau"] ={},
-          ["arrakis-desert"] ={},
-          ["arrakis-deep-desert"] ={},
-          ["arrakis-deep-desert2"] = {},
-        }
-      },
-      ["decorative"] =
-      {
-        settings =
-        {
-          --["arrakis-medium-fulgora-rock"] = {},
-          --["arrakis-small-fulgora-rock"] = {},
-          --["arrakis-tiny-fulgora-rock"] = {},
-          --["arrakis-barnacles-decal"] = {},
-          --["arrakis-rock-decal-large"] = {},
-          --["arrakis-snow-drift-decal"] = {},
-          --["arrakis-crater-small"] = {},
-          --["arrakis-crater-large"] = {},
-        }
-      },
-      ["entity"] =
-      {
-        settings =
-        {
-          ["black-acid-geyser"] = {},
-
-          ["arrakis-huge-volcanic-rock"] = {},
-          --["arrakis-big-fulgora-rock"] = {}
-        }
-      }
-    }
-  }
-end
 
 
 data:extend({
@@ -244,16 +172,6 @@ data:extend({
       }]]
     }
   },
-  --[[{
-    type = "space-connection",
-    name = "nauvis-arrakis",
-    subgroup = "planet-connections",
-    from = "nauvis",
-    to = "arrakis",
-    order = "a",
-    length = 17000,
-    asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus)
-  },]]
   {
     type = "space-connection",
     name = "nauvis-arrakis",
@@ -261,7 +179,7 @@ data:extend({
     from = "nauvis",
     to = "arrakis",
     order = "a",
-    length = 6000,
+    length = 10000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(arrakis_asteroids.vulcanus_arrakis)
   },
 })

@@ -1,54 +1,55 @@
-local basic_sand_refinery_animation_speed = 0.1
-local frames = 128
+local basic_sand_refinery_animation_speed = 0.5
+local frames = 240
 
 local function basic_sand_refinery_main_pictures()
-  return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-main",
+  return util.sprite_load("__arrakis_my_dune__/graphics/entity/basic-sand-refinery/basic-sand-refinery-main",
   {
     animation_speed = basic_sand_refinery_animation_speed,
     frame_count = frames,
-    scale = 0.252
+    scale = 0.5
   })
 end
 
 local function basic_sand_refinery_main_shadow_pictures()
-  return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-shadow",
+  return util.sprite_load("__arrakis_my_dune__/graphics/entity/basic-sand-refinery/basic-sand-refinery-shadow",
   {
     animation_speed = basic_sand_refinery_animation_speed,
     frame_count = frames,
     draw_as_shadow = true,
-    scale = 0.232
+    scale = 0.5
   })
 end
 
 local function basic_sand_refinery_pipe_north_pictures()
-  return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-north",
+  return util.sprite_load("__arrakis_my_dune__/graphics/entity/basic-sand-refinery/basic-sand-refinery-pipe-connections-north",
   {
-    repeat_count = frames,
-    scale = 0.214
+    animation_speed = water_purification_facility_animation_speed,
+    frame_count = frames,
+    scale = 0.5
   })
 end
 
 local function basic_sand_refinery_pipe_east_pictures()
-  return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-east",
+  return util.sprite_load("__arrakis_my_dune__/graphics/entity/basic-sand-refinery/basic-sand-refinery-pipe-connections-east",
   {
     repeat_count = frames,
-    scale = 0.225
+    scale = 0.5
   })
 end
 
 local function basic_sand_refinery_pipe_south_pictures()
-  return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-south",
+  return util.sprite_load("__arrakis_my_dune__/graphics/entity/basic-sand-refinery/basic-sand-refinery-pipe-connections-south",
   {
     repeat_count = frames,
-    scale = 0.218
+    scale = 0.5
   })
 end
 
 local function basic_sand_refinery_pipe_west_pictures()
-  return util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-pipe-connections-west",
+  return util.sprite_load("__arrakis_my_dune__/graphics/entity/basic-sand-refinery/basic-sand-refinery-pipe-connections-west",
   {
     repeat_count = frames,
-    scale = 0.225
+    scale = 0.5
   })
 end
 
@@ -57,7 +58,7 @@ local function basic_sand_refinery_working_pictures()
   {
     fadeout = true,
     animation =
-    util.sprite_load("__space-age__/graphics/entity/basic_sand_refinery/basic_sand_refinery-working",
+    util.sprite_load("__arrakis_my_dune__/graphics/entity/basic-sand-refinery/basic-sand-refinery-working",
       {
         animation_speed = basic_sand_refinery_animation_speed,
         frame_count = frames,
@@ -73,14 +74,14 @@ local function basic_sand_refinery_lights_pictures()
     effect = "flicker",
     fadeout = true,
     animation =
-    util.sprite_load("__arrakis_my_dune__/graphics/entity/sand-refiner/sand-refiner-lights",
+    util.sprite_load("__arrakis_my_dune__/graphics/entity/basic-sand-refinery/basic-sand-refinery-lights",
       {
         draw_as_light = true,
         draw_as_glow = true,
         animation_speed = basic_sand_refinery_animation_speed,
         frame_count = frames,
         blend_mode = "additive",
-        scale = 0.588
+        scale = 0.5
       }
     )
   }
@@ -156,8 +157,8 @@ return {
         west_animation = basic_sand_refinery_pipe_east_pictures()
       },
 
-      --basic_sand_refinery_working_pictures(),
-      --basic_sand_refinery_lights_pictures(),
+      basic_sand_refinery_working_pictures(),
+      basic_sand_refinery_lights_pictures(),
       --basic_sand_refinery_status_lamp_pictures(),
       --basic_sand_refinery_chimney_smoke()
     },
