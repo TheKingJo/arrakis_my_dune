@@ -37,13 +37,13 @@ config.ABSORPTION_ARRAKIS_LOW_SAND2 = {
     humidity = 0.000027
 }
 
---[[-- WORM TARGETING CONFIG
+-- WORM TARGETING CONFIG
 config.lightning_properties = {
     -- adjust lightning frequency in ingame settings or settings.lua, right now set to 200s per attack per chunk
     lightning_types = {"worm_attack"},
     lightnings_per_chunk_per_tick = 1 / (60 * settings.startup["worm_attacks_frequency"].value),
-    search_radius = 10.0,
-    lightning_multiplier_at_day = 0.1,
+    search_radius = 0.0,
+    lightning_multiplier_at_day = 1.0,
     lightning_multiplier_at_night = 0.0,
     lightning_warning_icon = {
         filename = "__arrakis_my_dune__/graphics/icons/endangered-by-worm.png",
@@ -120,17 +120,8 @@ config.lightning_properties = {
         string = "true"
     }, {
         type = "prototype",
-        string = "water-condenser"
-    }, {
-        type = "prototype",
-        string = "dew-collector"
-    }, {
-        type = "prototype",
-        string = "sand-refinery"
-    }, {
-        type = "prototype",
         string = "substation"
     }}
-}]]
+}
 
 return config
