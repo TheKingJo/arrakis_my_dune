@@ -44,21 +44,18 @@ local shared_action_delivery = {{
 }}
 
 data:extend({ -- TARGET PRIORITIES ARE DEFINED IN PROTOTYPES/-config.lua
---[[{
+{
     -- Lightning Strike definition for worm targeting, this causes the worm to attack when lightning strikes somewhere. config for targeting is in -config.lua
     type = "lightning",
     name = "worm_attack",
     icon = "__space-age__/graphics/icons/lightning.png",
     subgroup = "obstacles",
-    damage = 0,
-    energy = "0W",
-    time_to_damage = 8,
-    effect_duration = 36,
+    effect_duration = 1,
     source_offset = {0, -25},
     source_variance = {30, 6},
     strike_effect = shared_action_delivery
 
-},]]
+},
 {
     -- Debug Worm Grenade Item to cause worm attack
     type = "capsule",

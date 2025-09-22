@@ -26,6 +26,7 @@ require "prototypes.recipes"
 --Enemy Prototypes
 require "prototypes.sandworms.worm-targeting"
 require "prototypes.sandworms.attack"
+require "prototypes.sandworms.worm-protection"
 
 
 --Machine Prototypes
